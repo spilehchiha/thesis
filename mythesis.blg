@@ -1,0 +1,58 @@
+This is BibTeX, Version 0.99d (TeX Live 2022)
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+The top-level auxiliary file: mythesis.aux
+A level-1 auxiliary file: chapters/chapter1/chapter1.aux
+A level-1 auxiliary file: chapters/chapter2/chapter2.aux
+A level-1 auxiliary file: chapters/chapter3/chapter3.aux
+A level-1 auxiliary file: chapters/chapter4/chapter4.aux
+The style file: abbrv.bst
+Database file #1: references.bib
+Database file #2: bib/pulp.bib
+Database file #3: bib/new.bib
+Warning--entry type for "soliditycheck" isn't style-file defined
+--line 713 of file bib/new.bib
+Database file #4: bib/bib.bib
+Warning--empty publisher in etehrTrust
+Warning--empty booktitle in verismart
+You've used 43 entries,
+            2118 wiz_defined-function locations,
+            724 strings with 12470 characters,
+and the built_in function-call counts, 19420 in all, are:
+= -- 1946
+> -- 978
+< -- 28
++ -- 392
+- -- 342
+* -- 1219
+:= -- 2905
+add.period$ -- 138
+call.type$ -- 43
+change.case$ -- 294
+chr.to.int$ -- 0
+cite$ -- 45
+duplicate$ -- 849
+empty$ -- 1423
+format.name$ -- 342
+if$ -- 4355
+int.to.chr$ -- 0
+int.to.str$ -- 43
+missing$ -- 35
+newline$ -- 210
+num.names$ -- 88
+pop$ -- 399
+preamble$ -- 1
+purify$ -- 255
+quote$ -- 0
+skip$ -- 770
+stack$ -- 0
+substring$ -- 1049
+swap$ -- 395
+text.length$ -- 28
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 170
+warning$ -- 2
+while$ -- 153
+width$ -- 45
+write$ -- 478
+(There were 3 warnings)

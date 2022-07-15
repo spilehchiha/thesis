@@ -1,0 +1,45 @@
+\chapter{Introduction}
+
+This chapter introduces several research questions to be answered in this thesis and motivates their importance.
+
+\section{Motivation}
+  There has been some effort from the research community to develop automated analysis tools~\cite{ref_tools} that locate and eliminate vulnerabilities in smart contracts.
+  In a preliminary study performed on nearly one million Ethereum smart contracts, using one analysis framework for verifying correctness, the researchers flagged 34,200 of them as vulnerable.~\cite{ref_flag1}
+  A different study showed that of 19,366 smart contracts analysed, also in Ethereum, 8,833 (around \%46) were flagged as vulnerable.~\cite{ref_flag2}
+  
+  Famous attacks, such as The DAO exploit~\cite{dao} and the Parity wallet bug~\cite{ref_parity} illustrate this problem and have led to substantial financial losses and consequent effort from the research community to counter such incidents.
+
+  However, it is not easy to compare and reproduce such research; even though several of the tools built by the research community are publicly available, the datasets used to test and benchmark those very same tools are not.
+
+  If the developer of a new tool intends to compare their new tool with existing work and projects, the current approach is to contact the authors of alternative tools and hope for access to the same datasets or make do with whatever out-of-date incomprehensive and unrepresentative dataset they have at their disposal, a very timely and inefficient process.
+
+  In other cases, the researchers need to start from scratch and create their own datasets, a non-trivial and slow process.
+  What makes it worse is the data bias, which can be introduced in a dataset in different phases of data acquisition and data cleaning.
+  This can easily escalate to become a threat to validity in the research.~\cite{Empirical-Evaluation-of-Smart-Contract-Testing:What-is-the-Best-Choice}
+
+\section{Thesis Statement}
+  In this thesis, we present \mytool, an extensible, queryable, and easy-to-use database that facilitates and enhances the verification and reproducibility of previous empirical research and lays the groundwork for faster, more rapid production of research on smart contracts.
+  \mytool is open-source and publicly available online at: \textbf{link TBD}.
+  The source code for data acquisiton and cleaning is not available due to private IP reasons, and only the collected data and the database is accessibel to the public.
+  Researchers, smart contract developers, and blockchain-centric teams and enterprises can also use such corpus for specific use-cases.
+
+  We also note that although \mytool has been implemented for Ethereum, it can be easily extended to support other blockchains which have the similar design for smart contracts with Ethereum.
+
+  In summary, we make the following contributions.
+  \begin{enumerate}
+    \item We propose \mytool, a systemic and up-to-date database for Ethereum by exploiting its intetrnal mechanisms.
+    \item We implement \mytool after addressing several technical challenges. It obtains historical data and enables new functionalities. It is more up-to-date than existing datasets, gets sutomatically reviewed and renewed, in comparison to the previous manual one-time data gathering efforts.
+    \item We propose the first dataset of Ethereum smart contracts which has a mix of off-chain and on-chain data together, meaning that it contains the source code and the bytecode of the corresponding smart contracts in the same dataset.
+  \end{enumerate}
+
+
+\section{Outline and Contributions}
+
+  The rest of this dissertation is organized as follows:
+  In Chapter~\ref{chap:background}, we go over the background material needed to understand the basics of blockchain and the current state of the art on developing security enhancing tools for smart contracts.
+
+  In Chapter~\ref{ch:slither-simil}, we summarize and evaluate the state of the art regarding automated vulnerability analysis of smart contracts on Ethereum. We discuss the mtoivations behind developing such tools, what they have achieved so far, and our own efforts in developing and working on the tool Slither-simil as an effort in such direction.
+
+  In Chapter~\ref{ch:etherbase}, we take a broad look at the efforts taken at improving the reproducibility in smart contract research, how we have tried to improve it by introducing \mytool, and its use in getting better insights at the capabilities of some of the most frequently smart contract testing tools in research and industry.
+
+  In Chapter ~\ref{chap:conclusion} we provide some concluding remarks and future research directions.
