@@ -1,4 +1,4 @@
-\chapter{\mytool: Improving Reproducibility in Smart Contract Research} \label{ch:etherbase}
+\chapter{\etherbase: Improving Reproducibility in Smart Contract Research} \label{ch:etherbase}
 
 
 \textit{
@@ -25,17 +25,17 @@
 	What makes it worse is the data bias, which can be introduced in a dataset in different phases of data acquisition and data cleaning.
 	This can easily escalate to become a threat to validity in the research.~\cite{Empirical-Evaluation-of-Smart-Contract-Testing:What-is-the-Best-Choice}
 
-	In this chapter, we present \mytool, an extensible, queryable, and easy-to-use database that facilitates and enhances the verification and reproducibility of previous empirical research and lays the groundwork for faster, more rapid production of research on smart contracts.
-	\mytool is open-source and publicly available online at: \textbf{link TBD}.
+	In this chapter, we present \etherbase, an extensible, queryable, and easy-to-use database that facilitates and enhances the verification and reproducibility of previous empirical research and lays the groundwork for faster, more rapid production of research on smart contracts.
+	\etherbase is open-source and publicly available online at: \textbf{link TBD}.
 	The source code for data acquisiton and cleaning is not available due to private IP reasons, and only the collected data and the database is accessibel to the public.
 	Researchers, smart contract developers, and blockchain-centric teams and enterprises can also use such corpus for specific use-cases.
 
-	We also note that although \mytool has been implemented for Ethereum, it can be easily extended to support other blockchains which have the similar design for smart contracts with Ethereum.
+	We also note that although \etherbase has been implemented for Ethereum, it can be easily extended to support other blockchains which have the similar design for smart contracts with Ethereum.
 
-	In summary, we make the following contributions with \mytool.
+	In summary, we make the following contributions with \etherbase.
 	\begin{enumerate}
-		\item We propose \mytool, a systemic and up-to-date database for Ethereum by exploiting its intetrnal mechanisms.
-		\item We implement \mytool after addressing several technical challenges. It obtains historical data and enables new functionalities. It is more up-to-date than existing datasets, gets systematically reviewed and renewed, in comparison to the previous manual one-time data gathering efforts.
+		\item We propose \etherbase, a systemic and up-to-date database for Ethereum by exploiting its intetrnal mechanisms.
+		\item We implement \etherbase after addressing several technical challenges. It obtains historical data and enables new functionalities. It is more up-to-date than existing datasets, gets systematically reviewed and renewed, in comparison to the previous manual one-time data gathering efforts.
 		\item We propose the first dataset of Ethereum smart contracts which has a mix of off-chain and on-chain data together, meaning that it contains the source code and the bytecode of the corresponding smart contracts in the same dataset.
 		\item We propose the first automatically up-to-date laballed dataset of Ethereum smart contracts with vulnrabilities.
 	\end{enumerate}
@@ -89,9 +89,9 @@
 		\label{fig:my_label}
 	\end{figure}
 	
-	We specifically designed \mytool to not provide the end-users with a dump of contracts and their corresponding features in a vague file hierarchy.
+	We specifically designed \etherbase to not provide the end-users with a dump of contracts and their corresponding features in a vague file hierarchy.
 	We have a service offering the ability to filter and analyze smart contracts and a dataset of smart contracts with interesting features to conduct empirical research on, according to metrics like Pragma version, ETH value, etc.
-	To fulfill its purpose, \mytool is designed to perform four primary automatic operations on the data:
+	To fulfill its purpose, \etherbase is designed to perform four primary automatic operations on the data:
 	\begin{enumerate}
 		\item \textbf{Data Acquisiton}: Automatic retrieval of off-chain and on-chain data
 		\item \textbf{Data Generation}: Generation of bytecode and other metrics
@@ -118,8 +118,8 @@
 		For further analysis, we only retain source-available contracts.
 		Then we adopt the method used in~\cite{deduplicate} to remove the duplicates, that is checking whether the MD5 checksums of the two source files are identical after removing all the blank lines and comments.
 		After deduplication, we get 48,622 unique contracts.
-		For this paper and as of now, we have released 5,000 smart contracts for the tool coparison purposes in \mytool~due to the technical challenges given in Section~\ref{section:challenges}.
-		There exist many metrics that we have access to, can calculate, and add to \mytool, but not a lot of research has been conducted on the applicability of these many different types of metrics to empirical research on the Ethereum blockchain or how much it appeals to the researchers active in this field.
+		For this paper and as of now, we have released 5,000 smart contracts for the tool coparison purposes in \etherbase~due to the technical challenges given in Section~\ref{section:challenges}.
+		There exist many metrics that we have access to, can calculate, and add to \etherbase, but not a lot of research has been conducted on the applicability of these many different types of metrics to empirical research on the Ethereum blockchain or how much it appeals to the researchers active in this field.
 		In the following, we describe the initial set of the metrics we selected to include in EtherBase in the form of a table, to be followed by more, after more discussion and research on their applicability to research on smart contracts.
 
 		The built-in metrics relating to smart contracts are those features which depend on the internal properties of a smart contract, e.g. SLOC (Source Lines of Code), Pragma version, number of modifiers, payable, etc. Hence the title \emph{primary metrics}.
@@ -312,11 +312,11 @@ The \texttt{artifact.zip} file contains
 \end{forest}
 }%
 
-	In addition to making the datasets available on GitHub, \mytool also enjoy a graphical user interface (GUI) in order to allow the less technical end users access and browse through the database.
-	We integrated \mytool with Apache Superset, a powerful business intelligence tool, which lets you creata charts and dashboards using the data from the database.
+	In addition to making the datasets available on GitHub, \etherbase also enjoy a graphical user interface (GUI) in order to allow the less technical end users access and browse through the database.
+	We integrated \etherbase with Apache Superset, a powerful business intelligence tool, which lets you creata charts and dashboards using the data from the database.
 
 \subsection{Data Application}
-	In order to showcase an application of the empirical usage of the data from \mytool,  the 5,000 filtered smart contract data set is labelled using three of the most prominently used static analysis tools in Ethereum research that detect various vulnerabilities in smart contracts, using a majority voting mechanism, in order to see how they fare against each other based an automatically labelled dataset.
+	In order to showcase an application of the empirical usage of the data from \etherbase,  the 5,000 filtered smart contract data set is labelled using three of the most prominently used static analysis tools in Ethereum research that detect various vulnerabilities in smart contracts, using a majority voting mechanism, in order to see how they fare against each other based an automatically labelled dataset.
 	The criteria we used for tool selection was pretty simple; we wanted tools that had a focus on assessing Solidity source code instead of bytecode, and that they are available as open-source software and can be evaluated based on their vulnreability detection mechanisms.
 	Based on such criteria, we selected the following three tools for our Data Application phase experiment:
 	\begin{itemize}
@@ -390,12 +390,12 @@ The \texttt{artifact.zip} file contains
 
 
 \section{Concluding Remarks}
-	This chapter introduces an up-to-date database, centred around Ethereum smart contracts, namely \mytool, which includes data on the Ethereum blockchain (blocks), its smart contracts, and their metadata.
+	This chapter introduces an up-to-date database, centred around Ethereum smart contracts, namely \etherbase, which includes data on the Ethereum blockchain (blocks), its smart contracts, and their metadata.
 	Moreover, aggregate statistics and dataset exploration is presented.
 	Furthermore, future research directions and opportunities are outlined:
 
 	During the time we were building EtherBase, we utilized Web3 APIs without taking advantage of an Ethereum full / archive node.
-	The next version of \mytool we're already working on, will take full use of an Ethereum full node and instrment it in order to add a variety of more data to EtherBase.
+	The next version of \etherbase we're already working on, will take full use of an Ethereum full node and instrment it in order to add a variety of more data to EtherBase.
 	Collecting data via invoking Web3 API's is very much slower than instrumenting an Ethereum archive node.
 	
 	In addition, our current method is restricted by the rate limit imposed by the API's.
@@ -403,8 +403,8 @@ The \texttt{artifact.zip} file contains
 
 	We will also be labelling more smart contracts with more tools as we have more time and compute resources moving forward.
 
-	The Ethereum security research community can use \mytool for evaluating correctness and other parameters of their proposed or other toolsets, especially those based on machine learning techniques that need comprhensiver datasets for training, validation, and testing phases.
-	\mytool~comprises a diverse and comprehensive set of real-world heterogenuous annotated smart contracts.
+	The Ethereum security research community can use \etherbase for evaluating correctness and other parameters of their proposed or other toolsets, especially those based on machine learning techniques that need comprhensiver datasets for training, validation, and testing phases.
+	\etherbase~comprises a diverse and comprehensive set of real-world heterogenuous annotated smart contracts.
 	
 	
 	Each tool selected for evaluation is neither sound nor complete. There can be a lot of false positives or false negatives generated by a specific tool.

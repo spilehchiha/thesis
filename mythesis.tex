@@ -126,7 +126,7 @@
 \newcommand{\prt}{$\circ$}
 \newcommand{\none}{$\times$}
 %% CUSTOM COMMANDS
-\newcommand{\mytool}{{\scshape EtherBase\xspace}}
+\newcommand{\etherbase}{{\scshape EtherBase\xspace}}
 %\newcommand{\subhead}[1]{\noindent{\textbf{#1.}}}
 \input{setup/packages}
 %% THESIS SETTINGS
@@ -147,14 +147,14 @@
 %\dept{The Department\\of\\Computer Science and Software Engineering}
 
 %% See current GPD at https://www.concordia.ca/admissions/graduate/programs/contacts.html
-\GpdOrChairOfDept{Dr.\ Mohammad Mannan}
+\GpdOrChairOfDept{Dr.\ M. Zahangir Kabir}
 \isGpd % Chair by default
 %% See current Dean at  https://www.concordia.ca/ginacody/about/leadership/office-dean/dean-of-engineering-and-computer-science.html
 \deanOfENCS{Dr.\ Mourad Debbabi} 
-\chairOfCommittee{Dr.\ Amr Youssef}
-\examinerFirst{Dr.\ Amr Youssef}
-\examinerSecond{Dr.\ Ivan Pustogarov}
-\supervisor{Dr. Amir Aghdam}
+\chairOfCommittee{Dr.\ Yousef R. Shayan}
+\examinerFirst{Dr.\ }
+\examinerSecond{Dr.\ }
+\supervisor{Dr. Amir G. Aghdam}
 %% Following two lines are required if you have a co-supervisor
 \hasCosupervisor
 \coSupervisor{Dr. Jeremy Clark}
@@ -236,27 +236,30 @@
 
 	{%trick to force double spacing in the abstract, otherwise some paragraphs may show single spaced
 		\setstretch{1.6667}
-		Smart contracts deployed to the Ethereum blockchain hold billions of dollars worth of assets.
-		Ethereum currently represents the most widely used smart contract platform.
+		Smart contracts deployed to the Ethereum blockchain keep billions of dollars worth of assets.
+		Ethereum currently represents the most widely used smart contract-based blockchain platform.
 		It is the second-largest blockchain system, based on market capitalization, after Bitcoin, with a continuously growing market share.
-		Since smart contracts cannot be changed after deployment, the code must be checked for potential vulnerabilities that can cause substantial financial losses and damage trust.
-		Numerous tools have been developed for this purpose, and extensive literature on vulnerabilities and detection methods on the topic keeps emerging.
+		Since smart contracts cannot be changed after deployment, their code must be checked for potential vulnerabilities that can cause substantial financial losses and damage trust.
+		Numerous tools have been developed for this purpose, and extensive literature on vulnerabilities and detection methods on the aforementioned topic keep emerging.
 		There has also been considerable research on the automation of analysis, testing, and debugging of Ethereum smart contracts.
 		Unfortunately, it is non-trivial and time-consuming to reproduce the results of most previous empirical research or compare one's results with those of others.
-		In cases where research papers provide datasets, they are often in the form of a bare GitHub repository with little or no usage instructions. Due to the fast-paced nature of the Ethereum platform, the datasets are often quickly outdated.
+		In cases where research papers provide datasets, they are often in the form of a bare GitHub repository with little or no usage instructions.
+		Due to the fast-paced nature of the Ethereum platform, the datasets are often quickly outdated.
 		These are significant barriers to performing verifiable, reproducible research, as it takes a substantial amount of time to accomplish many subtasks such as locating, extracting, cleaning, and categorizing a reasonable amount of high-quality, heterogeneous smart contract data.
-		To address this problem, we present \mytool, an extensible, queryable, and easy-to-use database of smart contracts and their metrics that enhance reproducibility and benchmarking in smart contract research.
+		To address this problem, we present \etherbase, an extensible, queryable, and easy-to-use database of smart contracts and their metrics that enhance reproducibility and benchmarking in smart contract research.
 		% JC: try to keep to 1 page
 }
 \end{abstract}
 
 %\doublespacing
 \begin{acknowledgments}
-  The conduct of my studies at Concordia University would not be possible without the immense and astounding help from my co-supervisors, Profs. Jeremy Clark and Amir G. Aghdam, who allowed me to resume and finish my studies under their supervision.
-  I sincerely thank them for their dedication and continued support, guidance, and encouragement during my studies.
+  	The conduct of my studies at Concordia University would not be possible without the immense and astounding help from my co-supervisors, Profs. Jeremy Clark and Amir G. Aghdam, who allowed me to resume and finish my studies under their supervision.
+  	I sincerely thank them for their dedication and continued support, guidance, encouragement, and great support during my studies.
 	I would not be where I am today without their help and generosity.
-	This research would not be possible without the support I received during my studies while working at Trail of Bits, Inc. as a security engineering intern. I want to thank Dan Guido, Gustavo Grieco, and Josselin Feist for their patience and guidance throughout my internship, without which I would not be where I am now.
-	In the end, I would like to acknowledge the continuous support of my family. They kept their faith in me all along.
+	This research would not be possible without the support I received during my studies while working at Trail of Bits, Inc. as a security engineering intern.
+	I want to thank Dan Guido, Gustavo Grieco, and Josselin Feist for their patience and guidance throughout my internship, without which I would not be where I am now.
+	In the end, I would like to acknowledge the continuous support of my family.
+	They kept their faith in me all along.
 \end{acknowledgments}
 
 
@@ -278,15 +281,15 @@
 \chapter{Conclusion and Future Work}
 \label{chap:conclusion}
 
-In this thesis, we presented \mytool, an up-to-date database of smart contracts on the Ethereum blockchain to help researchers and developers use it as a testbed for evaulatind and benhcmarking various smart contracts security tools and frameworks.
+In this thesis, we presented \etherbase, an up-to-date database of smart contracts on the Ethereum blockchain to help researchers and developers use it as a testbed for evaulatind and benhcmarking various smart contracts security tools and frameworks.
 
 Beside that, we provided an verview of the necessary background for someone with a background in electrical / computer engineering to eralize the motivation behind providing such dataset, with regards to the importance of the practice of mitigating vulnerabilities in smart contracts and the lackings in its ecosystem.
 
 We went through the literature concerning the tools researchers have proposed to faciliate the discovery and mitigation of such vulnerabilties and explained how all of them lack the necessary benchmark and testing dataset for purposes of reproducibility for further research.
 
-We proposed Slither-simil as the first machine-learning based tool based on a static analysis tool, and how it extended into the endeavours for developing \mytool.
+We proposed Slither-simil as the first machine-learning based tool based on a static analysis tool, and how it extended into the endeavours for developing \etherbase.
 
-Finally, we proposed \mytool, an up-to-date database of smart contracts on the Ethereum blockchain to further faciliate benchmarking and reproducbility in smart contract research.
+Finally, we proposed \etherbase, an up-to-date database of smart contracts on the Ethereum blockchain to further faciliate benchmarking and reproducbility in smart contract research.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Bibliography
