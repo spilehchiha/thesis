@@ -355,13 +355,9 @@ Identify a pre-trained model, or separately train a model on a reasonable amount
 Let the magic happen, and check out the similarity results.
 
 \section{Concluding Remarks}
-Methods to detect and correct these vulnerabilities are constantly being developed.
-Some of the earlier methods, mostly static analysers were introduced, and found a set list of vulnerabilities based upon predefined pattern detection methods.
-Though these early methods were successful in identifying the list of known vulnerabilities, the solutions were not robust to newer threats, as the ruleset upon which the analysis was based would have to be manually updated to reflect the newfound vulnerabilities.
-To adapt to the dynamic nature of vulnerabilities in smart contracts, machine learning techniques were explored, to attempt to outperform these traditional methods.
 
 In this chapter, we explored multiple machine learning techniques to identify vulnerabilities in smart contracts.
-Amongst them, deep learning algorithms were used in a variety of ways, with different types of input that allowed the models to identify vulnerabilities that the traditional methods sometimes could not.
+Amongst them, deep learning algorithms were used in a variety of ways, with different types of input that allowed the models to identify vulnerabilities that the traditional method -like static analysis and dynamic fuzzing- sometimes could not.
 The input often consisted of a means to derive a mapping between the variables in the smart contract code, which allowed the models to detect the relationships between variables, and identify vulnerable structures and variable connections.
 The many reviewed uses of deep learning algorithms varied from one another by their design of the input structure, and these through their input design, the models were able to recognize different vulnerabilities in a myriad of ways.
 The reviewed methods utilizing classical machine learning methods and ensemble learning methods were largely developed in a similar fashion: to design a unique input structure for the model, to provide it with as much information relating to the structure and purpose of the smart contract as possible.

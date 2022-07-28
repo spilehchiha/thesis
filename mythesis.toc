@@ -31,14 +31,14 @@
 \contentsline {section}{\numberline {3.3}Deep Learning in Smart Contracts}{27}{section.3.3}%
 \contentsline {section}{\numberline {3.4}Slither-simil}{36}{section.3.4}%
 \contentsline {section}{\numberline {3.5}Concluding Remarks}{44}{section.3.5}%
-\contentsline {chapter}{\numberline {4}{\scshape EtherBase\xspace }: Improving Reproducibility in Smart Contract Research}{47}{chapter.4}%
-\contentsline {section}{\numberline {4.1}Introductory Remarks}{47}{section.4.1}%
-\contentsline {section}{\numberline {4.2}Related Work}{49}{section.4.2}%
-\contentsline {section}{\numberline {4.3}Methodology}{51}{section.4.3}%
-\contentsline {subsection}{\numberline {4.3.1}Data Acquisition}{52}{subsection.4.3.1}%
-\contentsline {subsection}{\numberline {4.3.2}Data Generation}{53}{subsection.4.3.2}%
-\contentsline {subsection}{\numberline {4.3.3}Data Storage}{57}{subsection.4.3.3}%
-\contentsline {subsection}{\numberline {4.3.4}Data Application}{59}{subsection.4.3.4}%
-\contentsline {section}{\numberline {4.4}Concluding Remarks}{62}{section.4.4}%
-\contentsline {chapter}{\numberline {5}Conclusion and Future Work}{64}{chapter.5}%
-\contentsline {chapter}{Bibliography}{65}{section*.27}%
+\contentsline {chapter}{\numberline {4}{\scshape EtherBase\xspace }: Improving Reproducibility in Smart Contract Research}{46}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Introductory Remarks}{46}{section.4.1}%
+\contentsline {section}{\numberline {4.2}Related Work}{48}{section.4.2}%
+\contentsline {section}{\numberline {4.3}Methodology}{50}{section.4.3}%
+\contentsline {subsection}{\numberline {4.3.1}Data Acquisition}{51}{subsection.4.3.1}%
+\contentsline {subsection}{\numberline {4.3.2}Data Generation}{52}{subsection.4.3.2}%
+\contentsline {subsection}{\numberline {4.3.3}Data Storage}{56}{subsection.4.3.3}%
+\contentsline {subsection}{\numberline {4.3.4}Data Application}{58}{subsection.4.3.4}%
+\contentsline {section}{\numberline {4.4}Concluding Remarks}{61}{section.4.4}%
+\contentsline {chapter}{\numberline {5}Conclusion and Future Work}{63}{chapter.5}%
+\contentsline {chapter}{Bibliography}{64}{section*.27}%
