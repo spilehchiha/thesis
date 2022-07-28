@@ -254,8 +254,7 @@
         The variable type address is meant to hold addresses of Ethereum accounts and has member function such as balance, send, transfer, call, etc.
         The member functions send, transfer, and call can be used to move ether from one address to another.
         All these functions make use of the EVM CALL instruction, with difference being the gas limit that can be used and the behavior on an error.
-        For example, the functions send and transfer have a fixed gas limit of 2,300 units, whereas the function call by default provides all the available gas to the CALL instruction, unless the developer explicitly states the gas limit by using the function member gas (e.g., call.value().gas()).
-
+        
         Almost all variable types in Solidity are of type value, meaning that their value is copied when passed as an argument to a function.
         In contrast, the value of variable types of type reference, are not copied and therefore modified across function calls.
         Currently, variable types of type reference comprise mappings, arrays, and structs.
@@ -274,7 +273,6 @@
         However, similar to JavaScript, Solidity provides members such as length or push for arrays.
 
         Apart from variables, Solidity also provides units for ether and time (e.g., wei, days, etc.) as well as special keywords and functions which always exist in the global namespace and are mainly used as general-use utility functions or to provide information about the blockchain.
-        For instance, the keyword block can be used to access information about the current block (e.g., block.number), and the keyword msg and tx to access information about the transaction/message that is being executed (e.g., tx.origin, msg.sender, etc.).
         Also mathematical and cryptographic functions are provided (e.g., addmod, ecrecover, etc.).
         For error handling, Solidity provides two convenience functions called assert and require, that can be used to check for a condition and to throw an exception if the condition is not met.
         Developers can interleave Solidity statements with inline assembly in a language called Yul, which is close to the one of the EVM.
