@@ -349,9 +349,9 @@
             Common mitigations against frontrunning include the use of commit and reveal schemes or the specification of a minimum or maximum acceptable price range on a trade, thereby limiting price slippage.
         
         \paragraph{Time Manipulation}
-            Smart contracts sometimes rely on the current time to either be able to lock a token sale, or unlock funds within a payment channel or a game.
-            In Solidity, the current timestamp is retrieved via block.timestamp or now.
-            However, this value can be set by miners and can therefore be manipulated.
+            Sometimes smart contracts need to rely on the current time to either be able to accomplish their defined task, such as locking a token sale, or unlocking funds at a specific time in a game.
+            In Solidity, the current timestamp is retrieved via \texttt{block.timestamp} or \texttt{now}.
+            However, this value can be set by miners and can be manipulated.
             If a miner holds enough value inside a smart contract, then the miner could gain an advantage by choosing a suitable timestamp for a block that he or she mines.
             Smart contracts should, therefore, avoid relying on timestamps originating from blocks.
             Atzei et al. stated that the ponzi smart contract GovernMental is vulnerable to a timestamp manipulation attack [61].
@@ -362,4 +362,4 @@
             Function arguments are typically encoded as 32-byte chunks of data within the input field of an Ethereum transaction.
             However, if the length of an encoded argument is shorter than 32 bytes, then EVM will auto-pad extra zeros to the end of the argument so that it always has a length of 32 bytes, no matter the size of the original encoding.
             Attackers can exploit this vulnerability by generating specially-crafted addresses that end with trailing zeros.
-            Unfortunately, the EVM does not check the validity of addresses, and thus the only way to prevent this attack is to check the length of a transaction's input at the level of the smart contract using \texttt{msg.data}.
+            The EVM does not check the validity of addresses, and the only way to prevent this attack is to check the length of a transaction's input at smart contract scope using \texttt{msg.data}.
