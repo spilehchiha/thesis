@@ -62,7 +62,7 @@ Manticore~\cite{mossberg2019manticore} adds the support of exotic execution envi
 
 In this section, we will go over some of the literature focusing their efforts on replacing the existing tools' capabilities explained in the previous section with amchine learning-based techniques. Afterwards, we will go over our own developed tool, \slithersimil.
 
-There have been a lot of efforts focused towards utilizing ML based techniques in the field of vulnerability mitigation with a specific focus on the programming language Solidity and its lower level representations.
+There have been a lot of efforts focused towards utilizing ML based techniques in the field of vulnerability discovery and mitigation with a specific focus on the programming language Solidity and its lower level representations.
 
 In 2018, Goswami et al. mentioned that while existing symbolic tools (e.g., Oyente) for analyzing vulnerabilities have proven to be efficient, their execution time increases significantly with depth of invocations in a smart contract ~\cite{grech2019gigahorse}.
 They proposed an LSTM neural network model to detect vulnerabilities in ERC-20 smart contracts in an effort to produce a less time consuming and efficient alternative to symbolic analysis tools.
@@ -161,11 +161,6 @@ The purpose of the self-attention layer is to create a connection between adjace
 As a result, the word embedding process has been enhanced through the use of self-attention.
 When compared to the vulnerability detection performance of ~\cite{etehrTrust}, they have both used a CNN but ~\cite{etehrTrust} used a word2vec embedding whereas this paper employed an attention mechanism, which is the likely reason that they obtained better results.
 obtained better results. The main improvement of the created model over the existing static analyzers such as Oyente and Mythril is that it can achieve comparable performance in much less time.
-
-In 2019, Pouyan et al. employed popular supervised ML models to classify vulnerabilities in 1000 smart contracts [7].
-The dataset was built collecting 1,013 smart contracts from Etherscan, where 80\% was used for training and the remaining was used for testing purposes.
-In order to label each contract based on its source code's character, they used three different feature extraction techniques: abstract syntax tree (AST), control flow graph (CFG), and Static code analysis.
-The extracted features were grouped in two: features that represents execution path (e.g., function calls) and were directly added to the control flow graph. The authors used Slither and Mythrill to assign labels to each contract. 36 types of vulnerabilities were used to label each contract in test and train set. Vulnerability detection process was performed with common ML models: Support Vector Machine (SVM), Neural Network (NN), Random Forest (RF), and Decision Tree (DT). After training each model with training set, they were ranked based on the following evaluation metrics: accuracy, recall, F1, and precision. Due to the results, ML models were be able to identify 16 vulnerabilities among 36 with high performance. It was found that some specific ML models were more successful in finding certain vulnerabilities. For example, SVM model was successful of finding integer outflow, while NN achieved superior results detecting re-entrancy vulnerability. Due to the article’s summary, it was proven that extracted features of smart contracts can be passed to any popular ML model for vulnerability detection. Also, it is important to note that static code analyzers' execution time (7,311 seconds) was drastically slower than any ML model (0.32 seconds) [7]
 
 In 2021, a vulnerability and transaction behaviour-based detection is proposed ~\cite{contractfuzzer}
  In this work, the authors built a model that correlates malicious activities, and the vulnerabilities present in smart contracts.
