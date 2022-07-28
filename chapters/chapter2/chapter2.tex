@@ -8,7 +8,7 @@
 \section{Ethereum}
     Ethereum is a blockchain technology that was introduced in 2014~\cite{wood2014ethereum}.
     A blockchain is basically a peer-to-peer network consisitng of computers as nodes that update and share a copy of one singular database without necessarily trusting one another.
-    it can be said to be a specialized version of a cryptographically secure, transaction-based state machine.~\cite{wood2014ethereum}.
+    It can be said to be a specialized version of a cryptographically secure, transaction-based state machine.~\cite{wood2014ethereum}.
     The aforementioned database essentially acts as a ledger that keeps a record of every single transaction that the nodes perform within the blockchain network.
     The term “block” refers to the fact that transactions are grouped into batches;
     those batches are called “blocks”, data structures within the blockchain database where transaction data are permanently recorded.
@@ -42,7 +42,6 @@
     Finding such a hash requires a lot of computing power.
     It acts as a “proof” that a node has done “work” by spending its computational resources.
     This process is known as mining and nodes which decide to participate in this process and try to create new blocks are known as miners.
-    Mining is essentially playing a lottery where miners follow a brute-force-based trial and error approach and the first to successfully mine a block is rewarded in the form of some cryptocurrency.
     New blocks are then broadcast to the nodes in the network, checked and verified, thus updating the state of the blockchain for everyone.
 
     As participating nodes are allowed to propose new blocks simaltaneously and at nearly the same time, it can be the case that two or more blocks are proposed at once with a valid hash while referencing the same parent block.
@@ -51,7 +50,7 @@
     They result in multiple concurrent states and make it difficult for the nodes to come to an agreement concerning which state should be the correct state.
     For example, if the states were to diverge, a user might own 100 coins on one chain, 200 on another, and 300 on another.
     Forks can happen intentionally or be deliberately orchestrated.
-    To prevent multiple states and help determine which fork is the most valid one, Ethereum blockchain uses a technique known as the Greedy Heaviest Observed Subtree (GHOST) protocol (see Figure 2).
+    To prevent multiple states and help determine which fork is the most valid one, Ethereum blockchain uses a technique known as the Greedy Heaviest Observed Subtree (GHOST) protocol.
     The GHOST protocol declares that of all the states, one must select the state that contains the most computation.
     One way to determine the heaviest state (computation-wise), is to look at the block number of the most recent block (i.e., leaf block) of a state, which amounts to the total number of blocks in the current state (not including the genesis block).
     The higher the block number, the longer the chain of that state and the greater the mining computation that must have gone into arriving at that current leaf block.
@@ -70,14 +69,14 @@
     \subsection{Ether}
         Ether is the native cryptocurrency of Ethereum.
         A cryptocurrency is a digital currency that is secured by means of cryptographic primitives.
-        The purpose of ether is not only to allow users to exchange value between one another, but also to provide an economic incentive for users to provide computational resources to the Ethereum network.
-        Any participant who sends a transactions must offer some amount of ether to the Ethereum network as a remuneration.
-        This remuneration will be awarded to whoever gets to mine the block that includes the transaction, as a result of doing the work of verifying, executing, and broadcasting the transaction to the rest of the network.
-        The amount of ether offered must correspond to the time and effort spent in executing the transaction.
-        These costs prevent malicious participants from intentionally congesting the network by requesting the execution of infinite computation or other resource-intensive actions, as these participants must pay for the computation.
+        The purpose of ether is not only to allow users to exchange value between one another, but also to provide an economic incentive for users of its underlying platform to provide computational resources to the Ethereum network.
+        Any network participant who sends a transactions must offer some amount of ether to the Ethereum network as a fee.
+        This remuneration will be awarded to whoever gets to mine the block that includes the transaction, as a result of doing the work of verifying, executing, and broadcasting the transaction to the rest of the blockchain network.
+        The amount of ether offered in such transaction as the corresponding fee, must correspond to the time and effort spent in executing the transaction.
+        These costs prevent malicious participants from intentionally blocking up the network by requesting the execution of infinite computation or other resource-intensive actions, as these ill-intentioned participants must pay for the computation.
 
         Ethereum provides a metric system of denominations to describe different units of ether.
-        Each denomination has its own unique name (some bear the family name of figures that played an important role in cryptoeconomics and computer science).
+        Each denomination has its own unique name.
         Wei and Gwei are the most popular denominations.
         Wei is the smallest possible denomination of ether also known as the base unit, and as a result, many technical implementations base all their calculations in wei.
         Gwei (short for gigawei) is often used to describe costs related to “gas”.
@@ -336,7 +335,8 @@
             Developers should, therefore, rely on the msg.sender property to authenticate user accounts.
 
         \paragraph{Bad Randomness}
-            Randomness is hard to achieve in general. In Ethereum it is even harder, since smart contracts are executed in a deterministic way. However, games and lotteries sometimes require non-deterministic values. Therefore, a variety of smart contracts rely on “unpredictable” information originating from yet unmined blocks, such as blockhash or number. They most often use this information as a seed to generate pseudo-random numbers. However, because the sources of randomness are predictable, malicious users can brute force the values of blocks before they have been mined.
+            Randomness is hard to achieve in general. In Ethereum it is even harder, since smart contracts are executed in a deterministic way.
+            However, games and lotteries sometimes require non-deterministic values. Therefore, a variety of smart contracts rely on “unpredictable” information originating from yet unmined blocks, such as blockhash or number. They most often use this information as a seed to generate pseudo-random numbers. However, because the sources of randomness are predictable, malicious users can brute force the values of blocks before they have been mined.
             The Run [43] and SmartBillions [69] are famous examples of smart contract lotteries using block information for generating random numbers.
             In October 2017, an attacker was able to exploit the predictability of block information and steal 400 ether from the SmartBillions contract [84].
 
@@ -345,7 +345,7 @@
             This results in gas price wars between users in the network.
             Frontrunning is therefore also known as transaction order dependence (TOD).
             A decentralized exchange is a perfect example on how this can be exploited. An attacker observes a transaction containing a large buy order and quickly broadcasts its own transaction containing a buy order with a larger gas price in order to be executed before the observed buy order.
-            A few other cases related to frontrunning have been studied by Eskandari et al. [152].
+            A few other cases related to frontrunning have been studied by Eskandari et al.~\cite{eskandari2019sok}
             Common mitigations against frontrunning include the use of commit and reveal schemes or the specification of a minimum or maximum acceptable price range on a trade, thereby limiting price slippage.
         
         \paragraph{Time Manipulation}
@@ -354,7 +354,7 @@
             However, this value can be set by miners and can be manipulated.
             If a miner holds enough value inside a smart contract, then the miner could gain an advantage by choosing a suitable timestamp for a block that he or she mines.
             Smart contracts should, therefore, avoid relying on timestamps originating from blocks.
-            Atzei et al. stated that the ponzi smart contract GovernMental is vulnerable to a timestamp manipulation attack [61].
+            Atzei et al. stated that the ponzi smart contract GovernMental is vulnerable to a timestamp manipulation attack~\cite{atzei2017survey}.
             However, there is no reported incident of such an attack in the wild.
         
         \paragraph{Short Address}

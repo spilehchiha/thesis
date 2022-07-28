@@ -71,6 +71,12 @@ T.~Durieux, J.~a.~F. Ferreira, R.~Abreu, and P.~Cruz.
   Software Engineering}, ICSE '20, page 530–541, New York, NY, USA, 2020.
   Association for Computing Machinery.
 
+\bibitem{eskandari2019sok}
+S.~Eskandari, S.~Moosavi, and J.~Clark.
+\newblock Sok: Transparent dishonesty: front-running attacks on blockchain.
+\newblock In {\em International Conference on Financial Cryptography and Data
+  Security}, pages 170--189. Springer, 2019.
+
 \bibitem{etherscan}
 Etherscan.
 \newblock The ethereum blockchain explorer, 2022.
