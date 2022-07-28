@@ -156,33 +156,28 @@
         A block consists of a block header, a list of transactions, and a list of the block headers of the block's ommers (see Figure 2.6).
         A block header consists of the following fields:
 
-        ParentHash: A hash of the parent (previous) block's header (i.e., the pointer that links blocks together in a chain).
+        \begin{itemize}
+            \item ParentHash: A hash of the parent (previous) block's header (i.e., the pointer that links blocks together in a chain).
+            \item  OmmersHash: A hash of the current block's list of ommers. An ommer is a block whose parent is equal to one of the current block's parent's parent.
+            \item Beneficiary: The account address that receives the fees for mining this block.
+            \item LogsBloom: A Bloom filter (i.e., a data structure) that allows efficient querying of information contained in the logs.
+            \item Difficulty: The effort required to mine this block.
+            \item Number: The count of the current block. The block number of the genesis block starts at number zero and each subsequent block number is increased by one.
+                The block number is often referred as the length of the blockchain in blocks.
+            \item GasLimit: The current gas limit per block. This value represents the limit set on the overall gas consumption for this block.
+            \item GasUsed: The sum of the total gas used by all transactions contained in this block. This value cannot surpass the GasLimit.
+            \item Timestamp: The UNIX timestamp when the block was mined.
+            \item ExtraData: Arbitrary data that can set by the miner. This data is limited to 32-byte and usually refers to the name of the miner or the client version that was used to mine the block.
+            \item MixHash: A hash that, when combined with the nonce, proves that this block meets the difficulty of this block.
+            \item Nonce: A value that, when combined with the MixHash, proves that this block has performed the required work.
+            \item StateRoot: The hash of the root node of the Merkle Patricia trie that stores the state of all accounts (i.e., account balances, storage, code, and nonces).  The hash is calculated only after all transactions have been executed.
+            \item TransactionsRoot: The hash of the root node of the Merkle Patricia trie that stores all transactions listed in this block.
+            \item ReceiptsRoot: The hash of the root node of the Merkle Patricia trie that stores the receipts of all transactions listed in this block.
+                Transaction receipts are generated after the execution of a transaction contain information such as logs or the actual gas that has been used during execution.
+            \item 
 
-        OmmersHash: A hash of the current block's list of ommers. An ommer is a block whose parent is equal to one of the current block's parent's parent.
+        \end{itemize}
 
-        Beneficiary: The account address that receives the fees for mining this block.
-
-        LogsBloom: A Bloom filter (i.e., a data structure) that allows efficient querying of information contained in the logs.
-
-        Difficulty: The effort required to mine this block.
-
-        Number: The count of the current block.
-        The block number of the genesis block starts at number zero and each subsequent block number is increased by one.
-        The block number is often referred as the length of the blockchain in blocks.
-        • GasLimit: The current gas limit per block.
-        This value represents the limit set on the overall gas consumption for this block.
-        • GasUsed: The sum of the total gas used by all transactions contained in this block.
-        This value cannot surpass the GasLimit.
-        • Timestamp: The UNIX timestamp when the block was mined.
-        • ExtraData: Arbitrary data that can set by the miner.
-        This data is limited to 32-byte and usually refers to the name of the miner or the client version that was used to mine the block.
-        • MixHash: A hash that, when combined with the nonce, proves that this block meets the difficulty of this block.
-        • Nonce: A value that, when combined with the MixHash, proves that this block has performed the required work.
-        • StateRoot: The hash of the root node of the Merkle Patricia trie that stores the state of all accounts (i.e., account balances, storage, code, and nonces).
-        The hash is calculated only after all transactions have been executed.
-        • TransactionsRoot: The hash of the root node of the Merkle Patricia trie that stores all transactions listed in this block.
-        • ReceiptsRoot: The hash of the root node of the Merkle Patricia trie that stores the receipts of all transactions listed in this block.
-        Transaction receipts are generated after the execution of a transaction contain information such as logs or the actual gas that has been used during execution.
         Block times are much lower in Ethereum (~15 seconds) than compared to those of other blockchains, such as Bitcoin (~10 minutes).
         The block time refers to the time that it takes to mine a new block.
         In Ethereum, the average block time is evaluated after each block.
@@ -197,10 +192,15 @@
 
     \subsection{Ethereum Virtual Machine}
         The Ethereum Virtual Machine (EVM) is a purely stack-based, register-less virtual machine that runs low-level bytecode and supports a Turing-complete set of instructions.
+        For a simple analogy, you can think if it like the Java programming langauge that uses the Java Virtual Machine (JVM).
+        It represents the execution model of a virtual state machine, defining how the states in the Ethereum blockchain are changed.
         Every instruction is represented by a one-byte opcode (e.g., 0x60 → PUSH1, e.g., 0x50 → POP, etc.).
         The instruction set consists of more than 140 different instructions ranging from basic operations such as arithmetic operations or control-flow operations to more specific ones, such as the modification of a contract's storage or the querying of properties related to the executing transaction (e.g., sender) or the current blockchain state (e.g., block number).
         The EVM uses a memory model that is specific to the execution of smart contracts and differs from the traditional von Neumann architecture (see Figure 2.7). Instead of organizing code and data in one large general-pu
-
+        EVM is activated whenever a Smart contract on the Ethereum blockchain needs to be executed by receiving a message or transaction.
+        Execution of a contract in EVM does not need any external resources from the network or file system, but there may exist some external calls to the functions of the other contracts in the blockchain.
+        
+        
         Instead of organizing code and data in one large general-purpose memory, the EVM follows the Harvard architecture by separating code and data into four different address spaces: (1) an immutable code address space, which contains the smart contract's bytecode, (2) a mutable but persistent storage address space that allows smart contracts to persist their data across executions, (3) a mutable but volatile memory address space that acts as a temporary data storage for smart contracts during execution, and finally (4) a stack address space that allows smart contracts to pass arguments to instructions at runtime.
 
         The EVM employs a gas mechanism that assigns a cost to the execution of an instruction.
@@ -229,17 +229,6 @@
         It is organized as a Patricia Merkle trie holding sets of key-value stores for each account.
         Storage is isolated from other smart contracts and is the only way for a smart contract to retain state across executions.
         While storage is theoretically unlimited, its use is expensive (compared to stack and memory) and should only be used to store small amounts of data.
-
-
-
-        During execution, the EVM holds a machine state $\mu$ = (g, pc, m, i, s), where g is the gas available, pc is the current program counter, m represents the memory contents, i is the active number of words in memory, and s is the content of the stack.
-        The execution of a smart contract results in the modification of the world state $\delta$, which is a data structure that holds a mapping of an address a to an account state$\delta$[a].
-        An account state contains the bytecode$\delta$[a]c, a balance$\delta$[a]b, and a storage$\delta$[a]s.
-        Apart from the world state$\delta$, the EVM also has access to the execution environment I = (Ia, Io, Ip, Id, Is, Iv, Ib, IH , Ie, Iw), where Ia is the address of the account that is being executed, Io is the transaction origin, Ip is the gas price, Id is the transaction input data, Is is the transaction sender, Iv is the transaction value, IH is the current block header information, Ie is the current call depth, and Iw is the permission to make modifications to the world state.
-        In contrast to traditional programs, the effect of a smart contract execution may only depend on information originating from the world state$\delta$ and the execution environment I.
-        This guarantees reproducibility, which enables determinism and therefore allows the Ethereum blockchain to reach a consensus.
-        In summary, the EVM essentially takes as input the current world state$\delta$ and an execution environment I, and outputs a updated world state$\delta$, which is afterwards used as input for the next execution.
-
 
 \section{Smart Contracts}
     The concept of smart contracts has been first introduced by Nick Szabo in 1997. He described the concept of a trustless system consisting of self-executing computer programs that would facilitate the digital verification and enforcement of contract clauses contained in legal contracts. Due to the lack of efficient trustless systems, the concept of smart contracts remained out of reach for many years, and it only became a reality with the release of blockchains, such as Ethereum.
