@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.5.2)  28 JUL 2022 16:12
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.5.2)  28 JUL 2022 16:18
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1061,10 +1061,10 @@ LaTeX Info: Symbol \textrightarrow not provided by
 <figures/slitherS.png, id=542, 1606.0pt x 692.5875pt>
 File: figures/slitherS.png Graphic file (type png)
 <use figures/slitherS.png>
-Package pdftex.def Info: figures/slitherS.png  used on input line 220.
+Package pdftex.def Info: figures/slitherS.png  used on input line 221.
 (pdftex.def)             Requested size: 433.62pt x 187.00111pt.
  [36]
-Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on input line 236.
+Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on input line 237.
  [37 <./figures/slitherS.png>] [38] [39] [40] [41] [42]) [43]
 \openout2 = `chapters/chapter4/chapter4.aux'.
 
