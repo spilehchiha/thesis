@@ -104,11 +104,14 @@
         The account state consists of four fields, which are always present regardless of the type of account:
 
         \begin{itemize}
-            \item \textbf{Nonce:} A number that acts as a simple counter which indicates the number of transactions sent from the account. This prevents the replaying of transactions and ensures that transactions are only processed once. If the account is an EOA, this number represents the number of transactions sent from the EOA's address. If the account is a CA, the nonce represents the number of contracts created by the CA.
-            \item \textbf{Balance} The amount of cryptocurrency owned by this address in units of wei. Wei is the smallest subunit of ether (1 wei is equivalent to 10-18 ether).
+            \item \textbf{Nonce:} A number that acts as a simple counter which indicates the number of transactions sent from the account.
+                This prevents the replaying of transactions and ensures that transactions are only processed once. If the account is an EOA, this number represents the number of transactions sent from the EOA's address. If the account is a CA, the nonce represents the number of contracts created by the CA.
+            \item \textbf{Balance} The amount of cryptocurrency owned by this address in units of wei.
+                Wei is the smallest subunit of ether (1 wei is equivalent to 10-18 ether).
             \item \textbf{Storage Root} A hash of the root node of the Merkle Patricia tree that encodes the storage contents of the account.
             This value is by default empty for both types of accounts and is solely updated for CAs whenever data is written to storage.
-            \item \textbf{CodeHash} A hash of the bytecode associated with this account. For CAs, this represents a hash of the code that is stored on the blockchain. For EOAs, the this value is the hash of the empty string.
+            \item \textbf{CodeHash} A hash of the bytecode associated with this account.
+                For CAs, this represents a hash of the code that is stored on the blockchain. For EOAs, the this value is the hash of the empty string.
         \end{itemize}
 
         Creating an EOA has no cost as no data such as code, storage or balance is associated with the account at creation time.
@@ -124,10 +127,14 @@
             \begin{itemize}
                 \item A count on the number of transactions sent by the sender. This number is incremented by one every time a transaction is sent by the sender.
                 \item The amount of wei that the sender is willing to pay for each unit of gas that is used during the execution of the transaction.
-                \item The maximum amount of gas units that the sender is willing to spent for the execution of this transaction. This amount is set and paid upfront, before any computation is performed.
-                \item The address of the recipient. If the recipient is an EOA, the transaction will transfer value, if the recipient is a CA, the transaction will transfer value as well as execute the contract's code. A transaction with an empty recipient address is used to trigger the creation of a new CA.
-                \item The amount of wei to be sent from the sender account to the recipient account. Interestingly, this value may be used to set the starting balance of the newly created CA in a contract-creating transaction.
-                \item These values represent the digital signature (R, S) which can be used to recover the public key (V). These values identify the sender of the transaction and confirms that the sender has authorized the transaction.
+                \item The maximum amount of gas units that the sender is willing to spent for the execution of this transaction.
+                    This amount is set and paid upfront, before any computation is performed.
+                \item The address of the recipient. If the recipient is an EOA, the transaction will transfer value, if the recipient is a CA, the transaction will transfer value as well as execute the contract's code.
+                    A transaction with an empty recipient address is used to trigger the creation of a new CA.
+                \item The amount of wei to be sent from the sender account to the recipient account.
+                    Interestingly, this value may be used to set the starting balance of the newly created CA in a contract-creating transaction.
+                \item These values represent the digital signature (R, S) which can be used to recover the public key (V).
+                    These values identify the sender of the transaction and confirms that the sender has authorized the transaction.
                 \item This field is only part of contract-creating transactions and consists of an unlimited length byte array that includes the code to be used during the initialization process and the code to be permanently associated with the newly created CA.
                 \item This is an optional field that is only part of message calls and consists of a byte array of unlimited size that specifies the input data (e.g., , function name, function parameters) of the message call.
             \end{itemize}
@@ -157,24 +164,23 @@
         A block header consists of the following fields:
 
         \begin{itemize}
-            \item ParentHash: A hash of the parent (previous) block's header (i.e., the pointer that links blocks together in a chain).
-            \item  OmmersHash: A hash of the current block's list of ommers. An ommer is a block whose parent is equal to one of the current block's parent's parent.
-            \item Beneficiary: The account address that receives the fees for mining this block.
-            \item LogsBloom: A Bloom filter (i.e., a data structure) that allows efficient querying of information contained in the logs.
-            \item Difficulty: The effort required to mine this block.
-            \item Number: The count of the current block. The block number of the genesis block starts at number zero and each subsequent block number is increased by one.
+            \item \textbf{ParentHash}: A hash of the parent (previous) block's header (i.e., the pointer that links blocks together in a chain).
+            \item \textbf{OmmersHash}: A hash of the current block's list of ommers. An ommer is a block whose parent is equal to one of the current block's parent's parent.
+            \item \textbf{Beneficiary}: The account address that receives the fees for mining this block.
+            \item \textbf{LogsBloom}: A Bloom filter (i.e., a data structure) that allows efficient querying of information contained in the logs.
+            \item \textbf{Difficulty}: The effort required to mine this block.
+            \item \textbf{Number}: The count of the current block. The block number of the genesis block starts at number zero and each subsequent block number is increased by one.
                 The block number is often referred as the length of the blockchain in blocks.
-            \item GasLimit: The current gas limit per block. This value represents the limit set on the overall gas consumption for this block.
-            \item GasUsed: The sum of the total gas used by all transactions contained in this block. This value cannot surpass the GasLimit.
-            \item Timestamp: The UNIX timestamp when the block was mined.
-            \item ExtraData: Arbitrary data that can set by the miner. This data is limited to 32-byte and usually refers to the name of the miner or the client version that was used to mine the block.
-            \item MixHash: A hash that, when combined with the nonce, proves that this block meets the difficulty of this block.
-            \item Nonce: A value that, when combined with the MixHash, proves that this block has performed the required work.
-            \item StateRoot: The hash of the root node of the Merkle Patricia trie that stores the state of all accounts (i.e., account balances, storage, code, and nonces).  The hash is calculated only after all transactions have been executed.
-            \item TransactionsRoot: The hash of the root node of the Merkle Patricia trie that stores all transactions listed in this block.
-            \item ReceiptsRoot: The hash of the root node of the Merkle Patricia trie that stores the receipts of all transactions listed in this block.
+            \item \textbf{GasLimit}: The current gas limit per block. This value represents the limit set on the overall gas consumption for this block.
+            \item \textbf{GasUsed}: The sum of the total gas used by all transactions contained in this block. This value cannot surpass the GasLimit.
+            \item \textbf{Timestamp}: The UNIX timestamp when the block was mined.
+            \item \textbf{ExtraData}: Arbitrary data that can set by the miner. This data is limited to 32-byte and usually refers to the name of the miner or the client version that was used to mine the block.
+            \item \textbf{MixHash}: A hash that, when combined with the nonce, proves that this block meets the difficulty of this block.
+            \item \textbf{Nonce}: A value that, when combined with the MixHash, proves that this block has performed the required work.
+            \item \textbf{StateRoot}: The hash of the root node of the Merkle Patricia trie that stores the state of all accounts (i.e., account balances, storage, code, and nonces).  The hash is calculated only after all transactions have been executed.
+            \item \textbf{TransactionsRoot}: The hash of the root node of the Merkle Patricia trie that stores all transactions listed in this block.
+            \item \textbf{ReceiptsRoot}: The hash of the root node of the Merkle Patricia trie that stores the receipts of all transactions listed in this block.
                 Transaction receipts are generated after the execution of a transaction contain information such as logs or the actual gas that has been used during execution.
-            \item 
 
         \end{itemize}
 
@@ -199,7 +205,6 @@
         The EVM uses a memory model that is specific to the execution of smart contracts and differs from the traditional von Neumann architecture (see Figure 2.7). Instead of organizing code and data in one large general-pu
         EVM is activated whenever a Smart contract on the Ethereum blockchain needs to be executed by receiving a message or transaction.
         Execution of a contract in EVM does not need any external resources from the network or file system, but there may exist some external calls to the functions of the other contracts in the blockchain.
-        
         
         Instead of organizing code and data in one large general-purpose memory, the EVM follows the Harvard architecture by separating code and data into four different address spaces: (1) an immutable code address space, which contains the smart contract's bytecode, (2) a mutable but persistent storage address space that allows smart contracts to persist their data across executions, (3) a mutable but volatile memory address space that acts as a temporary data storage for smart contracts during execution, and finally (4) a stack address space that allows smart contracts to pass arguments to instructions at runtime.
 
@@ -357,9 +362,9 @@
             The ERC20 function transfer(address to, uint256 value) takes as input an address and an amount of tokens.
             A user entered an address that was shorter than 160-bit. Thus, the EVM added trailing zeros to the end of the transaction input, which resulted in shifting the value to the left by a few zeros and increasing the number of tokens to be transferred.
             Attackers can exploit this vulnerability by generating specially-crafted addresses that end with trailing zeros.
-            Unfortunately, the EVM does not check the validity of addresses, and thus the only way to prevent this attack is to check the length of a transaction’s input at the level of the smart contract using msg.data [79]
+            Unfortunately, the EVM does not check the validity of addresses, and thus the only way to prevent this attack is to check the length of a transaction's input at the level of the smart contract using msg.data [79]
         
-        \paragraph{Time Manipulation.}
+        \paragraph{Time Manipulation}
             Smart contracts sometimes rely on the current time to either be able to lock a token sale, or unlock funds within a payment channel or a game.
             In Solidity, the current timestamp is retrieved via block.timestamp or now.
             However, this value can be set by miners and can therefore be manipulated.
@@ -372,8 +377,9 @@
             Function arguments are encoded as chunks of 32 bytes within the input field of a transaction.
             However, if the length of an encoded argument is shorter than 32 bytes, then EVM will auto-pad extra zeros to the end of the argument such that it has a length of 32 bytes.
             Short address attacks have been first described by the authors of the Golem project [80].
-            They noticed the bug because of a user transaction failing due to a considerable amount of tokens being transferred. The ERC20 function transfer(address to, uint256 value) takes as input an address and an amount of tokens.
+            They noticed the bug because of a user transaction failing due to a considerable amount of tokens being transferred.
+            The ERC20 function transfer(address to, uint256 value) takes as input an address and an amount of tokens.
             A user entered an address that was shorter than 160-bit.
             Thus, the EVM added trailing zeros to the end of the transaction input, which resulted in shifting the value to the left by a few zeros and increasing the number of tokens to be transferred.
             Attackers can exploit this vulnerability by generating specially-crafted addresses that end with trailing zeros.
-            Unfortunately, the EVM does not check the validity of addresses, and thus the only way to prevent this attack is to check the length of a transaction's input at the level of the smart contract using msg.data [79].
+            Unfortunately, the EVM does not check the validity of addresses, and thus the only way to prevent this attack is to check the length of a transaction's input at the level of the smart contract using \texttt{msg.data} [79].
