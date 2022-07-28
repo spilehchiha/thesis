@@ -123,7 +123,6 @@ In 2021, Liu Z. et al. proposed a combining GNN and expert knowledge based machi
 A graph neural network (GNN) is a deep learning method, where the principle is to perform inference on data described by graphs.
 In computer science, a graph is a data structure consisting of two components: nodes (vertices) and edges. Researches have proven that written programs can be converted to symbolic graph representation, without disrupting semantic relationship between programming elements.
 Thus, smart contract codes can be represented as contract graphs.
-In the experiment, ESC (Ethereum Smart Contracts) and VSC (VNT chain Smart Contracts) real world datasets (containing 320,000 contracts), where ESC was used to evaluate timestamp dependence vulnerabilities, while contracts from VSC is utilized for infinite loop vulnerabilities.
 The proposed model consists of two different parallel processes (Security pattern extraction and contract graph extraction) at the beginning, and the combining layer merged patterns in each section to find vulnerabilities, as shown in figure 3.
 First, a feed-forward neural network generates the pattern feature for extracting security patterns from the contract's source code.
 They have used an opensourced tool to extract the expert patterns from smart contract functions.

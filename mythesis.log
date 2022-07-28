@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.5.2)  28 JUL 2022 16:22
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.5.2)  28 JUL 2022 18:55
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1056,106 +1056,106 @@ Chapter 3.
 ] [25] [26] [27] [28] [29] [30] [31] [32]
 LaTeX Info: Symbol \textrightarrow not provided by
             font family ptm in TS1 encoding.
-            Default family used instead on input line 156.
+            Default family used instead on input line 155.
  [33] [34] [35]
 <figures/slitherS.png, id=542, 1606.0pt x 692.5875pt>
 File: figures/slitherS.png Graphic file (type png)
 <use figures/slitherS.png>
-Package pdftex.def Info: figures/slitherS.png  used on input line 221.
+Package pdftex.def Info: figures/slitherS.png  used on input line 220.
 (pdftex.def)             Requested size: 433.62pt x 187.00111pt.
  [36]
-Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on input line 237.
- [37 <./figures/slitherS.png>] [38] [39] [40] [41] [42]) [43]
+Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on input line 236.
+ [37 <./figures/slitherS.png>] [38] [39] [40] [41]) [42]
 \openout2 = `chapters/chapter4/chapter4.aux'.
 
  (./chapters/chapter4/chapter4.tex
 Chapter 4.
-[44
+[43
 
 
 
 
-] [45] [46] [47]
-<figures/Untitled Diagram.pdf, id=676, 695.7192pt x 154.6578pt>
+] [44] [45] [46]
+<figures/Untitled Diagram.pdf, id=671, 695.7192pt x 154.6578pt>
 File: figures/Untitled Diagram.pdf Graphic file (type pdf)
 <use figures/Untitled Diagram.pdf>
-Package pdftex.def Info: figures/Untitled Diagram.pdf  used on input line 87.
+Package pdftex.def Info: figures/Untitled Diagram.pdf  used on input line 88.
 (pdftex.def)             Requested size: 433.62pt x 96.39656pt.
- [48]
+ [47]
 
-LaTeX Warning: Reference `section:challenges' on page 49 undefined on input line 121.
+LaTeX Warning: Reference `section:challenges' on page 48 undefined on input line 122.
 
-[49 <./figures/Untitled Diagram.pdf>] [50] [51]
-Underfull \hbox (badness 10000) in paragraph at lines 157--158
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 159--160
-
- []
-
-[52]
-Underfull \hbox (badness 10000) in paragraph at lines 161--162
+[48 <./figures/Untitled Diagram.pdf>] [49] [50]
+Underfull \hbox (badness 10000) in paragraph at lines 158--159
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 163--164
+Underfull \hbox (badness 10000) in paragraph at lines 160--161
+
+ []
+
+[51]
+Underfull \hbox (badness 10000) in paragraph at lines 162--163
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 165--166
+Underfull \hbox (badness 10000) in paragraph at lines 164--165
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 167--168
+Underfull \hbox (badness 10000) in paragraph at lines 166--167
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 169--170
+Underfull \hbox (badness 10000) in paragraph at lines 168--169
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 171--172
+Underfull \hbox (badness 10000) in paragraph at lines 170--171
 
  []
 
-[53]
+
 Underfull \hbox (badness 10000) in paragraph at lines 172--173
 
  []
 
+[52]
+Underfull \hbox (badness 10000) in paragraph at lines 173--174
 
-Underfull \hbox (badness 10000) in paragraph at lines 174--175
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 175--176
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 182--183
+Underfull \hbox (badness 10000) in paragraph at lines 183--184
 
  []
 
-[54] [55] [56] [57]
-<figures/Picture1.png, id=743, 363.321pt x 218.781pt>
+[53] [54] [55] [56]
+<figures/Picture1.png, id=739, 363.321pt x 218.781pt>
 File: figures/Picture1.png Graphic file (type png)
 <use figures/Picture1.png>
-Package pdftex.def Info: figures/Picture1.png  used on input line 382.
+Package pdftex.def Info: figures/Picture1.png  used on input line 383.
 (pdftex.def)             Requested size: 433.62pt x 261.11708pt.
- [58 <./figures/Picture1.png>]) [59] [60]
+ [57 <./figures/Picture1.png>]) [58] [59]
 Chapter 5.
-[61
+[60
 
 
 
-] (./mythesis.bbl [62
+] (./mythesis.bbl [61
 
 
-] [63]
+] [62]
 Underfull \hbox (badness 5533) in paragraph at lines 207--212
 []\T1/ptm/m/n/12 S. Pile-hchiha.  Ef-fi-cient au-dits with ma-chine learn-ing and slither-simil.
  []
@@ -1165,7 +1165,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 207--212
 \T1/ptm/m/n/12 https://blog.trailofbits.com/2020/10/23/efficient-audits-with-machine-learning-
  []
 
-[64]) [65] (./mythesis.aux (./chapters/chapter1/chapter1.aux) (./chapters/chapter2/chapter2.aux) (./chapters/chapter3/chapter3.aux) (./chapters/chapter4/chapter4.aux))
+[63]) [64] (./mythesis.aux (./chapters/chapter1/chapter1.aux) (./chapters/chapter2/chapter2.aux) (./chapters/chapter3/chapter3.aux) (./chapters/chapter4/chapter4.aux))
 
 LaTeX Warning: There were undefined references.
 
@@ -1176,17 +1176,17 @@ Package rerunfilecheck Info: File `mythesis.out' has not changed.
 (rerunfilecheck)             Checksum: B20E9BBC08D6371FDFCE56CFC92AE6B2;4989.
  ) 
 Here is how much of TeX's memory you used:
- 52114 strings out of 478268
- 1223903 string characters out of 5846348
- 1774723 words of memory out of 5000000
+ 52113 strings out of 478268
+ 1223896 string characters out of 5846348
+ 1752685 words of memory out of 5000000
  69256 multiletter control sequences out of 15000+600000
  538013 words of font info for 93 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  190i,12n,186p,1612b,3474s stack positions out of 10000i,1000n,20000p,200000b,200000s
 {/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/base/8r.enc}{/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}</usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/urw/courier/ucrb8a.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on mythesis.pdf (73 pages, 489489 bytes).
+Output written on mythesis.pdf (72 pages, 488573 bytes).
 PDF statistics:
- 880 PDF objects out of 1000 (max. 8388607)
- 250 named destinations out of 1000 (max. 500000)
+ 874 PDF objects out of 1000 (max. 8388607)
+ 249 named destinations out of 1000 (max. 500000)
  316 words of extra memory for PDF output out of 10000 (max. 10000000)
 
