@@ -6,12 +6,6 @@ N.~Atzei, M.~Bartoletti, and T.~Cimoli.
 \newblock In {\em International conference on principles of security and
   trust}, pages 164--186. Springer, 2017.
 
-\bibitem{A-Survey-of-Attacks-on-Ethereum-Smart-Contracts}
-N.~Atzei, M.~Bartoletti, and T.~Cimoli.
-\newblock A survey of attacks on ethereum smart contracts (sok).
-\newblock In M.~Maffei and M.~Ryan, editors, {\em Principles of Security and
-  Trust}, pages 164--186, Berlin, Heidelberg, 2017. Springer Berlin Heidelberg.
-
 \bibitem{chang2019scompile}
 J.~Chang, B.~Gao, H.~Xiao, J.~Sun, Y.~Cai, and Z.~Yang.
 \newblock scompile: Critical path identification and analysis for smart

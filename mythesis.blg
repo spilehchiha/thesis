@@ -14,45 +14,45 @@ Warning--entry type for "soliditycheck" isn't style-file defined
 Database file #4: bib/bib.bib
 Warning--empty publisher in etehrTrust
 Warning--empty booktitle in verismart
-You've used 45 entries,
+You've used 44 entries,
             2118 wiz_defined-function locations,
-            734 strings with 12791 characters,
-and the built_in function-call counts, 20120 in all, are:
-= -- 2020
-> -- 1003
-< -- 29
-+ -- 402
-- -- 350
-* -- 1257
-:= -- 3014
-add.period$ -- 145
-call.type$ -- 45
-change.case$ -- 304
+            727 strings with 12539 characters,
+and the built_in function-call counts, 19581 in all, are:
+= -- 1964
+> -- 977
+< -- 28
++ -- 392
+- -- 342
+* -- 1221
+:= -- 2933
+add.period$ -- 141
+call.type$ -- 44
+change.case$ -- 298
 chr.to.int$ -- 0
-cite$ -- 47
-duplicate$ -- 882
-empty$ -- 1481
-format.name$ -- 350
-if$ -- 4512
+cite$ -- 46
+duplicate$ -- 859
+empty$ -- 1441
+format.name$ -- 342
+if$ -- 4390
 int.to.chr$ -- 0
-int.to.str$ -- 45
-missing$ -- 37
-newline$ -- 220
-num.names$ -- 92
-pop$ -- 412
+int.to.str$ -- 44
+missing$ -- 36
+newline$ -- 215
+num.names$ -- 88
+pop$ -- 404
 preamble$ -- 1
-purify$ -- 263
+purify$ -- 258
 quote$ -- 0
-skip$ -- 795
+skip$ -- 776
 stack$ -- 0
-substring$ -- 1091
-swap$ -- 407
-text.length$ -- 29
+substring$ -- 1053
+swap$ -- 397
+text.length$ -- 28
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 178
+type$ -- 174
 warning$ -- 2
-while$ -- 160
-width$ -- 47
-write$ -- 500
+while$ -- 154
+width$ -- 46
+write$ -- 487
 (There were 3 warnings)
