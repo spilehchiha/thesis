@@ -29,7 +29,7 @@
 \contentsline {paragraph}{Dynamic Analysis}{26}{section*.17}%
 \contentsline {paragraph}{Symbolic Execution}{26}{section*.18}%
 \contentsline {section}{\numberline {3.3}Deep Learning in Smart Contracts}{27}{section.3.3}%
-\contentsline {section}{\numberline {3.4}Slither-simil}{36}{section.3.4}%
+\contentsline {section}{\numberline {3.4}{\scshape Slither-simil\xspace }}{36}{section.3.4}%
 \contentsline {section}{\numberline {3.5}Concluding Remarks}{44}{section.3.5}%
 \contentsline {chapter}{\numberline {4}{\scshape EtherBase\xspace }: Improving Reproducibility in Smart Contract Research}{46}{chapter.4}%
 \contentsline {section}{\numberline {4.1}Introductory Remarks}{46}{section.4.1}%
