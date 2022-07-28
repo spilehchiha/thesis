@@ -357,13 +357,13 @@ Let the magic happen, and check out the similarity results.
 \section{Concluding Remarks}
 
 In this chapter, we explored multiple machine learning techniques to identify vulnerabilities in smart contracts.
-Amongst them, deep learning algorithms were used in a variety of ways, with different types of input that allowed the models to identify vulnerabilities that the traditional method -like static analysis and dynamic fuzzing- sometimes could not.
-The input often consisted of a means to derive a mapping between the variables in the smart contract code, which allowed the models to detect the relationships between variables, and identify vulnerable structures and variable connections.
+Amongst them, deep learning algorithms were used in a variety of ways, with different types of input
+that allowed the models to identify vulnerabilities that the traditional methods
+-like static analysis and dynamic fuzzing- sometimes could not.
 The many reviewed uses of deep learning algorithms varied from one another by their design of the input structure, and these through their input design, the models were able to recognize different vulnerabilities in a myriad of ways.
 The reviewed methods utilizing classical machine learning methods and ensemble learning methods were largely developed in a similar fashion: to design a unique input structure for the model, to provide it with as much information relating to the structure and purpose of the smart contract as possible.
 The structure of the models themselves changed in each of the reviewed cases, though the models accuracy and effectiveness was largely dependent on the structure of the model's input.
-Examples of the input structures included raw opcode, sets of function inputs and outputs, Abstract Syntax Trees (AST), the transaction metadata and many others.
-One of the largest benefits of this wide variety in allowed input structures, is that implementer is not dependent on a specific type of information.
+One of the largest benefits of this wide variety in input space, is that implementer is not dependent on a specific type of information.
 For instance, if an individual cannot easily gain access to the smart contract source code, they can still utilize the transaction metadata to effectively detect vulnerabilities.
 Generally, it was found that the machine learning models outperformed the traditional methods in their efficiency, and matched their effectiveness.
 
@@ -377,9 +377,9 @@ A second flaw found in many of the review approaches, was the inability for the 
 Due to the nature of machine learning models, sometimes the patterns found cannot be explained, and as a result, if a contract is found to be vulnerable, it becomes impossible to explain why.
 This is especially true when dealing with unsupervised approaches, as the models may identify vulnerabilities in code, but not have a defined labels to explain to any human why the contract was vulnerable.
 Since interpretability is an extremely important requirement when dealing with identifying vulnerabilities, further thought will have to be put into unsupervised approaches, to ensure the user knows why their contract is vulnerable.
-In conclusion, machine learning techniques provide many efficient and effective methods to identify smart contract vulnerabilities with a variety of input structures, but further research should be conducted in this space to provide interpretable solutions that outperform the traditional non-ML methods.
+In conclusion, machine learning techniques provide many newly effective ways to identify Ethereum smart contract vulnerabilities, but more research is needed to provide solutions that outperform the traditional methods on moer vulnerabilities, with more true positives.
 
-We also proposed Slither-simil; a powerful tool with potential to measure the similarity between function snippets of any size written in Solidity.
+We also proposed \slithersimil; a powerful tool with potential to measure the similarity between function snippets of any size written in Solidity.
 We are continuing to develop it, and based on current results and recent related research, we hope to see impactful real-world results before the end of the year.
 But there is a lacking here and that is the bottleneck of datasets that help us train and test bigger and more comprehensive modelsl.
-In the next chapter we will introduce \etherbase and how the development of Slither-simil has extended into the development of \etherbase as a solution for us and the broader research community.
+In the next chapter we will introduce \etherbase and how the development of \slithersimil~has extended into the development of \etherbase as a solution for us and the broader research community.
