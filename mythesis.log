@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.5.2)  28 JUL 2022 09:32
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.5.2)  28 JUL 2022 09:34
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1040,7 +1040,7 @@ LaTeX Info: Symbol \textrightarrow not provided by
             font family ptm in TS1 encoding.
             Default family used instead on input line 203.
  [14] [15] [16] [17] [18] [19] [20] [21] [22]
-LaTeX Font Info:    Trying to load font information for T1+pcr on input line 369.
+LaTeX Font Info:    Trying to load font information for T1+pcr on input line 384.
  (/usr/local/texlive/2022/texmf-dist/tex/latex/psnfss/t1pcr.fd
 File: t1pcr.fd 2001/06/04 font definitions for T1/pcr.
 )) [23] [24]

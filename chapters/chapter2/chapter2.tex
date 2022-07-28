@@ -236,11 +236,23 @@
         While storage is theoretically unlimited, its use is expensive (compared to stack and memory) and should only be used to store small amounts of data.
 
 \section{Smart Contracts}
-    The concept of smart contracts has been first introduced by Nick Szabo in 1997. He described the concept of a trustless system consisting of self-executing computer programs that would facilitate the digital verification and enforcement of contract clauses contained in legal contracts. Due to the lack of efficient trustless systems, the concept of smart contracts remained out of reach for many years, and it only became a reality with the release of blockchains, such as Ethereum.
+    The concept of smart contracts has been first introduced by Nick Szabo in 1997. He described the concept of a trustless system consisting of self-executing computer programs that would facilitate the digital verification and enforcement of contract clauses contained in legal contracts.
+    Due to the lack of efficient trustless systems, the concept of smart contracts remained out of reach for many years, and it only became a reality with the release of blockchains, such as Ethereum.
 
     \subsection{Solidity}
-        Solidity is an object-oriented programming language and it is currently the most prominent programming language for developing smart contracts in Ethereum. Its syntax resembles a mixture of C and JavaScript, but it comes with a variety of unique concepts that are specific to smart contracts and might be unfamiliar or confusing for new developers, such as the visibility of function modifiers: internal, external, pure, view, the function-wide scoping of variables, the emitting of events, or smart contract specific operations such as selfdestruct or revert. Similar to C, Solidity uses a function dispatch table to select what function to execute during runtime. The compiler does so by adding to the bytecode a function dispatcher that first loads the hash of the name of the function to be executed (the initial 4 bytes of the transaction input data Id) into the stack and then jumps to the function implementation that is associated with the hash (see Figure 2.9). Now, unlike C and JavaScript, the concept of “undefined” or “null” values does not exist in Solidity. Newly declared variables always
-        have a default value depending on their type. For example, integers are always initialized with zero, whereas Boolean’s are always initialized with False. Besides common variable types, such as int, bool, or string, Solidity also provides unique types such as mapping or address. The variable type mapping behaves similar to a dictionary in Python by mapping keys to values and therefore allowing an easy access to storage. The variable type address is meant to hold addresses of Ethereum accounts and has member function such as balance, send, transfer, call, etc. The member functions send, transfer, and call can be used to move ether from one address to another. All these functions make use of the EVM CALL instruction, with difference being the gas limit that can be used and the behavior on an error (see Table 2.2 for more details). For example, the functions send and transfer have a fixed gas limit of 2,300 units, whereas the function call by default provides all the available gas to the CALL instruction, unless the developer explicitly states the gas limit by using the function member gas (e.g., call.value().gas()).
+        Solidity is an object-oriented programming language and it is currently the most prominent programming language for developing smart contracts in Ethereum.
+        Its syntax resembles a mixture of C and JavaScript, but it comes with a variety of unique concepts that are specific to smart contracts and might be unfamiliar or confusing for new developers, such as the visibility of function modifiers: internal, external, pure, view, the function-wide scoping of variables, the emitting of events, or smart contract specific operations such as selfdestruct or revert.
+        Similar to C, Solidity uses a function dispatch table to select what function to execute during runtime.
+        The compiler does so by adding to the bytecode a function dispatcher that first loads the hash of the name of the function to be executed (the initial 4 bytes of the transaction input data Id) into the stack and then jumps to the function implementation that is associated with the hash (see Figure 2.9).
+        Now, unlike C and JavaScript, the concept of “undefined” or “null” values does not exist in Solidity.
+        Newly declared variables always have a default value depending on their type.
+        For example, integers are always initialized with zero, whereas Boolean's are always initialized with False.
+        Besides common variable types, such as int, bool, or string, Solidity also provides unique types such as mapping or address.
+        The variable type mapping behaves similar to a dictionary in Python by mapping keys to values and therefore allowing an easy access to storage.
+        The variable type address is meant to hold addresses of Ethereum accounts and has member function such as balance, send, transfer, call, etc.
+        The member functions send, transfer, and call can be used to move ether from one address to another.
+        All these functions make use of the EVM CALL instruction, with difference being the gas limit that can be used and the behavior on an error (see Table 2.2 for more details).
+        For example, the functions send and transfer have a fixed gas limit of 2,300 units, whereas the function call by default provides all the available gas to the CALL instruction, unless the developer explicitly states the gas limit by using the function member gas (e.g., call.value().gas()).
 
 
         Almost all variable types in Solidity are of type value, meaning that their value is copied when passed as an argument to a function.
@@ -325,19 +337,22 @@
             A way to protect against reentrancy is to use the Solidity methods send or transfer rather than call.
             The aforementioned methods limit the amount of gas to 2,300 units, which makes it impossible for the called contract to modify the state or make any function calls.
             However, this only protects the sending of value.
+
         \paragraph{Access Control}
             A typical design pattern in smart contracts is to assign an address as the owner of the smart contract [107].
             This address has then privileged access to functions that can either update sensible variables, transfer funds, or destroy the entire contract.
             Unfortunately, this also means that faulty implementations of access control can lead to devastating consequences. One example of a flawed access control implementation is the use of Solidity's tx.origin to check whether the current address is authenticated to perform a sensible function call such as the withdrawal of funds.
             However, tx.origin does not represent the currently calling address, but the very first address that initiated the transaction.
             Remember that within a transaction, contracts can call other contracts, and therefore the calling address can be a different one at runtime.
-            An attacker can perform a man-in-the-middle attack by first convincing a victim to send a transaction to the attacker’s contract, which then performs within the same transaction a message call to the victim’s wallet.
+            An attacker can perform a man-in-the-middle attack by first convincing a victim to send a transaction to the attacker's contract, which then performs within the same transaction a message call to the victim’s wallet.
             If the wallet checks for the transaction origin to authenticate users, then the attacker will be authenticated as the victim and might be able to steal the funds.
             Developers should, therefore, rely on the msg.sender property to authenticate user accounts.
+
         \paragraph{Bad Randomness}
             Randomness is hard to achieve in general. In Ethereum it is even harder, since smart contracts are executed in a deterministic way. However, games and lotteries sometimes require non-deterministic values. Therefore, a variety of smart contracts rely on “unpredictable” information originating from yet unmined blocks, such as blockhash or number. They most often use this information as a seed to generate pseudo-random numbers. However, because the sources of randomness are predictable, malicious users can brute force the values of blocks before they have been mined.
             The Run [43] and SmartBillions [69] are famous examples of smart contract lotteries using block information for generating random numbers.
             In October 2017, an attacker was able to exploit the predictability of block information and steal 400 ether from the SmartBillions contract [84].
+
         \paragraph{Frontrunning}
             Users observing the network can see and react to transactions before they are mined. Miners typically order transactions based on their gas prices.
             This results in gas price wars between users in the network.
