@@ -9,8 +9,8 @@
 \contentsline {section}{\numberline {2.1}Ethereum}{4}{section.2.1}%
 \contentsline {subsection}{\numberline {2.1.1}Ether}{7}{subsection.2.1.1}%
 \contentsline {subsection}{\numberline {2.1.2}Accounts}{8}{subsection.2.1.2}%
-\contentsline {subsection}{\numberline {2.1.3}Transactions}{10}{subsection.2.1.3}%
-\contentsline {subsection}{\numberline {2.1.4}Blocks}{12}{subsection.2.1.4}%
+\contentsline {subsection}{\numberline {2.1.3}Transactions}{9}{subsection.2.1.3}%
+\contentsline {subsection}{\numberline {2.1.4}Blocks}{11}{subsection.2.1.4}%
 \contentsline {subsection}{\numberline {2.1.5}Ethereum Virtual Machine}{14}{subsection.2.1.5}%
 \contentsline {section}{\numberline {2.2}Smart Contracts}{16}{section.2.2}%
 \contentsline {subsection}{\numberline {2.2.1}Solidity}{17}{subsection.2.2.1}%
