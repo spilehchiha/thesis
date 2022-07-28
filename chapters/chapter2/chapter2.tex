@@ -312,7 +312,7 @@
         Each entry consists of an identifier (SWC-ID), a weakness title, a CWE parent, and a list of related code samples.
         In 2019, Chen et al. ~\cite{chen2020survey} presented a survey of vulnerabilities, attacks, and defenses for the Ethereum blockchain.
 
-        We provide in the following a detailed explanation of some of the more prominent smart contract vulnerabilities according to the DASP collection of vulnerabilities:
+        We provide in the following a detailed explanation of some of the more prominent smart contract vulnerabilities according to the above-mentioned DASP collection of vulnerabilities:
 
         \paragraph{Re-entrancy}
             A typical flaw in smart contracts are re-entrant calls.
@@ -345,7 +345,6 @@
             This results in gas price wars between users in the network.
             Frontrunning is therefore also known as transaction order dependence (TOD).
             A decentralized exchange is a perfect example on how this can be exploited. An attacker observes a transaction containing a large buy order and quickly broadcasts its own transaction containing a buy order with a larger gas price in order to be executed before the observed buy order.
-            A decentralized exchange named Bancor was reported in 2017 to be vulnerable to frontrunning attacks [83, 74].
             A few other cases related to frontrunning have been studied by Eskandari et al. [152].
             Common mitigations against frontrunning include the use of commit and reveal schemes or the specification of a minimum or maximum acceptable price range on a trade, thereby limiting price slippage.
         
