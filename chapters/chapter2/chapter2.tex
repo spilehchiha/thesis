@@ -263,7 +263,7 @@
         Moreover, Solidity suggests to be a statically typed language, i.e., the compiler expects type information for each variable to be made explicit.
         For instance, integers can be signed and unsigned, and of lengths between 8 and 256 bits in 8-bit steps denoted as uint8 or int128.
         This resembles integer types in C and may lead novice developers to assume that a uint8 will occupy 8 bits in memory, while an int128 occupies 128 bits.
-        However, this assumption is wrong. Any integer type will be represented inside the EVM as 256-bit values in big endian order using two’s-complement.
+        However, this assumption is wrong. Any integer type will be represented inside the EVM as 256-bit values in big endian order using two's-complement.
         That is, the integer type system of Solidity is not entirely consistent with that of the EVM, which can lead to programming errors.
         Explicit conversion between primitive types is possible, but the effects are not well documented.
         In fact, the documentation reads: Note that this may give you some unexpected behavior so be sure to test to ensure that the result is what you want.
