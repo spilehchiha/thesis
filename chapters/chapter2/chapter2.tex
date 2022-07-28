@@ -362,10 +362,5 @@
             Short address attacks are a side-effect of the EVM itself accepting incorrectly padded arguments. 
             Function arguments are typically encoded as 32-byte chunks of data within the input field of an Ethereum transaction.
             However, if the length of an encoded argument is shorter than 32 bytes, then EVM will auto-pad extra zeros to the end of the argument so that it always has a length of 32 bytes, no matter the size of the original encoding.
-            Short address attacks have been first described by the authors of the Golem project [80].
-            They noticed the bug because of a user transaction failing due to a considerable amount of tokens being transferred.
-            The ERC20 function transfer(address to, uint256 value) takes as input an address and an amount of tokens.
-            A user entered an address that was shorter than 160-bit.
-            Thus, the EVM added trailing zeros to the end of the transaction input, which resulted in shifting the value to the left by a few zeros and increasing the number of tokens to be transferred.
             Attackers can exploit this vulnerability by generating specially-crafted addresses that end with trailing zeros.
-            Unfortunately, the EVM does not check the validity of addresses, and thus the only way to prevent this attack is to check the length of a transaction's input at the level of the smart contract using \texttt{msg.data} [79].
+            Unfortunately, the EVM does not check the validity of addresses, and thus the only way to prevent this attack is to check the length of a transaction's input at the level of the smart contract using \texttt{msg.data}.
