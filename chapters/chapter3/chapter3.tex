@@ -328,12 +328,14 @@ This past summer we resumed the development of Slither-simil and SlithIR with tw
 
 Research purposes, i.e., the development of end-to-end similarity systems lacking feature engineering.
 Practical purposes, i.e., adding specificity to increase precision and recall.
-We implemented the baseline text-based model with FastText to be compared with an improved model with a tangibly significant difference in results; e.g., one not working on software complexity metrics, but focusing solely on graph-based models, as they are the most promising ones right now.
+We implemented the baseline text-based model with FastText to be compared with an improved model with a tangibly significant difference in results;
+e.g., one not working on software complexity metrics, but focusing solely on graph-based models, as they are the most promising ones right now.
 
 For this, we have proposed a slew of techniques to try out with the Solidity language at the highest abstraction level, namely, source code.
 
 To develop ML models, we considered both supervised and unsupervised learning methods.
-First, we developed a baseline unsupervised model based on tokenizing source code functions and embedding them in a Euclidean space (Figure 8) to measure and quantify the distance (i.e., dissimilarity) between different tokens.
+First, we developed a baseline unsupervised model based on tokenizing source code functions and embedding them in a Euclidean space
+(Figure 8) to measure and quantify the distance (i.e., dissimilarity) between different tokens.
 Since functions are constituted from tokens, we just added up the differences to get the (dis)similarity between any two different snippets of any size.
 
 The diagram below shows the SlithIR tokens from a set of training Solidity data spherized in a three-dimensional Euclidean space, with similar tokens closer to each other in vector distance.
@@ -345,7 +347,8 @@ Together they'll form one unified comprehensive database of Solidity vulnerabili
 We're also working on other unsupervised and supervised models, using data labeled by static analyzers like Slither and Mythril.
 We're examining deep learning models that have much more expressivity we can model source code with—specifically, graph-based models, utilizing abstract syntax trees and control flow graphs.
 
-And we're looking forward to checking out Slither-simil's performance on new audit tasks to see how it improves our assurance team's productivity (e.g., in triaging and finding the low-hanging fruit more quickly).
+And we're looking forward to checking out Slither-simil's performance on new audit tasks to see how
+it improves our assurance team's productivity (e.g., in triaging and finding the low-hanging fruit more quickly).
 We're also going to test it on Mainnet when it gets a bit more mature and automatically scalable.
 
 You can try \slithersimil~now on Github.
@@ -359,14 +362,18 @@ In this chapter, we explored multiple machine learning techniques to identify vu
 Amongst them, deep learning algorithms were used in a variety of ways, with different types of input
 that allowed the models to identify vulnerabilities that the traditional methods
 -like static analysis and dynamic fuzzing- sometimes could not.
-The many reviewed uses of deep learning algorithms varied from one another by their design of the input structure, and these through their input design, the models were able to recognize different vulnerabilities in a myriad of ways.
-The reviewed methods utilizing classical machine learning methods and ensemble learning methods were largely developed in a similar fashion: to design a unique input structure for the model, to provide it with as much information relating to the structure and purpose of the smart contract as possible.
-The structure of the models themselves changed in each of the reviewed cases, though the models accuracy and effectiveness was largely dependent on the structure of the model's input.
+The many reviewed uses of deep learning algorithms varied from one another by their design of the input structure,
+and these through their input design, the models were able to recognize different vulnerabilities in a myriad of ways.
+The reviewed methods utilizing classical machine learning methods were largely developed in a similar fashion:
+to design a unique input structure for the model, to provide it with as much information relating to the structure
+and purpose of the smart contract as possible.
+The structure of the models themselves changed in each of the reviewed cases,
+though the models accuracy and effectiveness was largely dependent on the structure of the model's input.
 One of the largest benefits of this wide variety in input space, is that implementer is not dependent on a specific type of information.
 For instance, if an individual cannot easily gain access to the smart contract source code, they can still utilize the transaction metadata to effectively detect vulnerabilities.
 Generally, it was found that the machine learning models outperformed the traditional methods in their efficiency, and matched their effectiveness.
 
-Throughout this analysis, several faults were also noted for existing machine learning implementations.
+Throughout this review, several lackings were noticed for the existing machine learning implementations in the literature.
 The first was the common labelling techniques used, which used traditional methods to label their input data.
 Most of the suggested models relied on supervised models, meaning labelled data was required for the model to train.
 To acquire the labels, to recognize the smart contracts as vulnerable or benign, traditional methods such as Oyente were used.
@@ -374,9 +381,12 @@ As a result, the machine learning models were attempting to recognize vulnerabil
 To improve this, manual detection of vulnerabilities should be implemented, or more unsupervised approaches should be explored.
 A second flaw found in many of the review approaches, was the inability for the models to provide interpretability.
 Due to the nature of machine learning models, sometimes the patterns found cannot be explained, and as a result, if a contract is found to be vulnerable, it becomes impossible to explain why.
-This is especially true when dealing with unsupervised approaches, as the models may identify vulnerabilities in code, but not have a defined labels to explain to any human why the contract was vulnerable.
-Since interpretability is an extremely important requirement when dealing with identifying vulnerabilities, further thought will have to be put into unsupervised approaches, to ensure the user knows why their contract is vulnerable.
-In conclusion, machine learning techniques provide many newly effective ways to identify Ethereum smart contract vulnerabilities, but more research is needed to provide solutions that outperform the traditional methods on moer vulnerabilities, with more true positives.
+This is especially true when dealing with unsupervised approaches, as the models may identify vulnerabilities in code,
+but not have a defined labels to explain to any human why the contract was vulnerable.
+Since interpretability is an extremely important requirement when dealing with identifying vulnerabilities,
+further thought will have to be put into unsupervised approaches, to ensure the user knows why their contract is vulnerable.
+In conclusion, machine learning techniques provide many newly effective ways to identify Ethereum smart contract vulnerabilities,
+but more research is needed to provide solutions that outperform the traditional methods on moer vulnerabilities, with more true positives.
 
 We also proposed \slithersimil; a powerful tool with potential to measure the similarity between function snippets of any size written in Solidity.
 We are continuing to develop it, and based on current results and recent related research, we hope to see impactful real-world results before the end of the year.
