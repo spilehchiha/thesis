@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.5.2)  28 JUL 2022 09:20
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.5.2)  28 JUL 2022 09:32
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1039,53 +1039,53 @@ LaTeX Info: Symbol \textrightarrow not provided by
 LaTeX Info: Symbol \textrightarrow not provided by
             font family ptm in TS1 encoding.
             Default family used instead on input line 203.
- [14] [15] [16] [17] [18] [19] [20] [21] [22] [23]
-LaTeX Font Info:    Trying to load font information for T1+pcr on input line 385.
+ [14] [15] [16] [17] [18] [19] [20] [21] [22]
+LaTeX Font Info:    Trying to load font information for T1+pcr on input line 369.
  (/usr/local/texlive/2022/texmf-dist/tex/latex/psnfss/t1pcr.fd
 File: t1pcr.fd 2001/06/04 font definitions for T1/pcr.
-)) [24] [25]
+)) [23] [24]
 \openout2 = `chapters/chapter3/chapter3.aux'.
 
  (./chapters/chapter3/chapter3.tex
 Chapter 3.
-[26
+[25
 
 
 
 
-] [27] [28] [29] [30] [31] [32] [33] [34]
+] [26] [27] [28] [29] [30] [31] [32] [33]
 LaTeX Info: Symbol \textrightarrow not provided by
             font family ptm in TS1 encoding.
             Default family used instead on input line 156.
- [35] [36] [37] [38]
-<figures/slitherS.png, id=552, 1606.0pt x 692.5875pt>
+ [34] [35] [36] [37]
+<figures/slitherS.png, id=546, 1606.0pt x 692.5875pt>
 File: figures/slitherS.png Graphic file (type png)
 <use figures/slitherS.png>
 Package pdftex.def Info: figures/slitherS.png  used on input line 225.
 (pdftex.def)             Requested size: 433.62pt x 187.00111pt.
- [39]
+ [38]
 Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on input line 241.
- [40 <./figures/slitherS.png>] [41] [42] [43] [44] [45] [46]) [47] [48]
+ [39 <./figures/slitherS.png>] [40] [41] [42] [43] [44] [45]) [46] [47]
 \openout2 = `chapters/chapter4/chapter4.aux'.
 
  (./chapters/chapter4/chapter4.tex
 Chapter 4.
-[49
+[48
 
 
 
 
-] [50] [51] [52]
-<figures/Untitled Diagram.pdf, id=693, 695.7192pt x 154.6578pt>
+] [49] [50] [51]
+<figures/Untitled Diagram.pdf, id=687, 695.7192pt x 154.6578pt>
 File: figures/Untitled Diagram.pdf Graphic file (type pdf)
 <use figures/Untitled Diagram.pdf>
 Package pdftex.def Info: figures/Untitled Diagram.pdf  used on input line 87.
 (pdftex.def)             Requested size: 433.62pt x 96.39656pt.
- [53]
+ [52]
 
-LaTeX Warning: Reference `section:challenges' on page 54 undefined on input line 121.
+LaTeX Warning: Reference `section:challenges' on page 53 undefined on input line 121.
 
-[54 <./figures/Untitled Diagram.pdf>] [55] [56]
+[53 <./figures/Untitled Diagram.pdf>] [54] [55]
 Underfull \hbox (badness 10000) in paragraph at lines 157--158
 
  []
@@ -1095,7 +1095,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 159--160
 
  []
 
-[57]
+[56]
 Underfull \hbox (badness 10000) in paragraph at lines 161--162
 
  []
@@ -1125,7 +1125,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 171--172
 
  []
 
-[58]
+[57]
 Underfull \hbox (badness 10000) in paragraph at lines 172--173
 
  []
@@ -1140,22 +1140,22 @@ Underfull \hbox (badness 10000) in paragraph at lines 182--183
 
  []
 
-[59] [60] [61] [62]
-<figures/Picture1.png, id=761, 363.321pt x 218.781pt>
+[58] [59] [60] [61]
+<figures/Picture1.png, id=755, 363.321pt x 218.781pt>
 File: figures/Picture1.png Graphic file (type png)
 <use figures/Picture1.png>
 Package pdftex.def Info: figures/Picture1.png  used on input line 382.
 (pdftex.def)             Requested size: 433.62pt x 261.11708pt.
- [63 <./figures/Picture1.png>]) [64] [65]
+ [62 <./figures/Picture1.png>]) [63] [64]
 Chapter 5.
-[66
+[65
 
 
 
-] (./mythesis.bbl [67
+] (./mythesis.bbl [66
 
 
-] [68]
+] [67]
 Underfull \hbox (badness 5533) in paragraph at lines 201--206
 []\T1/ptm/m/n/12 S. Pile-hchiha.  Ef-fi-cient au-dits with ma-chine learn-ing and slither-simil.
  []
@@ -1165,7 +1165,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 201--206
 \T1/ptm/m/n/12 https://blog.trailofbits.com/2020/10/23/efficient-audits-with-machine-learning-
  []
 
-[69]) [70] (./mythesis.aux (./chapters/chapter1/chapter1.aux) (./chapters/chapter2/chapter2.aux) (./chapters/chapter3/chapter3.aux) (./chapters/chapter4/chapter4.aux))
+[68]) [69] (./mythesis.aux (./chapters/chapter1/chapter1.aux) (./chapters/chapter2/chapter2.aux) (./chapters/chapter3/chapter3.aux) (./chapters/chapter4/chapter4.aux))
 
 LaTeX Warning: There were undefined references.
 
@@ -1173,20 +1173,20 @@ LaTeX Warning: There were undefined references.
 LaTeX Warning: There were multiply-defined labels.
 
 Package rerunfilecheck Info: File `mythesis.out' has not changed.
-(rerunfilecheck)             Checksum: 9D1DEEE464E0FBE93B3654F84981B460;4989.
+(rerunfilecheck)             Checksum: B20E9BBC08D6371FDFCE56CFC92AE6B2;4989.
  ) 
 Here is how much of TeX's memory you used:
- 52115 strings out of 478268
- 1223851 string characters out of 5846348
+ 52112 strings out of 478268
+ 1223822 string characters out of 5846348
  1775641 words of memory out of 5000000
  69253 multiletter control sequences out of 15000+600000
  532725 words of font info for 91 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  190i,12n,186p,1612b,3474s stack positions out of 10000i,1000n,20000p,200000b,200000s
 {/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/base/8r.enc}{/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}</usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/urw/courier/ucrb8a.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on mythesis.pdf (78 pages, 499395 bytes).
+Output written on mythesis.pdf (77 pages, 497109 bytes).
 PDF statistics:
- 899 PDF objects out of 1000 (max. 8388607)
- 255 named destinations out of 1000 (max. 500000)
+ 891 PDF objects out of 1000 (max. 8388607)
+ 252 named destinations out of 1000 (max. 500000)
  316 words of extra memory for PDF output out of 10000 (max. 10000000)
 

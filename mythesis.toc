@@ -22,25 +22,23 @@
 \contentsline {paragraph}{Frontrunning}{23}{section*.13}%
 \contentsline {paragraph}{Time Manipulation}{23}{section*.14}%
 \contentsline {paragraph}{Short Address}{24}{section*.15}%
-\contentsline {paragraph}{Time Manipulation}{24}{section*.16}%
-\contentsline {paragraph}{Short Address}{24}{section*.17}%
-\contentsline {chapter}{\numberline {3}Automated Vulnerability Analysis of Smart Contracts on Ethereum}{26}{chapter.3}%
-\contentsline {section}{\numberline {3.1}Introductory Remarks}{26}{section.3.1}%
-\contentsline {section}{\numberline {3.2}Existing Analysis Tools}{27}{section.3.2}%
-\contentsline {paragraph}{Static Analysis}{27}{section*.18}%
-\contentsline {paragraph}{Dynamic Analysis}{28}{section*.19}%
-\contentsline {paragraph}{Symbolic Execution}{28}{section*.20}%
-\contentsline {section}{\numberline {3.3}Deep Learning in Smart Contracts}{29}{section.3.3}%
-\contentsline {section}{\numberline {3.4}Slither-simil}{38}{section.3.4}%
-\contentsline {section}{\numberline {3.5}Concluding Remarks}{46}{section.3.5}%
-\contentsline {chapter}{\numberline {4}{\scshape EtherBase\xspace }: Improving Reproducibility in Smart Contract Research}{49}{chapter.4}%
-\contentsline {section}{\numberline {4.1}Introductory Remarks}{49}{section.4.1}%
-\contentsline {section}{\numberline {4.2}Related Work}{51}{section.4.2}%
-\contentsline {section}{\numberline {4.3}Methodology}{53}{section.4.3}%
-\contentsline {subsection}{\numberline {4.3.1}Data Acquisition}{54}{subsection.4.3.1}%
-\contentsline {subsection}{\numberline {4.3.2}Data Generation}{55}{subsection.4.3.2}%
-\contentsline {subsection}{\numberline {4.3.3}Data Storage}{59}{subsection.4.3.3}%
-\contentsline {subsection}{\numberline {4.3.4}Data Application}{61}{subsection.4.3.4}%
-\contentsline {section}{\numberline {4.4}Concluding Remarks}{64}{section.4.4}%
-\contentsline {chapter}{\numberline {5}Conclusion and Future Work}{66}{chapter.5}%
-\contentsline {chapter}{Bibliography}{67}{section*.29}%
+\contentsline {chapter}{\numberline {3}Automated Vulnerability Analysis of Smart Contracts on Ethereum}{25}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Introductory Remarks}{25}{section.3.1}%
+\contentsline {section}{\numberline {3.2}Existing Analysis Tools}{26}{section.3.2}%
+\contentsline {paragraph}{Static Analysis}{26}{section*.16}%
+\contentsline {paragraph}{Dynamic Analysis}{27}{section*.17}%
+\contentsline {paragraph}{Symbolic Execution}{27}{section*.18}%
+\contentsline {section}{\numberline {3.3}Deep Learning in Smart Contracts}{28}{section.3.3}%
+\contentsline {section}{\numberline {3.4}Slither-simil}{37}{section.3.4}%
+\contentsline {section}{\numberline {3.5}Concluding Remarks}{45}{section.3.5}%
+\contentsline {chapter}{\numberline {4}{\scshape EtherBase\xspace }: Improving Reproducibility in Smart Contract Research}{48}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Introductory Remarks}{48}{section.4.1}%
+\contentsline {section}{\numberline {4.2}Related Work}{50}{section.4.2}%
+\contentsline {section}{\numberline {4.3}Methodology}{52}{section.4.3}%
+\contentsline {subsection}{\numberline {4.3.1}Data Acquisition}{53}{subsection.4.3.1}%
+\contentsline {subsection}{\numberline {4.3.2}Data Generation}{54}{subsection.4.3.2}%
+\contentsline {subsection}{\numberline {4.3.3}Data Storage}{58}{subsection.4.3.3}%
+\contentsline {subsection}{\numberline {4.3.4}Data Application}{60}{subsection.4.3.4}%
+\contentsline {section}{\numberline {4.4}Concluding Remarks}{63}{section.4.4}%
+\contentsline {chapter}{\numberline {5}Conclusion and Future Work}{65}{chapter.5}%
+\contentsline {chapter}{Bibliography}{66}{section*.27}%
