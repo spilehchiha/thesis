@@ -21,7 +21,7 @@
 \contentsline {paragraph}{Bad Randomness}{22}{section*.12}%
 \contentsline {paragraph}{Frontrunning}{23}{section*.13}%
 \contentsline {paragraph}{Time Manipulation}{23}{section*.14}%
-\contentsline {paragraph}{Short Address}{24}{section*.15}%
+\contentsline {paragraph}{Short Address}{23}{section*.15}%
 \contentsline {chapter}{\numberline {3}Automated Vulnerability Analysis of Smart Contracts on Ethereum}{25}{chapter.3}%
 \contentsline {section}{\numberline {3.1}Introductory Remarks}{25}{section.3.1}%
 \contentsline {section}{\numberline {3.2}Existing Analysis Tools}{26}{section.3.2}%

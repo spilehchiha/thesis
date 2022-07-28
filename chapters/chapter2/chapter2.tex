@@ -251,7 +251,7 @@
         The variable type mapping behaves similar to a dictionary in Python by mapping keys to values and therefore allowing an easy access to storage.
         The variable type address is meant to hold addresses of Ethereum accounts and has member function such as balance, send, transfer, call, etc.
         The member functions send, transfer, and call can be used to move ether from one address to another.
-        All these functions make use of the EVM CALL instruction, with difference being the gas limit that can be used and the behavior on an error (see Table 2.2 for more details).
+        All these functions make use of the EVM CALL instruction, with difference being the gas limit that can be used and the behavior on an error.
         For example, the functions send and transfer have a fixed gas limit of 2,300 units, whereas the function call by default provides all the available gas to the CALL instruction, unless the developer explicitly states the gas limit by using the function member gas (e.g., call.value().gas()).
 
 
@@ -324,7 +324,6 @@
         We extracted the detection capabilities of each tool by manually analyzing their source code if available.
         Otherwise, we inferred the detection capabilities directly from their paper.
         MYTHRIL and MANTICORE have frequent release schedules: the capabilities highlighted in Table 2.3 are based on their latest version, which at the time of writing were, 0.22.4 and 0.3.3, respectively.
-        It is interesting to observe that there is no single tool that is capable of detecting all the vulnerabilities listed in Table 2.3.
         We provide in the following a detailed explanation of some of the more prominent smart contract vulnerabilities according to the DASP collection of vulnerabilities:
 
         \paragraph{Re-entrancy}
@@ -344,7 +343,7 @@
             Unfortunately, this also means that faulty implementations of access control can lead to devastating consequences. One example of a flawed access control implementation is the use of Solidity's tx.origin to check whether the current address is authenticated to perform a sensible function call such as the withdrawal of funds.
             However, tx.origin does not represent the currently calling address, but the very first address that initiated the transaction.
             Remember that within a transaction, contracts can call other contracts, and therefore the calling address can be a different one at runtime.
-            An attacker can perform a man-in-the-middle attack by first convincing a victim to send a transaction to the attacker's contract, which then performs within the same transaction a message call to the victim’s wallet.
+            An attacker can perform a man-in-the-middle attack by first convincing a victim to send a transaction to the attacker's contract, which then performs within the same transaction a message call to the victim's wallet.
             If the wallet checks for the transaction origin to authenticate users, then the attacker will be authenticated as the victim and might be able to steal the funds.
             Developers should, therefore, rely on the msg.sender property to authenticate user accounts.
 
