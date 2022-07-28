@@ -159,7 +159,7 @@
         However, the size of blocks will be increased or decreased depending on the demands of the network, up to a block limit of 30 million gas units (2x target block size).
         The total amount of gas spent by all transactions contained within the block must be less than the block gas limit.
         This is crucial as otherwise blocks could grow arbitrarily large and congest the blockchain.
-        A block consists of a block header, a list of transactions, and a list of the block headers of the block's ommers (see Figure 2.6).
+        A block consists of a block header, a list of transactions, and a list of the block headers of the block's ommers.
         A block header consists of the following fields:
 
         \begin{itemize}
@@ -235,8 +235,11 @@
         While storage is theoretically unlimited, its use is expensive (compared to stack and memory) and should only be used to store small amounts of data.
 
 \section{Smart Contracts}
-    The concept of smart contracts has been first introduced by Nick Szabo in 1997. He described the concept of a trustless system consisting of self-executing computer programs that would facilitate the digital verification and enforcement of contract clauses contained in legal contracts.
-    Due to the lack of efficient trustless systems, the concept of smart contracts remained out of reach for many years, and it only became a reality with the release of blockchains, such as Ethereum.
+    The concept of smart contracts has been first introduced by Nick Szabo in one of his works in 1997.~\cite{szabo1997formalizing}
+    According to Szabo, smart contracts combine protocols, users' interfaces, and promises expressed via interfaces over public networks.
+    Szabo described the notion of a system consisting of automatic, self-executing computer programs that would facilitate the enforcement of clauses contained in legal contracts and reduce mental and computational transaction costs, imposed by either
+    principals, third parties or their tools.
+    It took years for efficient trustless systems like blockchains such as Ethereum to develop and grow in order for them to utilize the concept of smart contracts in full, hence the 20-year delay between the ideation and real-world implementation of them.
 
     \subsection{Solidity}
         Solidity is an object-oriented programming language and it is currently the most prominent programming language for developing smart contracts in Ethereum.

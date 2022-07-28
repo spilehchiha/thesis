@@ -15,7 +15,7 @@
 \contentsline {section}{\numberline {2.2}Smart Contracts}{16}{section.2.2}%
 \contentsline {subsection}{\numberline {2.2.1}Solidity}{16}{subsection.2.2.1}%
 \contentsline {subsection}{\numberline {2.2.2}Bytecode}{19}{subsection.2.2.2}%
-\contentsline {subsection}{\numberline {2.2.3}Vulnerabilities}{19}{subsection.2.2.3}%
+\contentsline {subsection}{\numberline {2.2.3}Vulnerabilities}{20}{subsection.2.2.3}%
 \contentsline {paragraph}{Re-entrancy}{20}{section*.10}%
 \contentsline {paragraph}{Access Control}{21}{section*.11}%
 \contentsline {paragraph}{Bad Randomness}{21}{section*.12}%
