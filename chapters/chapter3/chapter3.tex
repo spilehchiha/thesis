@@ -36,10 +36,9 @@ Classic software testing technologies applied towards smart contract security an
 \paragraph{Static Analysis}
 Static analysis, which can be done at both the source code and bytecode levels, is a technique for studying a computer programme without running it.
 Static analysis-based tools can scan a whole code base, but they also generate a lot of false positives as a result of their scans.
-SolidityCheck~\cite{soliditycheck} retrieves each function at the source code level and checks the piece that matches the pre-defined vulnerability patterns.
 Normally, other tools will first obtain binary bytecode, and then use it to construct a custom intermediate representation, which have a series of forms, like SSA used in Slither~\cite{slither}, Datalog used in Securify~\cite{securify} and MadMax~\cite{madmax}, XML parsing tree used in SmartCheck~\cite{smartcheck} and XCFG used in ClairvOyance~\cite{ClairvOyance}.
 Based on this representation, vulnerability pattern definition and matching are performed to screen out suspected code snippets.
-As a static analysis method based on mathematical proof, formal verification is also widely used to verify the logical integrity of smart contracts, such as EtherTrust~\cite{etehrTrust}, VeriSmart~\cite{verismart} and Zeus~\cite{kalra2018zeus}.
+Formal verification, a static analysis technique based on mathematical proof, is frequently used to check the logical integrity of smart contracts like Zeus~\cite{kalra2018zeus}, VeriSmart~\cite{verismart}, and EtherTrust~\cite{etehrTrust}.
 
 \paragraph{Dynamic Analysis}
 Fuzzing is a method of discovering software failures by constructing unexpected input data and monitoring the abnormal results of the target program during execution.
