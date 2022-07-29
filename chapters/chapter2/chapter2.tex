@@ -13,7 +13,7 @@
 
 
 \section{Ethereum}
-    Ethereum is a blockchain technology that was introduced in 2014~\cite{wood2014ethereum}.
+    Ethereum is a decentralized virtual machine that was introduced as an alternative blockchain technology in 2014~\cite{wood2014ethereum}.
     A blockchain is essentially a peer-to-peer network made up of computers that act as nodes and distribute updates for a single database
     without necessarily having confidence in one another.
     It is absed on a combination of combination of cryptography, networking, and incentive mechanisms.~\cite{wohrer2018smart}
@@ -214,10 +214,13 @@
         Miners are only allowed to include orphaned blocks that are not more than six block numbers away from the current block number.
 
     \subsection{Ethereum Virtual Machine}
-        The Ethereum Virtual Machine (EVM) is a purely stack-based, register-less virtual machine that runs low-level bytecode and supports a Turing-complete set of instructions.
+        
+        The Ethereum Virtual Machine (EVM) at the heart of the Ethereum blockchain is a purely stack-based, register-less virtual machine that runs low-level bytecode and supports a Turing-complete set of instructions.
+        It is usually dubbed as the OS of the Ethereum.
         For a simple analogy, you can think if it like the Java programming langauge that uses the Java Virtual Machine (JVM).
+        
         It represents the execution model of a virtual state machine, defining how the states in the Ethereum blockchain are changed.
-        Every instruction is represented by a one-byte opcode (e.g., 0x60 → PUSH1, e.g., 0x50 → POP, etc.).
+        Every instruction is represented by a one-byte opcode.
         The instruction set consists of more than 140 different instructions ranging from basic operations such as arithmetic operations or control-flow operations to more specific ones,
         such as the modification of a contract's storage or the querying of properties related to the executing transaction (e.g., sender) or the current blockchain state (e.g., block number).
         The EVM uses a memory model that is specific to the execution of smart contracts and differs from the traditional von Neumann architecture (see Figure 2.7). Instead of organizing code and
@@ -260,7 +263,7 @@
         While storage is theoretically unlimited, its use is expensive (compared to stack and memory) and should only be used to store small amounts of data.
 
 \section{Smart Contracts}
-    The concept of smart contracts has been first introduced by Nick Szabo in one of his works in 1997.~\cite{szabo1997formalizing}
+    The concept of smart contracts -programs running on the EVM- has been first introduced by Nick Szabo in one of his works in 1997.~\cite{szabo1997formalizing}
     According to Szabo, smart contracts combine protocols, users' interfaces, and promises expressed via interfaces over public networks.
     Szabo described the notion of a system consisting of automatic, self-executing computer programs that would facilitate the enforcement of clauses contained in legal contracts and reduce
     mental and computational transaction costs, imposed by either principals, third parties or their tools.
@@ -314,6 +317,7 @@
         The inline assembly code can access local Solidity variables, but different inline assembly blocks cannot call functions or access variables defined in a different inline assembly block.
 
     \subsection{Bytecode}
+        Smart contracts on Ethereum-upon execution-get compiled into low-level EVM bytecode using the Solc compiler (or another compiler).
         Ethereum bytecode consists of a sequence of bytes that is interpreted by the EVM.
         Each byte either encodes an instruction or data.
         Figure 2.10 depicts the anatomy of Ethereum bytecode.
@@ -371,6 +375,16 @@
             If the wallet checks for the transaction origin to authenticate users, then the attacker will be authenticated as the victim and might be able to steal the funds.
             Developers should, therefore, rely on the msg.sender property to authenticate user accounts.
 
+        \paragraph{Frontrunning}
+        Users observing the network can see and react to transactions before they are mined. Miners typically order transactions based on their gas prices.
+        This results in gas price wars between users in the network.
+        Frontrunning is therefore also known as transaction order dependence (TOD).
+        A decentralized exchange is a perfect example on how this can be exploited. An attacker observes a transaction containing a large buy order and quickly broadcasts its own transaction
+        containing a buy order with a larger gas price in order to be executed before the observed buy order.
+        A few other cases related to frontrunning have been studied by Eskandari et al.~\cite{eskandari2019sok}
+        Common mitigations against frontrunning include the use of commit and reveal schemes or the specification of a minimum or maximum acceptable price range on a trade, thereby limiting
+        price slippage.
+
         \paragraph{Bad Randomness}
             Randomness is hard to achieve in general. In Ethereum it is even harder, since smart contracts are executed in a deterministic way.
             However, games and lotteries sometimes require non-deterministic values. Therefore, a variety of smart contracts rely on “unpredictable” information originating from yet unmined blocks,
@@ -378,16 +392,6 @@
             can brute force the values of blocks before they have been mined.
             The Run [43] and SmartBillions [69] are famous examples of smart contract lotteries using block information for generating random numbers.
             In October 2017, an attacker was able to exploit the predictability of block information and steal 400 ether from the SmartBillions contract [84].
-
-        \paragraph{Frontrunning}
-            Users observing the network can see and react to transactions before they are mined. Miners typically order transactions based on their gas prices.
-            This results in gas price wars between users in the network.
-            Frontrunning is therefore also known as transaction order dependence (TOD).
-            A decentralized exchange is a perfect example on how this can be exploited. An attacker observes a transaction containing a large buy order and quickly broadcasts its own transaction
-            containing a buy order with a larger gas price in order to be executed before the observed buy order.
-            A few other cases related to frontrunning have been studied by Eskandari et al.~\cite{eskandari2019sok}
-            Common mitigations against frontrunning include the use of commit and reveal schemes or the specification of a minimum or maximum acceptable price range on a trade, thereby limiting
-            price slippage.
         
         \paragraph{Time Manipulation}
             Sometimes smart contracts need to rely on the current time to either be able to accomplish their defined task, such as locking a token sale, or unlocking funds at a specific time in a game.

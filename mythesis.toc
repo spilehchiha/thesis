@@ -18,8 +18,8 @@
 \contentsline {subsection}{\numberline {2.2.3}Vulnerabilities}{20}{subsection.2.2.3}%
 \contentsline {paragraph}{Re-entrancy}{20}{section*.10}%
 \contentsline {paragraph}{Access Control}{21}{section*.11}%
-\contentsline {paragraph}{Bad Randomness}{21}{section*.12}%
-\contentsline {paragraph}{Frontrunning}{22}{section*.13}%
+\contentsline {paragraph}{Frontrunning}{22}{section*.12}%
+\contentsline {paragraph}{Bad Randomness}{22}{section*.13}%
 \contentsline {paragraph}{Time Manipulation}{22}{section*.14}%
 \contentsline {paragraph}{Short Address}{23}{section*.15}%
 \contentsline {chapter}{\numberline {3}Automated Vulnerability Analysis of Smart Contracts on Ethereum}{24}{chapter.3}%
