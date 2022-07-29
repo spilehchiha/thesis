@@ -70,7 +70,9 @@
 
 	Luu et al.~\cite{oyente} collected 19,366 smart contracts from the blockchain and provided their blockchain addresses alongside analysis results on each contract on whether they contain any of their selected four vulnerabilitis or not.
 
-	The smart contract source codes collected in GitHub typically do not directly reference smart contracts deployed on the blockchain through an Ethereum address;
+	In 2022, Yashavant et al. ~\cite{yashavant2022scrawld}
+
+	The smart contract source codes collected in GitHub repositories associated with the previously published literature typically do not directly reference smart contracts deployed on the blockchain through an Ethereum address;
 	therefore, it is hard to determine whether it has been tested or used on the blockchain or not.
 	GitHub repositories of the available datasets do not implement a search engine or query capability to filter smart contracts based on particular metrics or parameters, such as the ETH value or the number of internal transactions for a smart contract.
 	On a GitHub repository, there is no information on smart contracts' use in a real blockchain scenario, on the number of transactions invoking smart contracts or on the number of tokens associated with each smart contract.
@@ -80,7 +82,9 @@
 	However, when downloading the smart contracts' source code, the block explorer presents some limitations: 
 	Smart contracts' data and numbers in quantity are massive (on the Giga scale, based on our estimation), but there is a limited API rate of 100 submissions per day per user to retrieve just a smart contract, making the complete download of data an impossible endeavour.
 	Etherscan's API does not provide facilities to obtain a list of the smart contracts' addresses, as the existing API calls mainly allow navigation from one block to another.
-	A researcher cannot directly and easily explore the smart contracts' source code but has first to inspect any block in Ethereum and then look for all the transactions that involve an address associated with the smart contract.
+	A researcher cannot easily explore the source code for their collected smart contracts.
+	First, they would have to to inspect any block on-chain and then
+	look for all the transactions that involve an address associated with that specific contract.
 
 \section{Methodology}
 
