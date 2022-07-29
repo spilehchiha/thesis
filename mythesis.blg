@@ -13,45 +13,45 @@ Database file #4: bib/bib.bib
 Warning--empty journal in ferreira2022smart
 Warning--empty publisher in etehrTrust
 Warning--empty booktitle in verismart
-You've used 45 entries,
+You've used 46 entries,
             2118 wiz_defined-function locations,
-            731 strings with 12776 characters,
-and the built_in function-call counts, 19789 in all, are:
-= -- 1986
-> -- 984
+            737 strings with 13098 characters,
+and the built_in function-call counts, 20305 in all, are:
+= -- 2033
+> -- 1027
 < -- 28
-+ -- 395
-- -- 344
-* -- 1229
-:= -- 2978
-add.period$ -- 145
-call.type$ -- 45
-change.case$ -- 302
++ -- 413
+- -- 360
+* -- 1277
+:= -- 3069
+add.period$ -- 148
+call.type$ -- 46
+change.case$ -- 313
 chr.to.int$ -- 0
-cite$ -- 48
-duplicate$ -- 872
-empty$ -- 1453
-format.name$ -- 344
-if$ -- 4428
+cite$ -- 49
+duplicate$ -- 883
+empty$ -- 1479
+format.name$ -- 360
+if$ -- 4525
 int.to.chr$ -- 0
-int.to.str$ -- 45
-missing$ -- 38
-newline$ -- 221
-num.names$ -- 90
-pop$ -- 405
+int.to.str$ -- 46
+missing$ -- 39
+newline$ -- 226
+num.names$ -- 92
+pop$ -- 414
 preamble$ -- 1
-purify$ -- 261
+purify$ -- 271
 quote$ -- 0
-skip$ -- 782
+skip$ -- 789
 stack$ -- 0
-substring$ -- 1058
-swap$ -- 397
+substring$ -- 1089
+swap$ -- 398
 text.length$ -- 28
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 178
+type$ -- 182
 warning$ -- 3
-while$ -- 156
-width$ -- 47
-write$ -- 498
+while$ -- 160
+width$ -- 48
+write$ -- 509
 (There were 3 warnings)

@@ -24,21 +24,25 @@ The conventional statistical analysis tools for detecting weaknesses in smart co
 As a result, expert attackers can easily exploit these manual checking patterns.
 To minimize the risk of the attackers, machine learning powered systems provide more secure solutions relative to hard-coded static checking tools.
 
-Throughout our research, we noticed the future direction of the literature on smart contract vulnerability detection, and our goal is to provide guidance for new developments in this field.
-In order to set the ground for further development of ML method on smart contract vulnerability detection, in this survey paper, we reviewed many ML-driven intelligent detection mechanism on the following databases: Google Scholar, Engineering Village, Springer, Web of Science, Academic Search Premier, and Scholars Portal Journal.
-We provided our insights on limitations and advancement of ML-driven solutions.
+Surucu et al.~\cite{surucu2022survey} provide the first-ever survey on machine learning methods utilized for the purposes of discovery and mitigation of vulnerabilities in smart contracts.
+In order to set the ground for further development of ML method on smart contract vulnerability detection, They reviewed many ML-driven intelligent detection mechanism on the following databases: Google Scholar, Engineering Village, Springer, Web of Science, Academic Search Premier, and Scholars Portal Journal.
+Base on their work, we briefly go over the existing analysis tool first, and the the novel deep-learning-based methodologies proposed in the literature over the past few years.
+Afterwards, we propose our own solution, \slithersimil and how it led us to the development of \etherbase.
 
 
 \section{Existing Analysis Tools}
 
-Classic software testing technologies applied towards smart contract security analysis can be diivied into three categories; In the following, we will go over the tools proposed from the perspective of the technology they employ to tackle the smart contract security problem:
+Classic software testing technologies applied towards smart contract security analysis can be diivied into three categories;
+
+In the following, we will go over the tools proposed from the perspective of the technology they employ to tackle the smart contract security problem:
 
 \paragraph{Static Analysis}
 Static analysis, which can be done at both the source code and bytecode levels, is a technique for studying a computer programme without running it.
 Static analysis-based tools can scan a whole code base, but they also generate a lot of false positives as a result of their scans.
 Normally, other tools will first obtain binary bytecode, and then use it to construct a custom intermediate representation, which have a series of forms, like SSA used in Slither~\cite{slither}, Datalog used in Securify~\cite{securify} and MadMax~\cite{madmax}, XML parsing tree used in SmartCheck~\cite{smartcheck} and XCFG used in ClairvOyance~\cite{ClairvOyance}.
 Based on this representation, vulnerability pattern definition and matching are performed to screen out suspected code snippets.
-Formal verification, a static analysis technique based on mathematical proof, is frequently used to check the logical integrity of smart contracts like Zeus~\cite{kalra2018zeus}, VeriSmart~\cite{verismart}, and EtherTrust~\cite{etehrTrust}.
+Formal verification, a static analysis technique based on mathematical proof, is frequently used to check the logical integrity of smart contracts
+like Zeus~\cite{kalra2018zeus}, VeriSmart~\cite{verismart}, and EtherTrust~\cite{etehrTrust}.
 
 \paragraph{Dynamic Analysis}
 Fuzzing is a technique for finding software bugs that involves creating erroneous input data and watching the target program's unusual output while it runs.
@@ -47,7 +51,8 @@ When applied to smart contracts, a fuzzing engine will first try to generate ini
 With reference to the feedback of test results, it will dynamically adjust the generated data to explore as much smart contract state space as possible.
 Finally, it will analyze the status of each transaction based on the finite state machine to detect whether there is an attackable threat.
 ContractFuzzer~\cite{contractfuzzer} is the first to apply fuzz testing to smart contracts. Later, other researchers start to study improvements to different parts of fuzzing.
-ReGuard~\cite{liu2018reguard} and Harvey~\cite{wustholz2020harvey} are dedicated to generating diverse inputs and transactions that are more likely to reveal vulnerabilities, ILF~\cite{he2019learning} and sFuzz~\cite{nguyen2020sfuzz} target at designing more effective generation or mutation strategy.
+ReGuard~\cite{liu2018reguard} and Harvey~\cite{wustholz2020harvey} are dedicated to generating diverse inputs and transactions that are more likely to reveal vulnerabilities,
+ILF~\cite{he2019learning} and sFuzz~\cite{nguyen2020sfuzz} target at designing more effective generation or mutation strategy.
 
 \paragraph{Symbolic Execution}
 When using symbolic execution to analyze a program, it will use symbolic values as input instead of the specific values during the execution.

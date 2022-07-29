@@ -231,6 +231,14 @@ S.~So, M.~Lee, J.~Park, H.~Lee, and H.~Oh.
   contracts.
 \newblock pages 1678--1694, 05 2020.
 
+\bibitem{surucu2022survey}
+O.~S{\"u}r{\"u}c{\"u}, U.~Yeprem, C.~Wilkinson, W.~Hilal, S.~A. Gadsden,
+  J.~Yawney, N.~Alsadi, and A.~Giuliano.
+\newblock A survey on ethereum smart contract vulnerability detection using
+  machine learning.
+\newblock {\em Disruptive Technologies in Information Sciences VI},
+  12117:110--121, 2022.
+
 \bibitem{szabo1997formalizing}
 N.~Szabo.
 \newblock Formalizing and securing relationships on public networks.
