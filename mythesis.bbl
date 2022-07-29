@@ -260,6 +260,13 @@ P.~Tsankov, A.~Dan, D.~Drachsler-Cohen, A.~Gervais, F.~B\"{u}nzli, and
   Communications Security}, CCS '18, page 67–82, New York, NY, USA, 2018.
   Association for Computing Machinery.
 
+\bibitem{wohrer2018smart}
+M.~Wohrer and U.~Zdun.
+\newblock Smart contracts: security patterns in the ethereum ecosystem and
+  solidity.
+\newblock In {\em 2018 International Workshop on Blockchain Oriented Software
+  Engineering (IWBOSE)}, pages 2--8. IEEE, 2018.
+
 \bibitem{wood2014ethereum}
 G.~Wood et~al.
 \newblock Ethereum: A secure decentralised generalised transaction ledger.

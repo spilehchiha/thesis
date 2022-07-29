@@ -15,7 +15,8 @@
 \section{Ethereum}
     Ethereum is a blockchain technology that was introduced in 2014~\cite{wood2014ethereum}.
     A blockchain is essentially a peer-to-peer network made up of computers that act as nodes and distribute updates for a single database
-    without necessarily having confidence in one another. 
+    without necessarily having confidence in one another.
+    It is absed on a combination of combination of cryptography, networking, and incentive mechanisms.~\cite{wohrer2018smart}
     It is a specialized version of a secure, transaction-based state machine.~\cite{wood2014ethereum}.
     The aforementioned database effectively serves as a ledger, recording each and every transaction that each node in the blockchain network makes. 
 
@@ -26,7 +27,7 @@
         \caption{Ethereum blockchain structure.}
         \label{fig:ethereumBlockchainStructure}
     \end{figure}
-
+    
     The Ethereum blockchain can be seen as a transaction-based, cryptographically secure state machine,
     that reads a series of inputs and, based on those inputs, transitions to a new state.
     Ethereum starts with a blank state called the “genesis state”.
@@ -268,11 +269,12 @@
     delay between the ideation and real-world implementation of them.
 
     \subsection{Solidity}
-        Solidity is an object-oriented programming language and it is currently the most prominent programming language for developing smart contracts in Ethereum.
-        Its syntax resembles a mixture of C and JavaScript, but it comes with a variety of unique concepts that are specific to smart contracts and might be unfamiliar or confusing for new developers,
+        Solidity is an object-oriented, Turing-complete, high-level programming language, specialized for developing smart contracts on Ethereum.
+        It is currently the most prominent programming language for the development of smart contracts.
+        Its syntax is very similar to that of JavaScript, but it comes with a variety of unique concepts that are specific to smart contracts and might be unfamiliar or confusing for new developers,
         such as the visibility of function modifiers: internal, external, pure, view, the function-wide scoping of variables, the emitting of events, or smart contract specific operations such as
         selfdestruct or revert.
-        Similar to C, Solidity uses a function dispatch table to select what function to execute during runtime.
+        It suppotrs inheritence, classes, and polymorphism besidecomplex user-defined types.
         The compiler does so by adding to the bytecode a function dispatcher that first loads the hash of the name of the function to be executed
         (the initial 4 bytes of the transaction input data Id)
         into the stack and then jumps to the function implementation that is associated with the hash.
@@ -291,7 +293,7 @@
         Developers always have to explicitly state the data area where the type is stored when using a variable of type reference: memory (where its lifetime is limited to an external function call),
         or storage (where its lifetime is limited to the lifetime of the contract).
         In general, state variables are always stored in storage, function arguments are always stored in memory, and local variables of type value are stored in the stack.
-        Moreover, Solidity suggests to be a statically typed language, i.e., the compiler expects type information for each variable to be made explicit.
+        Solidity has been developed to be statically typed, i.e., the solc compiler expects the user to declare the type of each variable upon its declaration as well.
         For instance, integers can be signed and unsigned, and of lengths between 8 and 256 bits in 8-bit steps denoted as uint8 or int128.
         This resembles integer types in C and may lead novice developers to assume that a uint8 will occupy 8 bits in memory, while an int128 occupies 128 bits.
         However, this assumption is wrong. Any integer type will be represented inside the EVM as 256-bit values in big endian order using two's-complement.

@@ -71,7 +71,7 @@ Afterwards, we will go over our own developed tool, \slithersimil.
 There have been a lot of efforts focused towards utilizing ML based techniques in the field of vulnerability discovery and mitigation with a specific focus on the programming language Solidity and
 its lower level representations.
 
-In 2018, Goswami et al. mentioned that while existing symbolic tools (e.g., Oyente) for analyzing vulnerabilities have proven to be efficient, their execution time increases significantly with depth of invocations in a smart contract ~\cite{grech2019gigahorse}.
+Goswami et al. mentioned that while existing symbolic tools (e.g., Oyente) for analyzing vulnerabilities have proven to be efficient, their execution time increases significantly with depth of invocations in a smart contract ~\cite{grech2019gigahorse}.
 They proposed an LSTM neural network model to detect vulnerabilities in ERC-20 smart contracts in an effort to produce a less time consuming and efficient alternative to symbolic analysis tools.
 The preprocessing steps followed in this paper were very similar to the methods used by ~\cite{madmax}.
 The model was trained and tested on a dataset of 165,652 ERC-20 smart contracts, which consisted of bytecode data labeled by Maian and Mythril (statistical code analysis tools).
@@ -80,7 +80,7 @@ Further they have compared the time performance of their model to those of the s
 While their proposed model had a runtime of 15 seconds on a testing set of 5,000 random tokens, Maian and Mythril took 32,476 and 9,475 seconds respectively.
 These results indicate the same type of improvement achieved over symbolic analysis tools as in ~\cite{grech2019gigahorse}.
 
-In 2018, Liao et al. have adopted a sequence learning approach to detect smart contract security threats ~\cite{madmax}.
+Liao et al. have adopted a sequence learning approach to detect smart contract security threats ~\cite{madmax}.
 Smart contract data was obtained from the Google Big Query Ethereum blockchain dataset.
 Ultimately, an LSTM model was trained on 620,000 contracts from this source. Once again, the derived opcodes from the contracts were represented as one-hot vectors.
 As this type of representation results in highly sparse and uninformative features, these vectors were transformed into code vectors using embedding algorithms, resulting in lower dimensionality and a higher capability of capturing potential relationship between sequences.
@@ -91,7 +91,7 @@ Therefore, all vulnerable contracts were grouped together and oversampled to ach
 The results indicated the superiority of a sequential learning approach over symbolic analysis tools.
 The model achieved a vulnerability detection accuracy of 99.57\% and F1 score of 86.04\%.
 
-In 2019, SoliAudit model was proposed to enhance the vulnerability detection of smart contracts ~\cite{etehrTrust}.
+SoliAudit model was proposed to enhance the vulnerability detection of smart contracts ~\cite{etehrTrust}.
 Smart contract source code in Solidity is converted into an opcode sequence to preserve the structure of executions.
 Each contract goes through both a dynamic fuzzer and a vulnerability analyzer.
 The vulnerability analyzer consists of a static machine learning classifier, which detects vulnerable classes, whereas the fuzzer (this term was introduced in an earlier paper) will parse the Application Binary Interface (ABI) of a smart contract to extract its declared function descriptions, data types of their arguments and their signatures.
@@ -104,7 +104,7 @@ The output from the latter (word2vec) was a matrix and a Convolutional Neural Ne
 However, this combination of feature extraction and training did not yield good results.
 The best results for the classification of vulnerabilities were obtained using Logistic Regression with an accuracy of 97.3\% and F1 score of 90.4\%.
 
-In 2020, Xing et al. ~\cite{hu2021comprehensive} developed a new feature extraction method called slicing matrix, which consists of segmenting the opcode sequences derived from smart contract bytecodes to extract opcode features from each one individually.
+Xing et al. ~\cite{hu2021comprehensive} developed a new feature extraction method called slicing matrix, which consists of segmenting the opcode sequences derived from smart contract bytecodes to extract opcode features from each one individually.
 The purpose of this segmentation is to separate useful and useless opcodes.
 The extracted opcode features are then combined to form the slice matrix.
 To carry out a comparative analysis, three models were created.
@@ -113,7 +113,7 @@ These three models were each tested on three different vulnerability classificat
 While RFBOOF achieved the best results in all three cases based on precision, recall and F1 evaluation metrics, CNNBOSM performed slightly better than NNBOOF in general.
 The authors mention that the slice matrix feature need further exploring.
 
-In 2020, In N. Lesimple et al.'s paper ~\cite{day2019ethereum}, the authors study the effect of deep learning models when used to identify vulnerabilities in Smart Contracts.
+In N. Lesimple et al.'s paper ~\cite{day2019ethereum}, the authors study the effect of deep learning models when used to identify vulnerabilities in Smart Contracts.
 It specifically highlights the vulnerabilities relating to Domain Specific Languages (DSL), which is defined as a language engineered to work solely on a single program.
 This is highly relevant for blockchain, as Solidity was specifically designed for Ethereum, and therefore is a DSL.
 The authors then identify some common vulnerabilities in traditional smart contract code, and examine issues with traditional vulnerability checking techniques.
@@ -126,7 +126,7 @@ They found that LSTM's outperformed most RNN models, and due to the vast variety
 Their results were quite accurate, but it is important to note that the results were tested against results from a traditional model that they were actually attempting to replace.
 If this paper could acquire a test set of vulnerabilities that were not acquired through the use of a traditional method, the results would be more poignant.
 
-In 2021, Liu Z. et al. proposed a combining GNN and expert knowledge based machine learning model for detecting various smart contract vulnerabilities ~\cite{hwang2020gap}.
+Liu Z. et al. proposed a combining GNN and expert knowledge based machine learning model for detecting various smart contract vulnerabilities ~\cite{hwang2020gap}.
 A graph neural network (GNN) is a deep learning method, where the principle is to perform inference on data described by graphs.
 In computer science, a graph is a data structure consisting of two components: nodes (vertices) and edges. Researches have proven that written programs can be converted to symbolic graph representation, without disrupting semantic relationship between programming elements.
 Thus, smart contract codes can be represented as contract graphs.
@@ -143,14 +143,14 @@ In experiment, the proposed model is compared with non-ML-based security detecti
 Each algorithm and the proposed model performed a search of several vulnerabilities (re-entrancy, timestamp dependence, and infinite loop vulnerabilities) of each function in the source code.
 aThe proposed algorithms (CGE) achieved 89\% accuracy on finding re-entrancy and timestamp dependence type of vulnerabilities, and 83\% accuracy on detecting infinite loop vulnerability ~\cite{hwang2020gap}.
 
-In 2021, Eth2Vec model is proposed to deficiency in current vulnerability detection tools when a code is rewritten. In programming languages, a code rewrite is reimplementing a source code's functionality without reusing it.
+Eth2Vec model is proposed to deficiency in current vulnerability detection tools when a code is rewritten. In programming languages, a code rewrite is reimplementing a source code's functionality without reusing it.
 When the smart contract codes are rewritten, detecting vulnerabilities become harder.
 The authors first converted each smart contract source code into EVM bytecodes.
 From the bytecode, the authors extracted only valuable information (i.e., function id, list of callee functions etc.) for vulnerability detection.
 As the last process, a neural network structure is used to catch any vulnerabilities in the source code.
 After testing the proposed model on 500 contracts, the Eth2Vec model was able to detect vulnerabilities with a 77\% precision even though the contracts are rewritten.
 
-In 2021, O. Lutz et al.~\cite{dolan2016lava} introduce yet another method of detecting vulnerabilities within smart contracts.
+O. Lutz et al.~\cite{dolan2016lava} introduce yet another method of detecting vulnerabilities within smart contracts.
 The authors propose a solution entitled ESCORT, wherein they use a Deep Neural Network model to learn the semantics of the input smart contract, and learn specific vulnerability types based on the found semantics.
 The goal of the ESCORT model is to overcome the scalability and generalization limitations of traditional non-DNN models.
 Experimental results of this paper yielded an F1 accuracy score of 9\% on six found vulnerability types, with a detection time of 0.02 seconds per contract.
@@ -158,7 +158,7 @@ With such quick detection times, scalability is more easily achieved, satisfying
 Then, through the use of transfer learning, the ESCORT model slightly overcomes the issues found in other papers, such as Y. Xu or N. Lesimple's models~\cite{grech2019gigahorse}, where newfound vulnerabilities can be realized by the model.
 Unfortunately, it is rather difficult to obtain interpretability from such models, and though new vulnerabilities may be found, understanding their cause remains to be exceedingly difficult.
 
-In 2021, Sun et al. have attempted to detect the following vulnerabilities: re-entrancy, arithmetic issues (integer overflow/underflow) and timestamp dependence using machine learning ~\cite{grech2019gigahorse}.
+Sun et al. have attempted to detect the following vulnerabilities: re-entrancy, arithmetic issues (integer overflow/underflow) and timestamp dependence using machine learning ~\cite{grech2019gigahorse}.
 As a common prerequisite step, some stackoperating instructions were truncated into more general forms (e.g., SWAP1, SWAP2, ..., SWAPn. → SWAPx) to account for variations in instructions among different compilers.
 Following this, opcodes were separated into 9 categories based on their functions, as a label normalization step.
 As in ~\cite{etehrTrust} a word2vec transformation of the opcode sequences, preceding the convolutional layers, was performed.
@@ -168,19 +168,19 @@ As a result, the word embedding process has been enhanced through the use of sel
 When compared to the vulnerability detection performance of ~\cite{etehrTrust}, they have both used a CNN but ~\cite{etehrTrust} used a word2vec embedding whereas this paper employed an attention mechanism, which is the likely reason that they obtained better results.
 obtained better results. The main improvement of the created model over the existing static analyzers such as Oyente and Mythril is that it can achieve comparable performance in much less time.
 
-In 2021, a vulnerability and transaction behaviour-based detection is proposed ~\cite{contractfuzzer}
+A vulnerability and transaction behaviour-based detection is proposed ~\cite{contractfuzzer}
  In this work, the authors built a model that correlates malicious activities, and the vulnerabilities present in smart contracts.
  In respect to strength of the correlation unsupervised ML models (K-means and HDBSCAN) assign a severity score to each smart contract.
  The model was trained to detect suspects among benign smart contracts. The aim of the research was to test their hypothesis, which was “the transaction behavior is a more critical factor in identifying malicious smart contracts than vulnerabilities in the smart contract.” Thus, they brought a different perspective to the literature of smart contracts vulnerability detection.
 
-In 2021, Y. Xu et al.'s paper introduced two novel smart contract vulnerability detecting approach using both a KNearest Neighbors (KNN) model and a Stochastic Gradient Descent (SGD) model~\cite{slither}.
+Y. Xu et al.'s paper introduced two novel smart contract vulnerability detecting approach using both a KNearest Neighbors (KNN) model and a Stochastic Gradient Descent (SGD) model~\cite{slither}.
 Identifying some common vulnerabilities identified by traditional methods today, they attempt to use each of the machine learning models to identify eight of the most prominently recognized traditional vulnerability types, including arithmetic, reentrancy, denial of service, unchecked low level calls, access control, bad randomness, front running, and denial of service.
 As with N.Lesimple's paper~\cite{he2019learning}, the input to their model uses an AST structure, allowing the model to gather line by line information about the smart contract code.
 The labels for the vulnerabilities were identified using traditional methods.
 The paper notes high accuracy, precision and recall, for four of the eight vulnerabilities.
 The other four did not have enough samples in the dataset, and the corresponding results were recognized as inconclusive. As with the N. Lesimple paper, the test set was created from results from using traditional methods, indicating that the authors were unable to illustrate how the KNN model differed from traditional techniques.
 
-In 2021, ContractWard model is proposed as a faster alternative for Oyente~\cite{oyente}.
+ContractWard model is proposed as a faster alternative for Oyente~\cite{oyente}.
 The dataset consisted of 49502 smart contracts, where each of them contained six possible vulnerabilities: integer overflow/underflow, transaction ordering dependency,
 call stack depth attack, timestamp dependency, and re-entrancy vulnerability.
 Each contract's source code is converted to opcodes.
