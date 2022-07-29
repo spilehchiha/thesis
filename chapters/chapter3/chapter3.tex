@@ -34,8 +34,8 @@ We provided our insights on limitations and advancement of ML-driven solutions.
 Classic software testing technologies applied towards smart contract security analysis can be diivied into three categories; In the following, we will go over the tools proposed from the perspective of the technology they employ to tackle the smart contract security problem:
 
 \paragraph{Static Analysis}
-Static analysis is the method of analyzing a computer program of a program without running it, which can be performed at both source code and bytecode level.
-Tools that employ the method of static analysis are able to scan the entirety of a code base base but also produce much false positives in the results of their scans.
+Static analysis, which can be done at both the source code and bytecode levels, is a technique for studying a computer programme without running it.
+Static analysis-based tools can scan a whole code base, but they also generate a lot of false positives as a result of their scans.
 SolidityCheck~\cite{soliditycheck} retrieves each function at the source code level and checks the piece that matches the pre-defined vulnerability patterns.
 Normally, other tools will first obtain binary bytecode, and then use it to construct a custom intermediate representation, which have a series of forms, like SSA used in Slither~\cite{slither}, Datalog used in Securify~\cite{securify} and MadMax~\cite{madmax}, XML parsing tree used in SmartCheck~\cite{smartcheck} and XCFG used in ClairvOyance~\cite{ClairvOyance}.
 Based on this representation, vulnerability pattern definition and matching are performed to screen out suspected code snippets.
@@ -167,7 +167,7 @@ In 2021, a vulnerability and transaction behaviour-based detection is proposed ~
  The model was trained to detect suspects among benign smart contracts. The aim of the research was to test their hypothesis, which was “the transaction behavior is a more critical factor in identifying malicious smart contracts than vulnerabilities in the smart contract.” Thus, they brought a different perspective to the literature of smart contracts vulnerability detection.
 
 In 2021, Y. Xu et al.'s paper introduced two novel smart contract vulnerability detecting approach using both a KNearest Neighbors (KNN) model and a Stochastic Gradient Descent (SGD) model~\cite{slither}.
-Identifying some common vulnerabilities identified by traditional methods today, they attempt to use each of the machine learning models to identify eight of the most prominently recognized traditional vulnerability types: re-entrancy, arithmetic, access control, denial of service, unchecked low level calls, bad randomness, front running, and denial of service.
+Identifying some common vulnerabilities identified by traditional methods today, they attempt to use each of the machine learning models to identify eight of the most prominently recognized traditional vulnerability types, including arithmetic, reentrancy, denial of service, unchecked low level calls, access control, bad randomness, front running, and denial of service.
 As with N.Lesimple's paper~\cite{he2019learning}, the input to their model uses an AST structure, allowing the model to gather line by line information about the smart contract code.
 The labels for the vulnerabilities were identified using traditional methods.
 The paper notes high accuracy, precision and recall, for four of the eight vulnerabilities.

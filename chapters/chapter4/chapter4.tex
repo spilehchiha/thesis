@@ -13,11 +13,12 @@
 	There has been some effort from the research community to develop automated analysis tools and frameorks~\cite{ref_tools} that locate and eliminate vulnerabilities in smart contracts.
 	These tools and frameworks analyze smart contracts and produce vulnerability reports.
 	In a preliminary study performed on nearly one million Ethereum smart contracts, using one analysis framework for verifying correctness, the researchers flagged 34,200 of them as vulnerable.~\cite{ref_flag1}
-	A different study showed that of 19,366 smart contracts analysed, also in Ethereum, 8,833 (around \%46) were flagged as vulnerable.~\cite{ref_flag2}
-
+	Another research effort showed that 8,833 (around \%46) smart contracts on the Ethereum blockchain were flagged as vulnerable out of 19,366 smart contracts.~\cite{ref_flag2}
+	
 	Famous attacks, such as The DAO exploit~\cite{dao} and the Parity wallet bug~\cite{ref_parity} illustrate this problem and have led to substantial financial losses and consequent effort from the research community to counter such incidents.
 
-	However, it is not easy to compare and reproduce such research; even though several of the tools built by the research community are publicly available, the datasets used to test and benchmark those very same tools are not.
+	Comparing and reproducing such research is not an effortless process.
+	The datasets used to test and benchmark those very same tools proposed in the research literature are not publicly available and this makes reprodyction efforts immensely hard to carry out.
 
 	If the developer of a new tool intends to compare their new tool with existing work and projects, the current approach is to contact the authors of alternative tools and hope for access to the same datasets or make do with whatever out-of-date incomprehensive and unrepresentative dataset they have at their disposal, a very timely and inefficient process.
 
@@ -104,7 +105,8 @@
 
 	\subsection{Data Acquisition}
 		The current dataset is collected from Etherscan, which is the largest decentralized platform for Ethereum smart contracts.
-		All contracts stored on Etherscan are indexed by unique addresses, so we first retrieve the addresses of all contracts that have more than one transaction through Google BigQuery.
+		Every contract stored on Etherscan's database is indexed by its own corresponding addresses,
+		In order to collect these smart contracts, We first retrieve the addresses for every contract which has more than one transaction through Google BigQuery.
 		Using Google BigQuery query request service, we obtain 1,712,347 distinct contract addresses that have more than one transactions associated with them.
 
 	\subsection{Data Generation}
@@ -116,12 +118,16 @@
 		They way this works under the hood is that crytic-compile compiles an input smart contract and outputs a compilation untit in the standard solc output format, written in a json file, alongside the source code and other metadata.
 		Unlike the other proposed datasets and tools discussed in Section~\ref{sec:relwork}, EtherBase targets the core problem of the lack of reproducibility in the research literature.
 		Discussions surrounding what types of secondary metrics to retrieve from the Ethereum blockchain or third-party services will be explored further.
-		For further analysis, we only retain source-available contracts.
-		Then we adopt the method used in~\cite{deduplicate} to remove the duplicates, that is checking whether the MD5 checksums of the two source files are identical after removing all the blank lines and comments.
-		After deduplication, we get 48,622 unique contracts.
-		For this paper and as of now, we have released 5,000 smart contracts for the tool comparison purposes in \etherbase~due to the technical challenges given in Section~\ref{section:challenges}.
-		There exist many metrics that we have access to, can calculate, and add to \etherbase, but not a lot of research has been conducted on the applicability of these many different types of metrics to empirical research on the Ethereum blockchain or how much it appeals to the researchers active in this field.
-		In the following, we describe the initial set of the metrics we selected to include in EtherBase in the form of a table, to be followed by more, after more discussion and research on their applicability to research on smart contracts.
+		
+		For the rest of the analysis of the collected contracts, we only get to work on contracts with available source-code.
+		We adopt the method used in the work of ~\cite{deduplicate} to remove the duplicates smart contracts,
+		that is checking the MD5 checksums of each of the two source files in the collected dataset to see if they are the same and after removing the whitespace among the lines of code.
+		After the process of deduplication is done, we get down to 48,622 smart contracts contracts.
+		For this paper and as of now, we have released 5,000 smart contracts for the tool comparison purposes.
+		There exist many metrics that we have access to, can calculate, and add to \etherbase, but not a lot of research has been conducted on the applicability
+		of these many different types of metrics to empirical research on the Ethereum blockchain or how much it appeals to the researchers active in this field.
+		In the following, we describe the initial set of the metrics we selected to include in EtherBase in the form of a table, to be followed by more,
+		after more discussion and research on their applicability to research on smart contracts.
 
 		The built-in metrics relating to smart contracts are those features which depend on the internal properties of a smart contract, e.g. SLOC (Source Lines of Code), Pragma version, number of modifiers, payable, etc. Hence the title \emph{primary metrics}.
 
@@ -313,17 +319,25 @@ The \texttt{artifact.zip} file contains
 \end{forest}
 }%
 
-	In addition to making the datasets available on GitHub, \etherbase also enjoy a graphical user interface (GUI) in order to allow the less technical end users access and browse through the database.
+	In addition to making the datasets available on GitHub, \etherbase also enjoy a graphical user interface (GUI) in order to allow the less technical end users access
+	and browse through the database.
 	We integrated \etherbase with Apache Superset, a powerful business intelligence tool, which lets you creata charts and dashboards using the data from the database.
 
 \subsection{Data Application}
-	In order to showcase an application of the empirical usage of the data from \etherbase,  the 5,000 filtered smart contract data set is labelled using three of the most prominently used static analysis tools in Ethereum research that detect various vulnerabilities in smart contracts, using a majority voting mechanism, in order to see how they fare against each other based an automatically labelled dataset.
-	The criteria we used for tool selection was pretty simple; we wanted tools that had a focus on assessing Solidity source code instead of bytecode, and that they are available as open-source software and can be evaluated based on their vulnreability detection mechanisms.
+	In order to showcase an application of the empirical usage of the data from \etherbase, 
+	the 5,000 filtered smart contract data set is labelled using three of the most prominently used static analysis tools in Ethereum research that detect
+	various vulnerabilities in smart contracts, using a majority voting mechanism, in order to see how they fare against each other based an automatically labelled dataset.
+	The criteria we used for tool selection was pretty simple; we wanted tools that had a focus on assessing Solidity source code instead of bytecode,
+	and that they are available as open-source software and can be evaluated based on their vulnreability detection mechanisms.
 	Based on such criteria, we selected the following three tools for our Data Application phase experiment:
 	\begin{itemize}
-		\item \textbf{Slither:} Slither~\cite{slither} is a static analysis tool designed to analyze Ethereum smart contracts. It has four prominent use cases: automated detection of vulnerabilities, automated detection of code optimization opportunities, improvement of users' understanding of the contracts, and assistant with code review.
+		\item \textbf{Slither:} Slither~\cite{slither} is a static analysis tool designed to analyze Ethereum smart contracts.
+		It has four prominent use cases:
+		automated detection of vulnerabilities, automated detection of code optimization opportunities, improvement of users' understanding of the contracts,
+		and assistant with code review.
 		\item \textbf{Mythril:} Mythril is a tool that does security analysis of Ethereum smart contracts. It detects various security issues~\cite{mythril}.
-		\item \textbf{Smartcheck:} Smartcheck~\cite{smartcheck} is an extensible static analysis tool that detects vulnerabilities in smart contracts. It converts Solidity code into XML-based intermediate representation and checks it with XPATH patterns.
+		\item \textbf{Smartcheck:} Smartcheck~\cite{smartcheck} is an extensible static analysis tool that detects vulnerabilities in smart contracts.
+		It converts Solidity code into XML-based intermediate representation and checks it with XPATH patterns.
 	\end{itemize}
 	
 	
@@ -372,9 +386,11 @@ The \texttt{artifact.zip} file contains
 	
 	\item Note the vulnerability name and line number for the vulnerability per tool. 
 	
-	\item For the same vulnerability, if different tools show different locations, consider them as different warnings. We consider two warnings as the same only if the vulnerability name and location match for different tools.
+	\item For the same vulnerability, if different tools show different locations, consider them as different warnings.
+		We consider two warnings as the same only if the vulnerability name and location match for different tools.
 	
-	\item The methodology says that the vulnerability exists at a location if more than 50\% of the tools (2 out of 3 in this experiment scenario) confirm the same vulnerability at the exact location. In that case, label the location with the vulnerability.
+	\item The methodology says that the vulnerability exists at a location if more than 50\% of the tools (2 out of 3 in this experiment scenario) confirm the same vulnerability at the exact location.
+		In that case, label the location with the vulnerability.
 	
 	\end{enumerate}
 	
@@ -392,7 +408,8 @@ The \texttt{artifact.zip} file contains
 
 
 \section{Concluding Remarks}
-	This chapter introduces an up-to-date database, centred around Ethereum smart contracts, namely \etherbase, which includes data on the Ethereum blockchain (blocks), its smart contracts, and their metadata.
+	This chapter introduces an up-to-date database, centred around Ethereum smart contracts, namely \etherbase, which includes data on the Ethereum blockchain (blocks),
+	its smart contracts, and their metadata.
 	Moreover, aggregate statistics and dataset exploration is presented.
 	Furthermore, future research directions and opportunities are outlined:
 
@@ -405,7 +422,8 @@ The \texttt{artifact.zip} file contains
 
 	We will also be labelling more smart contracts with more tools as we have more time and compute resources moving forward.
 
-	The Ethereum security research community can use \etherbase for evaluating correctness and other parameters of their proposed or other toolsets, especially those based on machine learning techniques that need comprhensiver datasets for training, validation, and testing phases.
+	The Ethereum security research community can use \etherbase for evaluating correctness and other parameters of their proposed or other toolsets,
+	especially those based on machine learning techniques that need comprhensiver datasets for training, validation, and testing phases.
 	\etherbase~comprises a diverse and comprehensive set of real-world heterogenuous annotated smart contracts.
 	
 	Every tool which was selected for this evaluation is not a complete one.
