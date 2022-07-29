@@ -9,50 +9,48 @@ The style file: abbrv.bst
 Database file #1: references.bib
 Database file #2: bib/pulp.bib
 Database file #3: bib/new.bib
-Warning--entry type for "soliditycheck" isn't style-file defined
---line 713 of file bib/new.bib
 Database file #4: bib/bib.bib
 Warning--empty publisher in etehrTrust
 Warning--empty booktitle in verismart
-You've used 45 entries,
+You've used 44 entries,
             2118 wiz_defined-function locations,
-            731 strings with 12739 characters,
-and the built_in function-call counts, 19852 in all, are:
-= -- 1989
-> -- 995
+            727 strings with 12593 characters,
+and the built_in function-call counts, 19586 in all, are:
+= -- 1967
+> -- 977
 < -- 28
-+ -- 399
-- -- 348
-* -- 1238
-:= -- 2984
-add.period$ -- 144
-call.type$ -- 45
-change.case$ -- 304
++ -- 392
+- -- 342
+* -- 1221
+:= -- 2940
+add.period$ -- 142
+call.type$ -- 44
+change.case$ -- 298
 chr.to.int$ -- 0
-cite$ -- 47
-duplicate$ -- 869
-empty$ -- 1458
-format.name$ -- 348
-if$ -- 4443
+cite$ -- 46
+duplicate$ -- 862
+empty$ -- 1436
+format.name$ -- 342
+if$ -- 4388
 int.to.chr$ -- 0
-int.to.str$ -- 45
+int.to.str$ -- 44
 missing$ -- 37
-newline$ -- 220
-num.names$ -- 90
-pop$ -- 410
+newline$ -- 216
+num.names$ -- 88
+pop$ -- 399
 preamble$ -- 1
-purify$ -- 263
+purify$ -- 258
 quote$ -- 0
-skip$ -- 783
+skip$ -- 775
 stack$ -- 0
-substring$ -- 1058
-swap$ -- 398
+substring$ -- 1053
+swap$ -- 397
 text.length$ -- 28
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 178
+type$ -- 174
 warning$ -- 2
-while$ -- 156
-width$ -- 47
-write$ -- 497
-(There were 3 warnings)
+while$ -- 154
+width$ -- 46
+write$ -- 489
+(There were 2 warnings)

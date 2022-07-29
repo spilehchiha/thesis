@@ -271,9 +271,4 @@ C.~S. Yashavant, S.~Kumar, and A.~Karkare.
   with vulnerabilities.
 \newblock {\em arXiv preprint arXiv:2202.11409}, 2022.
 
-\bibitem{soliditycheck}
-P.~Zhang, F.~Xiao, and X.~Luo.
-\newblock Soliditycheck : Quickly detecting smart contract problems through
-  regular expressions, 11 2019.
-
 \end{thebibliography}

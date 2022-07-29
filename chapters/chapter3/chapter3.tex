@@ -41,7 +41,7 @@ Based on this representation, vulnerability pattern definition and matching are 
 Formal verification, a static analysis technique based on mathematical proof, is frequently used to check the logical integrity of smart contracts like Zeus~\cite{kalra2018zeus}, VeriSmart~\cite{verismart}, and EtherTrust~\cite{etehrTrust}.
 
 \paragraph{Dynamic Analysis}
-Fuzzing is a method of discovering software failures by constructing unexpected input data and monitoring the abnormal results of the target program during execution.
+Fuzzing is a technique for finding software bugs that involves creating erroneous input data and watching the target program's unusual output while it runs.
 It allows developers to ensure a uniform standard of quality through prepared tests, but does not narrow down the causes of detected bugs.
 When applied to smart contracts, a fuzzing engine will first try to generate initial seeds to form executable transactions.
 With reference to the feedback of test results, it will dynamically adjust the generated data to explore as much smart contract state space as possible.
