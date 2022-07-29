@@ -10,47 +10,48 @@ Database file #1: references.bib
 Database file #2: bib/pulp.bib
 Database file #3: bib/new.bib
 Database file #4: bib/bib.bib
+Warning--empty journal in ferreira2022smart
 Warning--empty publisher in etehrTrust
 Warning--empty booktitle in verismart
-You've used 44 entries,
+You've used 45 entries,
             2118 wiz_defined-function locations,
-            727 strings with 12593 characters,
-and the built_in function-call counts, 19586 in all, are:
-= -- 1967
-> -- 977
+            731 strings with 12776 characters,
+and the built_in function-call counts, 19789 in all, are:
+= -- 1986
+> -- 984
 < -- 28
-+ -- 392
-- -- 342
-* -- 1221
-:= -- 2940
-add.period$ -- 142
-call.type$ -- 44
-change.case$ -- 298
++ -- 395
+- -- 344
+* -- 1229
+:= -- 2978
+add.period$ -- 145
+call.type$ -- 45
+change.case$ -- 302
 chr.to.int$ -- 0
-cite$ -- 46
-duplicate$ -- 862
-empty$ -- 1436
-format.name$ -- 342
-if$ -- 4388
+cite$ -- 48
+duplicate$ -- 872
+empty$ -- 1453
+format.name$ -- 344
+if$ -- 4428
 int.to.chr$ -- 0
-int.to.str$ -- 44
-missing$ -- 37
-newline$ -- 216
-num.names$ -- 88
-pop$ -- 399
+int.to.str$ -- 45
+missing$ -- 38
+newline$ -- 221
+num.names$ -- 90
+pop$ -- 405
 preamble$ -- 1
-purify$ -- 258
+purify$ -- 261
 quote$ -- 0
-skip$ -- 775
+skip$ -- 782
 stack$ -- 0
-substring$ -- 1053
+substring$ -- 1058
 swap$ -- 397
 text.length$ -- 28
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 174
-warning$ -- 2
-while$ -- 154
-width$ -- 46
-write$ -- 489
-(There were 2 warnings)
+type$ -- 178
+warning$ -- 3
+while$ -- 156
+width$ -- 47
+write$ -- 498
+(There were 3 warnings)

@@ -4,18 +4,22 @@
 \label{chap:background}
     In this chapter, we go over the necessary background knowledge to be better acquanited with the work conducted within this thesis.
     We highlight the foundational technicalities of Ethereum blockchain and smart contracts, including common vulnerabilities in smart contracts.
+    We cover these technicalities in the following order (based on the work of~\cite{ferreira2022smart}):
+        First, we go over the basics of Ethereum, its components and structure. We will go through how blocks are formed,
+        what sort of accounts exist on the Ethereum network, and how transactions are executed.
+        We will also go through how the Ethereum Virtual Machine functions.
+        Afterwards, we will go over smart contracts and their most common vulnreabilities out in the wild.
+        We will discuss Solidity-written source code and bytecode of smart contracts, and explain each vulnrability according to the DASP 10 classification.~\cite{dasp}
+
 
 \section{Ethereum}
     Ethereum is a blockchain technology that was introduced in 2014~\cite{wood2014ethereum}.
-    A blockchain is basically a peer-to-peer network consisitng of computers as nodes that update and share a copy of one singular database without necessarily trusting one another.
+    A blockchain is essentially a peer-to-peer network made up of computers that act as nodes and distribute updates for a single database
+    without necessarily having confidence in one another. 
     It is a specialized version of a secure, transaction-based state machine.~\cite{wood2014ethereum}.
-    The aforementioned database essentially acts as a ledger that keeps a record of every single transaction that the nodes perform within the blockchain network.
-    The term “block” refers to the fact that transactions are grouped into batches;
-    those batches are called “blocks”, data structures within the blockchain database where transaction data are permanently recorded.
-    A transaction has to be included in such a block in order to be considered valid.
-    The term “chain” refers to the fact that each block is cryptographically linked to its previous block via a cryptographic hash, whereby the first block (i.e., genesis block) counts as an exception as it has no previous block and therefore acts as a root of trust.
-    In other words, blocks are chained together and form a chain of blocks, which is known as a “blockchain”.
-    
+    The aforementioned database effectively serves as a ledger, recording each and every transaction that each node in the blockchain network makes. 
+
+
     \begin{figure}
         \centering
         \includegraphics[width=\textwidth]{figures/ethereum-blocks.png}
@@ -148,7 +152,6 @@
             Thus, the gas limit that the EOA provides within its normal transaction, must be large enough to perform the execution of the normal transaction, including any sub-executions that occur as a result of that transaction, such as any internal transactions.
             If the execution of an internal transaction runs out of gas, then its execution will be will be reverted, along with any subsequent internal transactions triggered by the execution.
             However, the parent execution is not reverted.
-
 
     \subsection{Blocks}
 
