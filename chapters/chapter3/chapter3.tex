@@ -1,10 +1,6 @@
 \chapter{Automated Vulnerability Analysis of Smart Contracts on Ethereum} 
 \label{ch:Slither-simil}
 
-% \textit{
-% This chapter is adapted from work supervised by Jeremy Clark and Mohammad Mannan, and is accepted for publication at the 2022 Workshop on Trusted Smart Contracts (WTSC) co-located with Financial Cryptography and Data Security (FC).
-% }
-
 \section{Introductory Remarks}
 Smart contracts, the universal and vital programs that are deployed on blockchains, have gained increasing attention with the rapid development of blockchains.
 For example, more than 10 million smart contracts have been deployed on the Ethereum Mainnet.
@@ -26,20 +22,22 @@ To minimize the risk of the attackers, machine learning powered systems provide 
 
 Surucu et al.~\cite{surucu2022survey} provide the first-ever survey on machine learning methods utilized for the purposes of discovery and mitigation of vulnerabilities in smart contracts.
 In order to set the ground for further development of ML method on smart contract vulnerability detection, They reviewed many ML-driven intelligent detection mechanism on the following databases: Google Scholar, Engineering Village, Springer, Web of Science, Academic Search Premier, and Scholars Portal Journal.
-Base on their work, we briefly go over the existing analysis tool first, and the the novel deep-learning-based methodologies proposed in the literature over the past few years.
+Base on their survey paper, we briefly go over the existing analysis tool first, and the the novel deep-learning-based methodologies proposed in the literature over the past few years.
 Afterwards, we propose our own solution, \slithersimil and how it led us to the development of \etherbase.
 
 
 \section{Existing Analysis Tools}
 
-Classic software testing technologies applied towards smart contract security analysis can be diivied into three categories;
+Classic software testing technologies applied towards smart contract security analysis can be divided into three categories;
 
 In the following, we will go over the tools proposed from the perspective of the technology they employ to tackle the smart contract security problem:
 
 \paragraph{Static Analysis}
 Static analysis, which can be done at both the source code and bytecode levels, is a technique for studying a computer programme without running it.
 Static analysis-based tools can scan a whole code base, but they also generate a lot of false positives as a result of their scans.
-Normally, other tools will first obtain binary bytecode, and then use it to construct a custom intermediate representation, which have a series of forms, like SSA used in Slither~\cite{slither}, Datalog used in Securify~\cite{securify} and MadMax~\cite{madmax}, XML parsing tree used in SmartCheck~\cite{smartcheck} and XCFG used in ClairvOyance~\cite{ClairvOyance}.
+Normally, other tools will first obtain binary bytecode, and then use it to construct a custom intermediate representation, which have a series of forms,
+like SSA used in Slither~\cite{slither}, Datalog used in Securify~\cite{securify} and MadMax~\cite{madmax}, XML parsing tree used in SmartCheck~\cite{smartcheck} and
+XCFG used in ClairvOyance~\cite{ClairvOyance}.
 Based on this representation, vulnerability pattern definition and matching are performed to screen out suspected code snippets.
 Formal verification, a static analysis technique based on mathematical proof, is frequently used to check the logical integrity of smart contracts
 like Zeus~\cite{kalra2018zeus}, VeriSmart~\cite{verismart}, and EtherTrust~\cite{etehrTrust}.
@@ -58,15 +56,20 @@ ILF~\cite{he2019learning} and sFuzz~\cite{nguyen2020sfuzz} target at designing m
 When using symbolic execution to analyze a program, it will use symbolic values as input instead of the specific values during the execution.
 When a fork is reached, the analyzer will collect the corresponding path constraints, and then use a constraint solver to obtain specific values that can trigger each branch.
 Symbolic execution can simultaneously explore multiple paths that the program can take under different inputs, but it also faces unavoidable problems such as path explosion.
-In most cases, the symbolic executor will first build a control flow graph based on Ethereum bytecode, then design corresponding constraints based on the characteristics of smart contract vulnerabilities, and finally use the constraint solver to generate satisfying test cases; for example, Oyente~\cite{oyente}, Mythril~\cite{mythril}.
+In most cases, the symbolic executor will first build a control flow graph based on Ethereum bytecode, then design corresponding constraints based on the characteristics of
+smart contract vulnerabilities, and finally use the constraint solver to generate satisfying test cases; for example, Oyente~\cite{oyente}, Mythril~\cite{mythril}.
 In recent years, there has been continuous research to optimize the process of symbolic execution.
-Manticore~\cite{mossberg2019manticore} adds the support of exotic execution environments, DefectChecker~\cite{chen2021defectchecker} extracts defect related features to help improve efficiency, sCompile~\cite{chang2019scompile} identifies critical paths which involve monetary transaction and VerX~\cite{permenev2020verx} focuses on verifying effectively external callback free contracts.
+Manticore~\cite{mossberg2019manticore} adds the support of exotic execution environments, DefectChecker~\cite{chen2021defectchecker} extracts defect related features to help
+improve efficiency, sCompile~\cite{chang2019scompile} identifies critical paths which involve monetary transaction and VerX~\cite{permenev2020verx} focuses on verifying
+effectively external callback free contracts.
 
 \section{Deep Learning in Smart Contracts} \label{sec:dl-models}
 
-In this section, we will go over some of the literature focusing their efforts on replacing the existing tools' capabilities explained in the previous section with amchine learning-based techniques. Afterwards, we will go over our own developed tool, \slithersimil.
+In this section, we will go over some of the literature focusing their efforts on replacing the existing tools' capabilities explained in the previous section with amchine learning-based techniques.
+Afterwards, we will go over our own developed tool, \slithersimil.
 
-There have been a lot of efforts focused towards utilizing ML based techniques in the field of vulnerability discovery and mitigation with a specific focus on the programming language Solidity and its lower level representations.
+There have been a lot of efforts focused towards utilizing ML based techniques in the field of vulnerability discovery and mitigation with a specific focus on the programming language Solidity and
+its lower level representations.
 
 In 2018, Goswami et al. mentioned that while existing symbolic tools (e.g., Oyente) for analyzing vulnerabilities have proven to be efficient, their execution time increases significantly with depth of invocations in a smart contract ~\cite{grech2019gigahorse}.
 They proposed an LSTM neural network model to detect vulnerabilities in ERC-20 smart contracts in an effort to produce a less time consuming and efficient alternative to symbolic analysis tools.
@@ -193,11 +196,14 @@ In evolution stage, Micro-F1 and MicroF1 (variations of F1 metric) is utilized t
 The XGBoost model showed a robust performance by achieving over 96\% F1, Micro-F1, and Macro-F1score.
 
 \section{\slithersimil}
-Our efforts with regard to automating smart contract security assessments was to work on an addition to an already prominent static analysis tool, to better help developers and researchers in their process of auditing dmart contracts.
+Our efforts with regard to automating smart contract security assessments was to work on an addition to an already prominent static analysis tool, to better help developers and researchers in
+their process of auditing dmart contracts.
 
-Trail of Bits, a prominent blockchain security firm has manually curated a wealth of data—years of security assessment reports—and we decided to explore how to use this data to make the smart contract auditing process more efficient with an addition to Slither -a static analysis tool-named Slither-simil.
+Trail of Bits, a prominent blockchain security firm has manually curated a wealth of data—years of security assessment reports—and we decided to explore how to use this data to make the smart
+contract auditing process more efficient with an addition to Slither -a static analysis tool-named Slither-simil.
 
-Based on accumulated knowledge embedded in previous audits, we set out to detect similar vulnerable code snippets in new clients' codebases. Specifically, we explored machine learning (ML) approaches to automatically improve on the performance of Slither, our static analyzer for Solidity, and make life a bit easier for both auditors and clients.
+Based on accumulated knowledge embedded in previous audits, we set out to detect similar vulnerable code snippets in new clients' codebases. Specifically, we explored machine learning (ML)
+approaches to automatically improve on the performance of Slither, our static analyzer for Solidity, and make life a bit easier for both auditors and clients.
 
 Currently, human auditors with expert knowledge of Solidity and its security nuances scan and assess Solidity source code to discover vulnerabilities and potential threats at different granularity levels.
 In our experiment, we explored how much we could automate security assessments to:
@@ -213,7 +219,8 @@ This year, we took it to the next level and applying it directly to vulnerable c
 Slither-simil currently uses its own representation of Solidity code, SlithIR (Slither Intermediate Representation), to encode Solidity snippets at the granularity level of functions.
 We thought function-level analysis was a good place to start our research since it's not too coarse (like the file level) and not too detailed (like the statement or line level).
 
-SlithIR is the hybrid intermediate representation used in Slither to represent Solidity code. Each node of the control flow graph can contain up to a single Solidity expression, which is converted to a set of SlithIR instructions.
+SlithIR is the hybrid intermediate representation used in Slither to represent Solidity code. Each node of the control flow graph can contain up to a single Solidity expression, which is converted
+to a set of SlithIR instructions.
 This representation makes implementing analyses easier, without losing the critical semantic information contained in the Solidity source code.
 
 SlithIR uses fewer than 40 instructions. It has no internal control flow representation and relies on Slither's control-flow graph structure (SlithIR code is associated with each node in the graph).
@@ -276,7 +283,8 @@ SlithIR:
     \end{lstlisting}
 
 
-First, we converted every statement or expression into its SlithIR correspondent, then tokenized the SlithIR sub-expressions and further normalized them so more similar matches would occur despite superficial differences between the tokens of this function and the vulnerability database.
+First, we converted every statement or expression into its SlithIR correspondent, then tokenized the SlithIR sub-expressions and further normalized them so more similar matches would occur
+despite superficial differences between the tokens of this function and the vulnerability database.
 
 \begin{lstlisting}[float,caption= Normalized SlithIR tokens of the previous expressions., escapechar=\%, language=Solidity, label=lst:solidity-bug]
 type_conversion(uint256)
@@ -303,22 +311,32 @@ Due to the modularity of Slither-simil, we used various ML architectures to meas
 
 Let's take a look at the function transferFrom from the ETQuality.sol smart contract to see how its structure resembled our query function:
 
-Comparing the statements in the two functions, we can easily see that they both contain, in the same order, a binary comparison operation (>= and <=), the same type of operand comparison, and another similar assignment operation with an internal call statement and an instance of returning a “true” value.
+Comparing the statements in the two functions, we can easily see that they both contain, in the same order, a binary comparison operation (>= and <=), the same type of operand comparison,
+and another similar assignment operation with an internal call statement and an instance of returning a “true” value.
 
-As the similarity score goes lower towards 0, these sorts of structural similarities are observed less often and in the other direction; the two functions become more identical, so the two functions with a similarity score of 1.0 are identical to each other.
+As the similarity score goes lower towards 0, these sorts of structural similarities are observed less often and in the other direction; the two functions become more identical, so the two
+functions with a similarity score of 1.0 are identical to each other.
 
-Research on automatic vulnerability discovery in Solidity has taken off in the past two years, and tools like Vulcan and SmartEmbed, which use ML approaches to discovering vulnerabilities in smart contracts, are showing promising results.
+Research on automatic vulnerability discovery in Solidity has taken off in the past two years, and tools like Vulcan and SmartEmbed, which use ML approaches to discovering vulnerabilities in
+smart contracts, are showing promising results.
 
-However, all the current related approaches focus on vulnerabilities already detectable by static analyzers like Slither and Mythril, while our experiment focused on the vulnerabilities these tools were not able to identify—specifically, those undetected by Slither.
+However, all the current related approaches focus on vulnerabilities already detectable by static analyzers like Slither and Mythril, while our experiment focused on the vulnerabilities these
+tools were not able to identify—specifically, those undetected by Slither.
 
-Much of the academic research of the past five years has focused on taking ML concepts (usually from the field of natural language processing) and using them in a development or code analysis context, typically referred to as code intelligence.
-Based on previous, related work in this research area, we aim to bridge the semantic gap between the performance of a human auditor and an ML detection system to discover vulnerabilities, thus complementing the work of Trail of Bits human auditors with automated approaches (i.e., Machine Programming, or MP).
+Much of the academic research of the past five years has focused on taking ML concepts (usually from the field of natural language processing) and using them in a development or code analysis context,
+typically referred to as code intelligence.
+Based on previous, related work in this research area, we aim to bridge the semantic gap between the performance of a human auditor and an ML detection system to discover vulnerabilities, thus
+complementing the work of Trail of Bits human auditors with automated approaches (i.e., Machine Programming, or MP).
 
 We still face the challenge of data scarcity concerning the scale of smart contracts available for analysis and the frequency of interesting vulnerabilities appearing in them.
-We can focus on the ML model because it's sexy but it doesn't do much good for us in the case of Solidity where even the language itself is very young and we need to tread carefully in how we treat the amount of data we have at our disposal.
+We can focus on the ML model because it's a more facilitied process but it doesn't do much good for us in the case of Solidity where even the language itself is very young and we need to
+tread carefully in
+how we
+treat the amount of data we have at our disposal.
 
 Archiving previous client data was a job in itself since we had to deal with the different solc versions to compile each project separately.
-For someone with limited experience in that area this was a challenge, and I learned a lot along the way. (The most important takeaway of my summer internship is that if you're doing machine learning, you will not realize how major a bottleneck the data collection and cleaning phases are unless you have to do them.)
+For someone with limited experience in that area this was a challenge, and I learned a lot along the way. (The most important takeaway of my summer internship is that if you're doing machine
+learning, you will not realize how major a bottleneck the data collection and cleaning phases are unless you have to do them.)
 
 The pie chart shows how 89 vulnerabilities were distributed among the 10 client security assessments we surveyed.
 We documented both the notable vulnerabilities and those that were not discoverable by Slither.
