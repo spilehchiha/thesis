@@ -265,6 +265,12 @@ Y.~Xue, M.~Ma, Y.~Lin, Y.~Sui, J.~Ye, and T.~Peng.
 \newblock In {\em 2020 35th IEEE/ACM International Conference on Automated
   Software Engineering (ASE)}, pages 1029--1040, 2020.
 
+\bibitem{yashavant2022scrawld}
+C.~S. Yashavant, S.~Kumar, and A.~Karkare.
+\newblock Scrawld: A dataset of real world ethereum smart contracts labelled
+  with vulnerabilities.
+\newblock {\em arXiv preprint arXiv:2202.11409}, 2022.
+
 \bibitem{soliditycheck}
 P.~Zhang, F.~Xiao, and X.~Luo.
 \newblock Soliditycheck : Quickly detecting smart contract problems through

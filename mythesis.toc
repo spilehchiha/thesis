@@ -34,7 +34,7 @@
 \contentsline {chapter}{\numberline {4}{\scshape EtherBase\xspace }: Improving Reproducibility in Smart Contract Research}{43}{chapter.4}%
 \contentsline {section}{\numberline {4.1}Introductory Remarks}{43}{section.4.1}%
 \contentsline {section}{\numberline {4.2}Related Work}{45}{section.4.2}%
-\contentsline {section}{\numberline {4.3}Methodology}{47}{section.4.3}%
+\contentsline {section}{\numberline {4.3}Methodology}{48}{section.4.3}%
 \contentsline {subsection}{\numberline {4.3.1}Data Acquisition}{48}{subsection.4.3.1}%
 \contentsline {subsection}{\numberline {4.3.2}Data Generation}{49}{subsection.4.3.2}%
 \contentsline {subsection}{\numberline {4.3.3}Data Storage}{53}{subsection.4.3.3}%

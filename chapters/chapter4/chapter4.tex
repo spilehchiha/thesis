@@ -57,12 +57,13 @@
 	Moreover, the labeled dataset doesn't have more than a thousand smart contracts and only the source code (and no bytecode) of the contracts are available.
 
 	Ren et al.~\cite{Empirical-Evaluation-of-Smart-Contract-Testing:What-is-the-Best-Choice} crafted a benchmark suite that integrates labeled and unlabeled Smart Contracts from a variety of sources such as Etherscan~\cite{etherscan}, SolidiFI repository, Common Vulnerabilities and Exposures Library, and Smart Contract Weakness Classification and Test Cases library.
-	The unlabeled dataset has 45,622 Real-World Ethereum Smart Contracts having more than one transaction on the Ethereum blockchain.
+	Their pblicly released dataset has 45,622 real-world unlabeled Ethereum smart contracts having more than one transaction on the Ethereum blockchain.
 	The labeled dataset has artificially constructed contracts (350 contracts) and confirmed vulnerable contracts (214 contracts).
 
-	Many vulnerability analysis tools used unlabelled datasets to evaluate the tool.
+	Many of the authors of the tools proposed in this practice leverage unlabelled datasets to evaluate their toolset.
 	Due to huge number of contracts in these datasets, either the dataset is not annotated or a very small subset is annotated with the vulnerabilities present.
-	To the best of our knowledge, there is no fully annotated dataset released publicly.
+	To the best of our knowledge, there has been only one annotated dataset, realeased publicly, from Yashavant et al.~\cite{yashavant2022scrawld}
+	Our dataset has the advantage of updating regularly, and being more comprehensive with the more updated Solidity versions of different smart contracts available in the dataset.
 
 	Kalra et al.~\cite{kalra2018zeus} published their analysis results for 1,524 smart contracts with no other information or metadata in relation to those contracts.
 
