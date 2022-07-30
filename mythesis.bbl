@@ -1,5 +1,8 @@
 \begin{thebibliography}{10}
 
+\bibitem{pragmadocs}
+Pragmas, 2021.
+
 \bibitem{atzei2017survey}
 N.~Atzei, M.~Bartoletti, and T.~Cimoli.
 \newblock A survey of attacks on ethereum smart contracts (sok).
@@ -202,6 +205,12 @@ A.~Permenev, D.~Dimitrov, P.~Tsankov, D.~Drachsler-Cohen, and M.~Vechev.
 \newblock Verx: Safety verification of smart contracts.
 \newblock In {\em 2020 IEEE symposium on security and privacy (SP)}, pages
   1661--1677. IEEE, 2020.
+
+\bibitem{pierro2020organized}
+G.~A. Pierro, R.~Tonelli, and M.~Marchesi.
+\newblock An organized repository of ethereum smart contracts’ source codes
+  and metrics.
+\newblock {\em Future internet}, 12(11):197, 2020.
 
 \bibitem{slithersimil}
 S.~Pilehchiha.

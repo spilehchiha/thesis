@@ -351,61 +351,61 @@
 
         We provide in the following a detailed explanation of some of the more prominent smart contract vulnerabilities according to the above-mentioned DASP collection of vulnerabilities:
 
-        \paragraph{Re-entrancy}
-            A typical flaw in smart contracts are re-entrant calls.
-            Re-entrancy may occur whenever a contract sends a value to or calls a function from another contract, and the called contract has enough gas to call back the original contract.
-            As a result, the called contract re-enters the original contract.
-            Therefore, the original contract must guarantee that its state is always correct, independent of re-entrant calls.
-            Otherwise, a malicious contract can take advantage of an incorrect intermediate state to steal funds.
-            The 2016 DAO hack remains the most famous example of a reentrancy attack not only because an unknown attacker managed to steal funds worth 50M USD [47], but also because it led to a
-            hard fork of the Ethereum blockchain [164].
-            A way to protect against reentrancy is to use the Solidity methods send or transfer rather than call.
-            The aforementioned methods limit the amount of gas to 2,300 units, which makes it impossible for the called contract to modify the state or make any function calls.
-            However, this only protects the sending of value.
+            \paragraph{Re-entrancy}
+                A typical flaw in smart contracts are re-entrant calls.
+                Re-entrancy may occur whenever a contract sends a value to or calls a function from another contract, and the called contract has enough gas to call back the original contract.
+                As a result, the called contract re-enters the original contract.
+                Therefore, the original contract must guarantee that its state is always correct, independent of re-entrant calls.
+                Otherwise, a malicious contract can take advantage of an incorrect intermediate state to steal funds.
+                The 2016 DAO hack remains the most famous example of a reentrancy attack not only because an unknown attacker managed to steal funds worth 50M USD [47], but also because it led to a
+                hard fork of the Ethereum blockchain [164].
+                A way to protect against reentrancy is to use the Solidity methods send or transfer rather than call.
+                The aforementioned methods limit the amount of gas to 2,300 units, which makes it impossible for the called contract to modify the state or make any function calls.
+                However, this only protects the sending of value.
 
-        \paragraph{Access Control}
-            A typical design pattern in smart contracts is to assign an address as the owner of the smart contract [107].
-            This address has then privileged access to functions that can either update sensible variables, transfer funds, or destroy the entire contract.
-            Unfortunately, this also means that faulty implementations of access control can lead to devastating consequences. One example of a flawed access control implementation is the use of
-            Solidity's tx.origin to check whether the current address is authenticated to perform a sensible function call such as the withdrawal of funds.
-            However, tx.origin does not represent the currently calling address, but the very first address that initiated the transaction.
-            Remember that within a transaction, contracts can call other contracts, and therefore the calling address can be a different one at runtime.
-            An attacker can perform a man-in-the-middle attack by first convincing a victim to send a transaction to the attacker's contract, which then performs within the same transaction a
-            message call to the victim's wallet.
-            If the wallet checks for the transaction origin to authenticate users, then the attacker will be authenticated as the victim and might be able to steal the funds.
-            Developers should, therefore, rely on the msg.sender property to authenticate user accounts.
+            \paragraph{Access Control}
+                A typical design pattern in smart contracts is to assign an address as the owner of the smart contract [107].
+                This address has then privileged access to functions that can either update sensible variables, transfer funds, or destroy the entire contract.
+                Unfortunately, this also means that faulty implementations of access control can lead to devastating consequences. One example of a flawed access control implementation is the use of
+                Solidity's tx.origin to check whether the current address is authenticated to perform a sensible function call such as the withdrawal of funds.
+                However, tx.origin does not represent the currently calling address, but the very first address that initiated the transaction.
+                Remember that within a transaction, contracts can call other contracts, and therefore the calling address can be a different one at runtime.
+                An attacker can perform a man-in-the-middle attack by first convincing a victim to send a transaction to the attacker's contract, which then performs within the same transaction a
+                message call to the victim's wallet.
+                If the wallet checks for the transaction origin to authenticate users, then the attacker will be authenticated as the victim and might be able to steal the funds.
+                Developers should, therefore, rely on the msg.sender property to authenticate user accounts.
 
-        \paragraph{Frontrunning}
-        Users observing the network can see and react to transactions before they are mined. Miners typically order transactions based on their gas prices.
-        This results in gas price wars between users in the network.
-        Frontrunning is therefore also known as transaction order dependence (TOD).
-        A decentralized exchange is a perfect example on how this can be exploited. An attacker observes a transaction containing a large buy order and quickly broadcasts its own transaction
-        containing a buy order with a larger gas price in order to be executed before the observed buy order.
-        A few other cases related to frontrunning have been studied by Eskandari et al.~\cite{eskandari2019sok}
-        Common mitigations against frontrunning include the use of commit and reveal schemes or the specification of a minimum or maximum acceptable price range on a trade, thereby limiting
-        price slippage.
+            \paragraph{Frontrunning}
+                Users observing the network can see and react to transactions before they are mined. Miners typically order transactions based on their gas prices.
+                This results in gas price wars between users in the network.
+                Frontrunning is therefore also known as transaction order dependence (TOD).
+                A decentralized exchange is a perfect example on how this can be exploited. An attacker observes a transaction containing a large buy order and quickly broadcasts its own transaction
+                containing a buy order with a larger gas price in order to be executed before the observed buy order.
+                A few other cases related to frontrunning have been studied by Eskandari et al.~\cite{eskandari2019sok}
+                Common mitigations against frontrunning include the use of commit and reveal schemes or the specification of a minimum or maximum acceptable price range on a trade, thereby limiting
+                price slippage.
 
-        \paragraph{Bad Randomness}
-            Randomness is hard to achieve in general. In Ethereum it is even harder, since smart contracts are executed in a deterministic way.
-            However, games and lotteries sometimes require non-deterministic values. Therefore, a variety of smart contracts rely on “unpredictable” information originating from yet unmined blocks,
-            such as blockhash or number. They most often use this information as a seed to generate pseudo-random numbers. However, because the sources of randomness are predictable, malicious users
-            can brute force the values of blocks before they have been mined.
-            The Run [43] and SmartBillions [69] are famous examples of smart contract lotteries using block information for generating random numbers.
-            In October 2017, an attacker was able to exploit the predictability of block information and steal 400 ether from the SmartBillions contract [84].
+            \paragraph{Bad Randomness}
+                Randomness is hard to achieve in general. In Ethereum it is even harder, since smart contracts are executed in a deterministic way.
+                However, games and lotteries sometimes require non-deterministic values. Therefore, a variety of smart contracts rely on “unpredictable” information originating from yet unmined blocks,
+                such as blockhash or number. They most often use this information as a seed to generate pseudo-random numbers. However, because the sources of randomness are predictable, malicious users
+                can brute force the values of blocks before they have been mined.
+                The Run [43] and SmartBillions [69] are famous examples of smart contract lotteries using block information for generating random numbers.
+                In October 2017, an attacker was able to exploit the predictability of block information and steal 400 ether from the SmartBillions contract [84].
         
-        \paragraph{Time Manipulation}
-            Sometimes smart contracts need to rely on the current time to either be able to accomplish their defined task, such as locking a token sale, or unlocking funds at a specific time in a game.
-            In Solidity, the current timestamp is retrieved via \texttt{block.timestamp} or \texttt{now}.
-            However, this value can be set by miners and can be manipulated.
-            If a miner holds enough value inside a smart contract, then the miner could gain an advantage by choosing a suitable timestamp for a block that he or she mines.
-            Smart contracts should, therefore, avoid relying on timestamps originating from blocks.
-            Atzei et al. stated that the ponzi smart contract GovernMental is vulnerable to a timestamp manipulation attack~\cite{atzei2017survey}.
-            However, there is no reported incident of such an attack in the wild.
+            \paragraph{Time Manipulation}
+                Sometimes smart contracts need to rely on the current time to either be able to accomplish their defined task, such as locking a token sale, or unlocking funds at a specific time in a game.
+                In Solidity, the current timestamp is retrieved via \texttt{block.timestamp} or \texttt{now}.
+                However, this value can be set by miners and can be manipulated.
+                If a miner holds enough value inside a smart contract, then the miner could gain an advantage by choosing a suitable timestamp for a block that he or she mines.
+                Smart contracts should, therefore, avoid relying on timestamps originating from blocks.
+                Atzei et al. stated that the ponzi smart contract GovernMental is vulnerable to a timestamp manipulation attack~\cite{atzei2017survey}.
+                However, there is no reported incident of such an attack in the wild.
         
-        \paragraph{Short Address}
-            Short address attacks are a side-effect of the EVM itself accepting incorrectly padded arguments. 
-            Function arguments are typically encoded as 32-byte chunks of data within the input field of an Ethereum transaction.
-            However, if the length of an encoded argument is shorter than 32 bytes, then EVM will auto-pad extra zeros to the end of the argument so that it always has a length of 32 bytes, no matter
-            the size of the original encoding.
-            Attackers can exploit this vulnerability by generating specially-crafted addresses that end with trailing zeros.
-            The EVM does not check the validity of addresses, and the only way to prevent this attack is to check the length of a transaction's input at smart contract scope using \texttt{msg.data}.
+            \paragraph{Short Address}
+                Short address attacks are a side-effect of the EVM itself accepting incorrectly padded arguments. 
+                Function arguments are typically encoded as 32-byte chunks of data within the input field of an Ethereum transaction.
+                However, if the length of an encoded argument is shorter than 32 bytes, then EVM will auto-pad extra zeros to the end of the argument so that it always has a length of 32 bytes, no matter
+                the size of the original encoding.
+                Attackers can exploit this vulnerability by generating specially-crafted addresses that end with trailing zeros.
+                The EVM does not check the validity of addresses, and the only way to prevent this attack is to check the length of a transaction's input at smart contract scope using \texttt{msg.data}.

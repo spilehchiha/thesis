@@ -1,33 +1,27 @@
 \chapter{\etherbase: Improving Reproducibility in Smart Contract Research} \label{ch:etherbase}
 
 
-\textit{
-	This chapter is adapted from work supervised by Jeremy Clark and Amir G. Aghdam, to-be-submitted at the 7th Workshop on Trusted Smart Contracts (WTSC) co-located with Financial Cryptography and Data Security (FC).
-}
-
 \section{Introductory Remarks}
 	\label{sec:intro}
-	Ethereum blockchain handles financial assets and contracts with millions of USD in value.
-	It is the most widely used blockchain platform with millions of smart contracts written on it.
-	A smart contract is simply a program stored on the Ethereum blockchain that runs when predetermined conditions are met.
-	There has been some effort from the research community to develop automated analysis tools and frameorks~\cite{ref_tools} that locate and eliminate vulnerabilities in smart contracts.
-	These tools and frameworks analyze smart contracts and produce vulnerability reports.
+	Ethereum is the most widely used blockchain platform with millions of smart contracts written on it, with a market cap of over 250 billion U.S. Dollars.
+	Simply put, a smart contract is a self-exeucting program stored on the Ethereum blockchain that runs when pre-defined conditions are satisfied.
+	The research community in the past few years has put in the effort to develop automated analysis tools and frameorks~\cite{ref_tools} that locate and eliminate vulnerabilities in smart contracts for the purposes of making smart contracts more secure as their adoption is ever increasing in different sectors of decentralized finance..
 	In a preliminary study performed on nearly one million Ethereum smart contracts, using one analysis framework for verifying correctness, the researchers flagged 34,200 of them as vulnerable.~\cite{ref_flag1}
-	Another research effort showed that 8,833 (around \%46) smart contracts on the Ethereum blockchain were flagged as vulnerable out of 19,366 smart contracts.~\cite{ref_flag2}
+	Another research effort showed that 8,833 (around \%46) smart contracts on the Ethereum blockchain were flagged as vulnerable out of 19,366 smart contracts.~\cite{ref_flag2}, ~\cite{Empirical-Evaluation-of-Smart-Contract-Testing:What-is-the-Best-Choice}
 
-	Famous attacks that have caused significant financial losses and prompted the research community to work to prevent similar occurrences include The DAO hack~\cite{dao} and the Parity wallet issue~\cite{ref_parity}.
+	Comparing and reproducing such research is not an effortless process.~\cite{Empirical-Evaluation-of-Smart-Contract-Testing:What-is-the-Best-Choice}
+	Most of the datasets used to test and benchmark those very same tools proposed in the research literature are not publicly or easily available to the research community.
+	This makes reproduction efforts immensely hard and and time-intensive to carry out.
 
-	Comparing and reproducing such research is not an effortless process.
-	The datasets used to test and benchmark those very same tools proposed in the research literature are not publicly available and this makes reprodyction efforts immensely hard to carry out.
-
-	If the developer of a new tool intends to compare their new tool with existing work and projects, the current approach is to contact the authors of alternative tools and hope for access to the same datasets or make do with whatever out-of-date incomprehensive and unrepresentative dataset they have at their disposal, a very timely and inefficient process.
-
+	The current approach to compare one's tools / methodologies of evaluating the security of smart contracts with that of another researcher / toolset,
+	is to make do with whatever out-of-date incomprehensive and unrepresentative dataset they have at their disposal, a very timely and inefficient process.
 	In other cases, the researchers need to start from scratch and create their own datasets, a non-trivial and slow process.
 	What makes it worse is the data bias, which can be introduced in a dataset in different phases of data acquisition and data cleaning.
 	This can easily escalate to become a threat to validity in the research.~\cite{Empirical-Evaluation-of-Smart-Contract-Testing:What-is-the-Best-Choice}
 
-	In this chapter, we present \etherbase, an extensible, queryable, and easy-to-use database that facilitates and enhances the verification and reproducibility of previous empirical research and lays the groundwork for faster, more rapid production of research on smart contracts.
-	\etherbase is open-source and publicly available online at: \textbf{link TBD}.
+	In this chapter, we present \etherbase, an extensible, queryable, and easy-to-use database that facilitates and enhances the verification and reproducibility of previous empirical
+	research and lays the groundwork for faster, more rapid production of research on smart contracts.
+	\etherbase~is open-source and publicly available.
 	The source code for data acquisiton and cleaning is not available due to private IP reasons, and only the collected data and the database is accessibel to the public.
 	Researchers, smart contract developers, and blockchain-centric teams and enterprises can also use such corpus for specific use-cases.
 
@@ -36,34 +30,38 @@
 	In summary, we make the following contributions with \etherbase.
 	\begin{enumerate}
 		\item We propose \etherbase, a systemic and up-to-date database for Ethereum by exploiting its intetrnal mechanisms.
-		\item We implement \etherbase after addressing several technical challenges. It obtains historical data and enables new functionalities. It is more up-to-date than existing datasets, gets systematically reviewed and renewed, in comparison to the previous manual one-time data gathering efforts.
-		\item We propose the first dataset of Ethereum smart contracts which has a mix of off-chain and on-chain data together, meaning that it contains the source code and the bytecode of the corresponding smart contracts in the same dataset.
+		\item We implement \etherbase after addressing several technical challenges. It obtains historical data and enables new functionalities. It is more up-to-date than existing datasets,
+		gets systematically reviewed and renewed, in comparison to the previous manual one-time data gathering efforts.
+		\item We propose the first dataset of Ethereum smart contracts which has a mix of off-chain and on-chain data together, meaning that it contains the source code and the bytecode of
+		the corresponding smart contracts in the same dataset.
 		\item We propose the first automatically up-to-date laballed dataset of Ethereum smart contracts with vulnrabilities.
 	\end{enumerate}
 
 \section{Related Work}
 	\label{sec:relwork}
 	We assume the reader is familiar with blockchain technology, Ethereum blockchain, and its primary high-level programming language Solidity.
-	Ethereum Smart contracts written in Solidity are compiled to bytecode to be executed on the Ethereum Virtual Machine (EVM).
+	Ethereum Smart contracts are developed mostly in the programming language Solidity and for execution, they get compiled to their corresponding bytecode.
 	EVM takes bytecode as input and works in a stack-based architecture with a word size of 256 bits.
 	There are three different spaces in EVM to store data and resources, namely stack, memory and storage.
 	In this section we present and discuss references and information for some of the more prominent publicly available smart contract benchamrk datasets which were identified in our studies.
 
 	SmartBugs~\cite{Empirical-Review-of-Automated-Analysis-Tools-on-47587-Ethereum-Smart-Contracts} makes the top of the list as one of the most used benchmarks in the research space.
-	Durieux et al. crafted a dataset of annotated and non-annotated smart contracts.
-	The annotated part contains 69 contracts tagged with 115 vulnerabilities.
-	The annotated part has ten categories of vulnerabilities.
-	In contrast, the non annotated part contains 47,518 unique contracts, each with at least one transaction on the Ethereum network.
-	Researchers can't use the unlabeled dataset to evaluate the tool as there is no ground truth associated with it.
-	Moreover, the labeled dataset doesn't have more than a thousand smart contracts and only the source code (and no bytecode) of the contracts are available.
+	In this work, Durieux et al. presented an extensible and easy-to-use execution framework for benchmarking different security analysis tools for Ethereum smart contracts.
+	They empirically evaluated 9 analysis tools on a small (< 100)labelled  dataset of vulnerabilities.
+	Ren et al. provide a dataset consisting of 47,518 un-annotated smart contracts with the history of at least one executed transaction on the blockchain.
+	For researchers trying to build upon such work, using the unlabelled dataset is a great improvement for both tool development and reproduction efforts, but because of the lack of some degree of ground truth in the dataset, it's not possible to easily apply, for example, supervised amchine learnign algorithms to that dataset.
+	Their labeled dataset contains about a thousand smart contracts which is good for initial benchmarkings, but it only the source code of the contracts are available and does not provide any bytecode for them.
 
-	Ren et al.~\cite{Empirical-Evaluation-of-Smart-Contract-Testing:What-is-the-Best-Choice} crafted a benchmark suite that integrates labeled and unlabeled Smart Contracts from a variety of sources such as Etherscan~\cite{etherscan}, SolidiFI repository, Common Vulnerabilities and Exposures Library, and Smart Contract Weakness Classification and Test Cases library.
-	Their pblicly released dataset has 45,622 real-world unlabeled Ethereum smart contracts having more than one transaction on the Ethereum blockchain.
-	The labeled dataset has artificially constructed contracts (350 contracts) and confirmed vulnerable contracts (214 contracts).
+	Ren et al.~\cite{Empirical-Evaluation-of-Smart-Contract-Testing:What-is-the-Best-Choice} created a benchmark suite that integrates annotated and unlabelled raw smart contracts from a variety of sources
+	such as Etherscan~\cite{etherscan}, SolidiFI repository, CVE Library, and Smart Contract Weakness (SWC) Registry.
+	They collected 45,622 real-world diversified Ethereum smart contracts and proposed a systematic evaluation process and performed extensive experiments.
+	Their labeled dataset has 350 manually generated contracts.
 
-	Many of the authors of the tools proposed in this practice leverage unlabelled datasets to evaluate their toolset.
-	Due to huge number of contracts in these datasets, either the dataset is not annotated or a very small subset is annotated with the vulnerabilities present.
+	Many of the authors of the tools proposed in this practice leverage unlabelled datasets to evaluate the performance of their toolset.
+	The publicly available datasets are either not appropriately annotated or a very small subset of them is labelled with the vulnerabilities's identification properties.
+	This is because the number of the contracts -most of them being clones of other smart contracts- is so huge, they cannot be all manually annotated.
 	To the best of our knowledge, there has been only one annotated dataset, realeased publicly, from Yashavant et al.~\cite{yashavant2022scrawld}
+	We strive to build upon that work and make facilitate the processes of reproduction in the smart contract research community.
 	Our dataset has the advantage of updating regularly, and being more comprehensive with the more updated Solidity versions of different smart contracts available in the dataset.
 
 	Kalra et al.~\cite{kalra2018zeus} published their analysis results for 1,524 smart contracts with no other information or metadata in relation to those contracts.
@@ -72,19 +70,22 @@
 
 	In 2022, Yashavant et al. ~\cite{yashavant2022scrawld}
 
-	The smart contract source codes collected in GitHub repositories associated with the previously published literature typically do not directly reference smart contracts deployed on the blockchain through an Ethereum address;
-	therefore, it is hard to determine whether it has been tested or used on the blockchain or not.
-	GitHub repositories of the available datasets do not implement a search engine or query capability to filter smart contracts based on particular metrics or parameters, such as the ETH value or the number of internal transactions for a smart contract.
-	On a GitHub repository, there is no information on smart contracts' use in a real blockchain scenario, on the number of transactions invoking smart contracts or on the number of tokens associated with each smart contract.
+	The smart contract source codes collected in GitHub repositories associated with the previously published literature do not directly reference smart contracts deployed on the blockchain through an Ethereum address;~\cite{pierro2020organized}
+	this makes it hard to determine if the identified smart contracts have been tested or used on the Ethereum blockchain or not.
+	GitHub repositories of the available datasets do not implement a search engine or query capability to filter smart contracts based on particular
+	metrics or parameters, such as the ETH value or the number of internal transactions for a smart contract.
+	
+	The GitHub repositories related to the published literature usually only provide the raw datat of the smart contracts without any proper documentation, comments, or further annotations on the data connected to the collected smart contracts.
 	None of the GitHub repositories currently available to the public or used in research papers provide smart contract ABI's or Opcodes to the best of our knowledge.
 	
-	Concerning the block explorer Etherscan, they allow for exploration and search of Ethereum blockchain for smart contracts.
-	However, when downloading the smart contracts' source code, the block explorer presents some limitations: 
-	Smart contracts' data and numbers in quantity are massive (on the Giga scale, based on our estimation), but there is a limited API rate of 100 submissions per day per user to retrieve just a smart contract, making the complete download of data an impossible endeavour.
-	Etherscan's API does not provide facilities to obtain a list of the smart contracts' addresses, as the existing API calls mainly allow navigation from one block to another.
+	As a user of the Website Etherscan, you can easily search the Ethereum blockchain for any specific smart contract given the availability of its address but when it comes to downloading the data
+	for that smart contract or any other batch of smart contracts,  using Etherscan has its limits:~\cite{pierro2020organized}:
+	Smart contracts' data is massive, based on the estimation from ~\cite{pierro2020organized},
+	and the daily limits on the API's provided by Etherscan make retrieving that data even harder.
+	The API provided by Etherscan does not allow the users to obtain a list of the addresses of their desired smart contracts.
+	The  API calls currently available only allow navigation at the block-level.
 	A researcher cannot easily explore the source code for their collected smart contracts.
-	First, they would have to to inspect any block on-chain and then
-	look for all the transactions that involve an address associated with that specific contract.
+	First, they would have to to inspect any block on-chain and then search for any transactions that have a receive/send address associated with that specific smart contract.
 
 \section{Methodology}
 
@@ -108,13 +109,13 @@
 	The next sections walk through the above-mentioned steps of the workflow one-by one.
 
 	\subsection{Data Acquisition}
-		The current dataset is collected from Etherscan, which is the largest decentralized platform for Ethereum smart contracts.
+		The current dataset corresponds to the contracts collected from Etherscan, the most used service for researchers trying to collected smart contracts from the Ethereum blockchain.
 		Every contract stored on Etherscan's database is indexed by its own corresponding addresses,
-		In order to collect these smart contracts, We first retrieve the addresses for every contract which has more than one transaction through Google BigQuery.
+		In order to collect the contracts, we retrieve the addresses for every contract which has more than one transaction through Google BigQuery, like the process done by ~\cite{Empirical-Evaluation-of-Smart-Contract-Testing:What-is-the-Best-Choice}.
 		Using Google BigQuery query request service, we obtain 1,712,347 distinct contract addresses that have more than one transactions associated with them.
 
 	\subsection{Data Generation}
-		Instead of writing scripts to obtain the bytecode and/or source code thrpugh Etherscan's API, we leverage a tool designed and maintained by Trail of Bits, namely Cyitic-compile.
+		Instead of manually writing scripts to obtain the source code, bytecode, and other metadata via services like Etherscan, we leverage a tool designed and maintained by Trail of Bits, namely Cyitic-compile.
 		All the previous works of research, work on providing either source code or bytecode of smart contracts to the researchers, but that will not be enough for the users who want to compile the smart contracts or build tools upon such data.
 		Compiling smart contracts is also a tricky busines, due to the rapid pace of changing versions of the dominant programming language, Solidity, used to write and develop smart contracts.
 		We developed crytic-compile, a library to help the compilation of smart contracts, to help with this problem.
@@ -146,7 +147,7 @@
 			\begin{tabular}{l|p{105mm}}
 				\textbf{Name} & \textbf{Description} \\
 				\hline
-				\verb|Pragma| & The \verb|pragma| keyword is used to enable certain compiler features or checks.\\
+				\verb|Pragma| & The \verb|pragma| keyword is used to enable certain compiler features or checks.~\cite{pragmadocs}\\
 				\verb|Contract Address| & Unique 20-byte address, used as the main index to distinguish smart contracts from each other. \\
 				\verb|Creator Address| & Indicates the address of the deeployer of the smart contract. \\
 				\verb|Source Code| & Source code of the smart contract, specific to the programming language Solidity. \\
@@ -165,7 +166,7 @@
 
 	\begin{itemize}
 
-		\item{\verb|Pragma|: Source files can (and should) be annotated with a version pragma to reject compilation with future compiler versions that might introduce incompatible changes. Filtering through contracts via Pragma helps the researcher to collect a homogenuous set of contracts with a consistent synatx.}\\
+		\item{\verb|Pragma|: Source files can (and should) be annotated with a version pragma to halt compilation with future versions of Solc due to the possibility of introduction of incompatible changes with the version of the Solc used to write the original smart contract. Filtering through contracts via Pragma helps the researcher to collect a homogenuous set of contracts with a consistent synatx.}\\
 
 		\item{\verb|Contract Address|: In Ethereum, the state is made up of objects called "accounts", with each account having a 20-byte address. Contract address is the main key in EtherBase for distinguishing contracts from each other.}\\
 
@@ -185,7 +186,7 @@
 		\item \verb|Transaction Count|: Like ETH Value, transaction count is an important metric for us to be able to exclude contracts that do not participate much on the chain and hence, work on the contracts thast have a higher probability of interaction with more contracts.\\
 		\end{itemize}
 	
-		\subsection{Data Storage}
+	\subsection{Data Storage}
 			In the data storage stage, all extracted data are stored in PostgreSQL-alongside a GitHub repository- for the ease of data management.
 			Users can get access to the collected data in PostgreSQL.
 			In the application stage, users can conduct various analyses on the collected data.
@@ -335,13 +336,9 @@ The \texttt{artifact.zip} file contains
 	and that they are available as open-source software and can be evaluated based on their vulnreability detection mechanisms.
 	Based on such criteria, we selected the following three tools for our Data Application phase experiment:
 	\begin{itemize}
-		\item \textbf{Slither:} Slither~\cite{slither} is a static analysis tool designed to analyze Ethereum smart contracts.
-		It has four prominent use cases:
-		automated detection of vulnerabilities, automated detection of code optimization opportunities, improvement of users' understanding of the contracts,
-		and assistant with code review.
-		\item \textbf{Mythril:} Mythril is a tool that does security analysis of Ethereum smart contracts. It detects various security issues~\cite{mythril}.
-		\item \textbf{Smartcheck:} Smartcheck~\cite{smartcheck} is an extensible static analysis tool that detects vulnerabilities in smart contracts.
-		It converts Solidity code into XML-based intermediate representation and checks it with XPATH patterns.
+		\item \textbf{Smartcheck:} Smartcheck~\cite{smartcheck} is an extensible static analysis tool written in Java. It detects vulnerabilities and other code issues in thereum smart contracts. It locates vulnerabilities by searching for pre-defined patterns in a transformed version of the Solidity source code of the contract.
+		\item \textbf{Mythril:} Mythril is another frequently used static analyzer in the form of CLI tool developed in Python that does security analysis of Ethereum smart contracts.
+		\item \textbf{Slither:} Slither~\cite{slither} is a static analyser for analyzing Ethereum smart contracts before deploying them and evaluating them in runtime.
 	\end{itemize}
 	
 	
@@ -371,30 +368,25 @@ The \texttt{artifact.zip} file contains
 	
 	
 	%Table \ref{table:vuln_supported_per_tool} shows these vulnerabilities supported by the selected tools.
-	The \checkmark symbol shows that the tool can detect a particular vulnerability, whereas symbol \crossmark indicates that the tool can't detect the vulnerability.
 	
-	We use the methodology given in the paper by Ren et al.~\cite{Making-Smart-Contract-Development-More-Secure-and-Easier} to detect the selected vulnerabilities in smart contracts.
+	Like the work done by ~\cite{yashavant2022scrawld}, we also leverage the methodology given in the paper by Ren et al.~\cite{Making-Smart-Contract-Development-More-Secure-and-Easier} to detect the selected vulnerabilities in smart contracts.
 	
-	Because of the presence of false positives in the reports generated by the static analysis tools, we cannot depend on just one of them.
-	We use majority voting, that is, at least 50\% of the tools must report the same vulnerability at the same location.
-	For example, assume that tools T1, T2, and T3 can detect the re-entrancy vulnerability.
-	Suppose, at least two tools report that vulnerability is present in a smart contract in test.
-	Then we say that the contract is vulnerable;
-	Otherwise, we say that the contract is not vulnerable.
+	When using tools like these static analyzers, we face a lot of false positive resultsas a necessaity of the methods those tools employ.
+	Because of that, we cannot rely on one tool only, as projects that rely n=on auditing their smart contracts for a certain guarantee of security also try and test with multiple tools and analysis methodologies.
+	We use the methodology proposed by ~/cite{yashavant2022scrawld}, namely, the majority voting, that is, at least half of the tools being benchmarked should locate the very same vulnerability at the same location.
+	For example, assume that all of the three selected static analyzers are capable of detecting a specific vulnerability.
+	Assuming that at least two of them warn the user that that specific vulnerability is present in a smart contract, then we are allowed to report that that smart contract contains the vulnerability;
 	
-	The following steps explain the methodology given the majority voting mechanism explained above:
+	Based on the proposal from ~\cite{yashavant2022scrawld}, the following explains the step-by-step methodology concerning the majority voting mechanism as mentioned earlier:
 	
 	\begin{enumerate}
 	
-	\item First, collect the output of the selected tools for the smart contract to be analyzed.
+	\item Collect the output of the selected static analysis tools for further analysis as the initial step, per vulnreability and identify the LOC in which the vulnerability happens on.
 	
-	\item Note the vulnerability name and line number for the vulnerability per tool. 
+	\item With regard to each vulnerability, if different tools show different locations, we should not consider those vulnerabilities the same.
+		We consider two warnings -of any degree of importance generated by a tool- as the same only if that vulnerability's name / ID and LOC location match for all of the different tools being benchmarked.
 	
-	\item For the same vulnerability, if different tools show different locations, consider them as different warnings.
-		We consider two warnings as the same only if the vulnerability name and location match for different tools.
-	
-	\item The methodology says that the vulnerability exists at a location if more than 50\% of the tools (2 out of 3 in this experiment scenario) confirm the same vulnerability at the exact location.
-		In that case, label the location with the vulnerability.
+	\item The current methodology being used determines the presence of a vulnerability on a line of code if more than 50\% of the tools (2 out of 3 in this experiment scenario) confirm the presence of that vulnerability at that exact location / line of code.
 	
 	\end{enumerate}
 	
@@ -406,9 +398,10 @@ The \texttt{artifact.zip} file contains
 	\end{figure}
 		
 		Figure~\ref{fig:chart_vuln_count} shows the number of smart contracts that contain at least one vulnerability.
-		For instance, consider the Re-entrancy vulnerability.
+		For instance, consider a specific targeted vulnerability.
 		The literature tells us that all fo the the three static analyzers in the benchmark support the detection of this vulnerability.
-		We say that the contract contains reentrancy only if two of these three tools report that it is present at the same location.
+		~\cite{yashavant2022scrawld} notes that they only say the contract at hand contains that vulnerability only if an agreed upon threshold of the tools report that it is present at the same location,
+		based on the majority voting system proposed by them. We take on the same system as well for determining wether a vulnerability is present or not.
 
 
 \section{Concluding Remarks}
@@ -430,9 +423,12 @@ The \texttt{artifact.zip} file contains
 	especially those based on machine learning techniques that need comprhensiver datasets for training, validation, and testing phases.
 	\etherbase~comprises a diverse and comprehensive set of real-world heterogenuous annotated smart contracts.
 	
-	Every tool which was selected for this evaluation is not a complete one.
-	There are always many false positive / negatives results generated by a static analyser.
-	Nevertheless, we utilized the mechanism of majority voting to determine the presence or lacke of precense of a vulnerability in a smart contract.
-	But, this approach may fail if majority of the tools generate false positives or false negatives.
-	Such issues can be overcome by adding more tools to the benchamrk process or have some auditors manually review the discovered potential vulnerabilities..
-	However, these approaches are time and resource-intensive, and we can plant to implement it incrementally.
+	Every tool which was selected for this evaluation is not a complete / sound one, as ~\cite{yashavant2022scrawld} notices this as well.
+	There are always many false positive / negatives results in an audit report generated by a static analyser.
+	Nevertheless, we utilized the mechanism of majority voting suggested by ~\cite{yashavant2022scrawld}
+	to determine the presence or lacke thereof a vulnerability in a smart contract.
+	We should, however, be wary of the generated false positive rsults as too many of them will lead to increasing inaccuracies in the released dataset.
+	Such issues can be overcome by adding more tools to the benchamrk process or have some auditors manually review the discovered potential vulnerabilities.
+	
+	Our competitive advantage in comparison to the work done by ~\cite{yashavant2022scrawld} is that \etherbase gets updatedt regularly, is more comprehensive with regards to the various versions of smart contracts it contains,
+	and that it leverages offline powerful compialtion tools to retrieve more metadata about the collected smart contracts, instead of going through the time consuming process of validating each collected contract with online services separately and through manual development of data collection pipelines.
