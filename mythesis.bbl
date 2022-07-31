@@ -16,6 +16,10 @@ J.~Chen, X.~Xia, D.~Lo, J.~Grundy, X.~Luo, and T.~Chen.
   evm bytecode.
 \newblock {\em IEEE Transactions on Software Engineering}, 2021.
 
+\bibitem{swcregistry}
+Consensys.
+\newblock https://swcregistry.io.
+
 \bibitem{mythril}
 ConsenSys.
 \newblock Mythril, 2022.
@@ -202,6 +206,10 @@ G.~A. Pierro, R.~Tonelli, and M.~Marchesi.
 \newblock An organized repository of ethereum smart contracts’ source codes
   and metrics.
 \newblock {\em Future internet}, 12(11):197, 2020.
+
+\bibitem{pilehchiha_2020}
+S.~Pilehchiha.
+\newblock Efficient audits with machine learning and slither-simil, Oct 2020.
 
 \bibitem{slithersimil}
 S.~Pilehchiha.

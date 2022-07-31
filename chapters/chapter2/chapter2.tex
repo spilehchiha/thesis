@@ -186,10 +186,12 @@
 
 
 \section{Smart Contracts}
-    The concept of smart contracts -programs running on the EVM- has been first introduced by Nick Szabo in one of his works in 1997.~\cite{szabo1997formalizing}
+    The concept of smart contracts - programs running on the EVM - has been first introduced by Nick Szabo in one of his works in 1997.~\cite{szabo1997formalizing}
 
     \subsection{Vulnerabilities}
-        
+        Solidity, like any other programming langauge in history, is prone to all kinds of vulnreabilities.
+        What makes security vulnerabilities in Solidity so attractive is the fact that the programs written in Solidity are very much often used in the financial sector, handling millions of dollars in digital aassets and cryptocurrencies.
+
 
             \paragraph{Re-entrancy}
                 
@@ -201,6 +203,10 @@
                 
 
             \paragraph{Bad Randomness}
+            Also known as \textit{nothing is secret},~\cite{dasp} this vulnerability happens when smart contracts attempt to generate random, or to be more exact, pseudo-random numbers for any number of reasons.
+            If the smart contract generating the pseudo-random number computes that random number using values that can be guessed by a malicious party, then the attacker can predict the next number that will be generated.
+            Values such as block timestamps,or block number are generally advised against to be used in such mechanisms. They are called hard-to-predict values but it is better to use an external oracle to generate the random numbers needed~\cite{swcregistry}.
+
                 
         
             \paragraph{Time Manipulation}

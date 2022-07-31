@@ -6,7 +6,7 @@
 	Ethereum is the most widely used blockchain platform with millions of smart contracts written on it, with a market cap of over 250 billion U.S. Dollars.
 	Simply put, a smart contract is a self-exeucting program stored on the Ethereum blockchain that runs when pre-defined conditions are satisfied.
 	The research community in the past few years has put in the effort to develop automated analysis tools and frameorks~\cite{ref_tools} that locate and eliminate vulnerabilities in smart contracts for the purposes of making smart contracts more secure as their adoption is ever increasing in different sectors of decentralized finance..
-	In a preliminary study performed on nearly one million Ethereum smart contracts, using one analysis framework for verifying correctness, the researchers flagged 34,200 of them as vulnerable.~\cite{ref_flag1}
+	In a study in 2020, researchers analyzed about one million Ethereum smart contracts and found 34,200 of them to be potentially vulnerable.~\cite{ref_flag1}
 	Another research effort showed that 8,833 (around \%46) smart contracts on the Ethereum blockchain were flagged as vulnerable out of 19,366 smart contracts.~\cite{ref_flag2}, ~\cite{Empirical-Evaluation-of-Smart-Contract-Testing:What-is-the-Best-Choice}
 
 	Comparing and reproducing such research is not an effortless process.~\cite{Empirical-Evaluation-of-Smart-Contract-Testing:What-is-the-Best-Choice}
@@ -19,19 +19,16 @@
 	What makes it worse is the data bias, which can be introduced in a dataset in different phases of data acquisition and data cleaning.
 	This can easily escalate to become a threat to validity in the research.~\cite{Empirical-Evaluation-of-Smart-Contract-Testing:What-is-the-Best-Choice}
 
-	In this chapter, we present \etherbase, an extensible, queryable, and easy-to-use database that facilitates and enhances the verification and reproducibility of previous empirical
+	In this chapter, we present \etherbase, an extensible, and queryable database that facilitates and enhances the verification and reproducibility of previous empirical
 	research and lays the groundwork for faster, more rapid production of research on smart contracts.
 	\etherbase~is open-source and publicly available.
 	The source code for data acquisiton and cleaning is not available due to private IP reasons, and only the collected data and the database is accessibel to the public.
 	Researchers, smart contract developers, and blockchain-centric teams and enterprises can also use such corpus for specific use-cases.
 
-	We also note that although \etherbase has been implemented for Ethereum, it can be easily extended to support other blockchains which have the similar design for smart contracts with Ethereum.
-
 	In summary, we make the following contributions with \etherbase.
 	\begin{enumerate}
 		\item We propose \etherbase, a systemic and up-to-date database for Ethereum by exploiting its intetrnal mechanisms.
-		\item We implement \etherbase after addressing several technical challenges. It obtains historical data and enables new functionalities. It is more up-to-date than existing datasets,
-		gets systematically reviewed and renewed, in comparison to the previous manual one-time data gathering efforts.
+		\item We implement \etherbase and make its pipelines open-source. It obtains historical data and facilitates benchamrking and reproduction in research and development for new toolsets. It is more up-to-date than existing datasets, gets sutomatically reviewed and renewed, in comparison to the previous manual one-time data gathering efforts.
 		\item We propose the first dataset of Ethereum smart contracts which has a mix of off-chain and on-chain data together, meaning that it contains the source code and the bytecode of
 		the corresponding smart contracts in the same dataset.
 		\item We propose the first automatically up-to-date laballed dataset of Ethereum smart contracts with vulnrabilities.
@@ -187,9 +184,8 @@
 		\end{itemize}
 	
 	\subsection{Data Storage}
-			In the data storage stage, all extracted data are stored in PostgreSQL-alongside a GitHub repository- for the ease of data management.
-			Users can get access to the collected data in PostgreSQL.
-			In the application stage, users can conduct various analyses on the collected data.
+			All of the smart contracts collected in the previous stage along with their corresponding metadata need to be stored somewhere and we choose a PostgreSQL database in the design, -alongside a GitHub repository- to make it easier for researchers and other users to manage, filter, and query their needed data.
+			Afterwards and in the data application stage, users can analyse their queried data according their specific research queries.
 
 			Figure 2 shows the directory structure of the collected data. The first leaf in the directory \texttt{Contracts} corresponds to the \\
 
@@ -415,7 +411,8 @@ The \texttt{artifact.zip} file contains
 	Collecting data via invoking Web3 API's is very much slower than instrumenting an Ethereum archive node.
 	
 	In addition, our current method is restricted by the rate limit imposed by the API's.
-	For example, Etherescan restricts the frequency of invoking its API to 5 queries per second. We plan to solve this as well to speed the automated processes.
+	For example, Etherescan has a restriction on the daily frequency of queries to its API (5 per day).
+	\cite{yashavant2022scrawld} states this as aserious issue which we would like to solve as well.
 
 	We will also be labelling more smart contracts with more tools as we have more time and compute resources moving forward.
 

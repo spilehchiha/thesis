@@ -3,16 +3,18 @@
   This chapter introduces several research questions to be answered in this thesis and motivates their importance.
 
 \section{Motivation}
-  Research community has done a lof of effort to develop automated analysis tools~\cite{ref_tools} that discover, locate, and eliminate vulnerabilities in smart contracts.~\cite{ref_tools}
+  Research community has done a lof of effort to develop automated analysis tools~\cite{ref_tools} to be able to identify vulnerabilities vulnerabilities in smart contracts.~\cite{ref_tools}
   These tools and frameworks analyze smart contracts and produce vulnerability reports.
-  In a preliminary study performed on nearly one million Ethereum smart contracts, using one analysis framework for verifying correctness, the researchers flagged 34,200 of the analyzed smart contracts as vulnerable.~\cite{ref_flag1}
+	In a study in 2020, researchers analyzed about one million Ethereum smart contracts and found 34,200 of them to be potentially vulnerable.~\cite{ref_flag1}
   Another research effort showed that 8,833 (around \%46) smart contracts on the Ethereum blockchain were flagged as vulnerable out of 19,366 smart contracts.~\cite{ref_flag2}
 
   Famous attacks that have caused significant financial losses and prompted the research community to work to prevent similar occurrences include The DAO hack~\cite{dao} and the Parity wallet issue~\cite{ref_parity}.
   Comparing and reproducing such research is not an effortless process.
 	The datasets used to test and benchmark those very same tools proposed in the research literature are not publicly available and this makes reprodyction efforts immensely hard to carry out.
 
-  If the developer of a new tool or a researcher intends to compare their new tool with the existing work and projects, the current approach is to contact the authors of those alternative tools and hope for access to the same datasets used in the original redsearch / work or make do with whatever out-of-date incomprehensive and unrepresentative dataset they have at their disposal, a very timely and inefficient process.
+  If the developer of a new tool or a researcher intends to compare their new tool with the existing work and projects,
+  the current approach is to contact the authors of those alternative tools and hope for access to the same datasets used in the original
+  ressearch / work or make do with whatever out-of-date incomprehensive and unrepresentative dataset they have at their disposal, a very timely and inefficient process.~\cite{ref_flag2}
 
   In other cases, the researchers need to start from scratch and create their own datasets, a non-trivial and slow process.
   What makes it worse is the data bias, which can be introduced in a dataset in different phases of data acquisition and data cleaning.
@@ -23,12 +25,10 @@
   The source code for data acquisiton and cleaning is not available due to private IP reasons, and only the collected data and the database is accessibel to the public.
   Researchers, smart contract developers, and blockchain-centric teams and enterprises can also use such corpus for specific use-cases.
 
-  We also note that although \etherbase has been implemented for Ethereum, it can be easily extended to support other blockchains which have the similar design for smart contracts with Ethereum.
-
   In summary, we make the following contributions.
   \begin{enumerate}
     \item We propose \etherbase, a systemic and up-to-date database for Ethereum by exploiting its intetrnal mechanisms.
-    \item We implement \etherbase after addressing several technical challenges. It obtains historical data and enables new functionalities. It is more up-to-date than existing datasets, gets sutomatically reviewed and renewed, in comparison to the previous manual one-time data gathering efforts.
+    \item We implement \etherbase and make its pipelines open-source. It obtains historical data and facilitates benchamrking and reproduction in research and development for new toolsets. It is more up-to-date than existing datasets, gets sutomatically reviewed and renewed, in comparison to the previous manual one-time data gathering efforts.
     \item We propose the first dataset of Ethereum smart contracts which has a mix of off-chain and on-chain data together, meaning that it contains the source code and the bytecode of the corresponding smart contracts in the same dataset.
   \end{enumerate}
 
@@ -43,4 +43,4 @@
 
   In Chapter~\ref{ch:etherbase}, we take a broad look at the efforts taken at improving the reproducibility in smart contract research, how we have tried to improve it by introducing \etherbase, and its use in getting better insights at the capabilities of some of the most frequently smart contract testing tools in research and industry.
 
-  In Chapter ~\ref{chap:conclusion} we provide some concluding remarks and future research directions.
+  In the final Chapter, we remark our final conclusions and reveal plans for future work and research directions.
