@@ -2,10 +2,11 @@
 \label{ch:Slither-simil}
 
 \section{Introductory Remarks}
-Smart contracts, the universal and vital programs that are deployed on blockchains, have gained increasing attention with the rapid development of blockchains.
+Smart contracts, the universal and vital programs that are deployed on blockchains,
+have gained increasing attention with the rapid development of blockchains.
 For example, more than 10 million smart contracts have been deployed on the Ethereum Mainnet.
 
-smart contract is an event-driven, state-based program that is written in high level languages such as Solidity.
+smart contract is an event-driven, self-executing, state-based program that is written in high level languages such as Vyper and Solidity.
 Smart contracts have been widely used in many business domains to enable efficient and trustful transactions.
 
 Unlike general programs, the development of smart contracts requires special effort due to their unique characteristics.
@@ -18,7 +19,8 @@ Therefore, ensuring the correctness of contracts before releasing is critical.
 Program mining for smart contracts such as summarization, checking, and code search can greatly facilitate the development and maintenance of smart contracts.
 The conventional statistical analysis tools for detecting weaknesses in smart contracts purely rely on manually defined patterns, which are likely to be error-prone and can cause them to fail in complex situations.
 As a result, expert attackers can easily exploit these manual checking patterns.
-To minimize the risk of the attackers, machine learning powered systems provide more secure solutions relative to hard-coded static checking tools.
+To minimize the risk of the attackers, machine learning powered systems provide more secure solutions relative to hard-coded
+static checking tools.
 
 Surucu et al.~\cite{surucu2022survey} provide the first-ever survey on machine learning methods utilized for the purposes of discovery and mitigation of vulnerabilities in smart contracts.
 In order to set the ground for further development of ML method on smart contract vulnerability detection, They reviewed many ML-driven intelligent detection mechanism on the following databases: Google Scholar, Engineering Village, Springer, Web of Science, Academic Search Premier, and Scholars Portal Journal.
@@ -204,7 +206,7 @@ The other four did not have enough samples in the dataset, and the corresponding
 As with the N. Lesimple paper, the test set was created from results from using traditional methods,
 indicating that the authors were unable to illustrate how the KNN model differed from traditional techniques.
 
-In 2021, ContractWard model is proposed to detect vulnerabilities, utilizing bigram features from simplified operation codes of smart contracts.
+Wang et al.~\cite{wang2020automated} proposed their own model, ContractWard, to detect vulnerabilities in smart contracts utilizing bigram features from simplified operation codes of smart contracts.
 They collected a dataset of 49,502 smart contracts from Etherscan Website, where each contract -verified before September 2018- contained six possible vulnerabilities.
 call stack depth attack, timestamp dependency, and re-entrancy vulnerability.
 Wang et al. convert the source code of each smart contract to opcodes.
@@ -218,13 +220,15 @@ The training process adopted 5 candidate ML models: eXtreme Gradient Boosting (X
 The XGBoost model showed a robust performance by achieving over 96\% F1, Micro-F1, and Macro-F1score.
 
 \section{\slithersimil}
-Our efforts with regard to automating smart contract security assessments was to work on an addition to an already prominent static analysis tool, to better help developers and researchers in
+Our efforts with regard to automating smart contract security assessments
+was to work on an addition to an already prominent static analysis tool, to better help developers and researchers in
 their process of auditing dmart contracts.
 
 Trail of Bits, a prominent blockchain security firm has manually curated a wealth of data—years of security assessment reports—and we decided to explore how to use this data to make the smart
 contract auditing process more efficient with an addition to Slither -a static analysis tool-named Slither-simil.
 
-Based on accumulated knowledge embedded in previous audits, we set out to detect similar vulnerable code snippets in new clients' codebases. Specifically, we explored machine learning (ML)
+Based on accumulated knowledge embedded in previous audits, we set out to detect similar vulnerable code snippets in new clients' codebases.
+Specifically, we explored machine learning (ML)
 approaches to automatically improve on the performance of Slither, our static analyzer for Solidity, and make life a bit easier for both auditors and clients.
 
 Currently, human auditors with expert knowledge of Solidity and its security nuances scan and assess Solidity source code to discover vulnerabilities and potential threats at different granularity levels.
@@ -238,14 +242,17 @@ Slither-simil~\cite{slithersimil}, the statistical addition to Slither, is a cod
 When it began as an experiment last year under the codename crytic-pred, it was used to vectorize Solidity source code snippets and measure the similarity between them.
 This year, we took it to the next level and applying it directly to vulnerable code.
 
-Slither-simil currently uses its own representation of Solidity code, SlithIR (Slither Intermediate Representation), to encode Solidity snippets at the granularity level of functions.
-We thought function-level analysis was a good place to start our research since it's not too coarse (like the file level) and not too detailed (like the statement or line level).
+Slither-simil currently uses its own representation of Solidity code, as introduced by~\cite{slither}.
+SlithIR (Slither Intermediate Representation), to encode Solidity snippets at the granularity level of functions.
+We thought function-level analysis was a good place to start our research since
+it's not too coarse (like the file level) and not too detailed (like the statement or line level).
 
-SlithIR is the hybrid intermediate representation used in Slither to represent Solidity code. Each node of the control flow graph can contain up to a single Solidity expression, which is converted
-to a set of SlithIR instructions.
+As introduced by Fest et al, SlithIR is the developed intermediate representation (IR) language used in Slither to represent Solidity code for further analysis.
+Each node of the control flow graph of any smart contract written in Solidity can contain up to a single Solidity expression, which is converted to a set of SlithIR instructions.
 This representation makes implementing analyses easier, without losing the critical semantic information contained in the Solidity source code.
 
-SlithIR uses fewer than 40 instructions. It has no internal control flow representation and relies on Slither's control-flow graph structure (SlithIR code is associated with each node in the graph).
+SlithIR has a database of about 40 instruction expressions.
+It has no internal control flow representation and relies on Slither's control-flow graph structure (SlithIR code is associated with each node in the graph).
 The complete descriptions is available at~\cite{slithir}.
 
 \begin{figure}
@@ -254,9 +261,6 @@ The complete descriptions is available at~\cite{slithir}.
   \caption{A high-level view of the process workflow of Slither-simil.}
   \label{fig:slithersimilhighlevel}
 \end{figure}
-
-In the process workflow of Slither-simil, we first manually collected vulnerabilities from the previous archived security assessments and transferred them to a vulnerability database.
-Note that these are the vulnerabilities auditors had to find with no automation.
 
 In the process workflow of Slither-simil, we first manually collected vulnerabilities from the previous archived security assessments and transferred them to a vulnerability database.
 Note that these are the vulnerabilities auditors had to find with no automation.
@@ -339,8 +343,9 @@ and another similar assignment operation with an internal call statement and an 
 As the similarity score goes lower towards 0, these sorts of structural similarities are observed less often and in the other direction; the two functions become more identical, so the two
 functions with a similarity score of 1.0 are identical to each other.
 
-Research on automatic vulnerability discovery in Solidity has taken off in the past two years, and tools like Vulcan and SmartEmbed, which use ML approaches to discovering vulnerabilities in
-smart contracts, are showing promising results.
+Research on automatic vulnerability discovery in Solidity has taken off in the past two years, and tools like Vulcan~\cite{srikant2020vulcan} and SmartEmbed~\cite{gao2019smartembed},
+which use ML approaches to discovering vulnerabilities in
+smart contracts, are showing gradually more and more promising results, with less false positives in specific vulnerability reports.
 
 However, all the current related approaches focus on vulnerabilities already detectable by static analyzers like Slither and Mythril, while our experiment focused on the vulnerabilities these
 tools were not able to identify—specifically, those undetected by Slither.
@@ -348,20 +353,16 @@ tools were not able to identify—specifically, those undetected by Slither.
 Much of the academic research of the past five years has focused on taking ML concepts (usually from the field of natural language processing) and using them in a development or code analysis context,
 typically referred to as code intelligence.
 Based on previous, related work in this research area, we aim to bridge the semantic gap between the performance of a human auditor and an ML detection system to discover vulnerabilities, thus
-complementing the work of Trail of Bits human auditors with automated approaches (i.e., Machine Programming, or MP).
+complementing the work of Trail of Bits human auditors with automated approaches (i.e., Machine Programming, or MP~\cite{gottschlich2018three}).
 
 We still face the challenge of data scarcity concerning the scale of smart contracts available for analysis and the frequency of interesting vulnerabilities appearing in them.
 We can focus on the ML model because it's a more facilitied process but it doesn't do much good for us in the case of Solidity where even the language itself is very young and we need to
-tread carefully in
-how we
-treat the amount of data we have at our disposal.
+tread carefully in how we treat the amount of data we have at our disposal.
 
 Archiving previous client data was a job in itself since we had to deal with the different solc versions to compile each project separately.
-For someone with limited experience in that area this was a challenge, and I learned a lot along the way. (The most important takeaway of my summer internship is that if you're doing machine
+For someone with limited experience in that area this was a challenge, and I learned a lot along the way.
+(The most important takeaway of my summer internship is that if you're doing machine
 learning, you will not realize how major a bottleneck the data collection and cleaning phases are unless you have to do them.)
-
-The pie chart shows how 89 vulnerabilities were distributed among the 10 client security assessments we surveyed.
-We documented both the notable vulnerabilities and those that were not discoverable by Slither.
 
 This past summer we resumed the development of Slither-simil and SlithIR with two goals in mind:
 
@@ -392,12 +393,13 @@ We're also going to test it on Mainnet when it gets a bit more mature and automa
 
 You can try \slithersimil~now on Github.
 For end users, it's the simplest CLI tool available:
-Input one or multiple smart contract files (either directory, .zip file, or a single .sol).
+The user can input one or multiple smart contract files (either directory, .zip file, or a single .sol).
 Identify a pre-trained model, or separately train a model on a reasonable amount of smart contracts.
 
 \section{Concluding Remarks}
 
-We also proposed \slithersimil; a powerful tool with potential to measure the similarity between function snippets of any size written in Solidity.
+In this chapter, we went over the efforts of the research community targeted at proposing machine-learnined-based methods to facilitate the process of discovering and mitigating vulnerabilities in smart contracts, compraed to the existing approaches used in industry.
+We also went over \slithersimil; a powerful tool with potential to measure the similarity between function snippets of any size written in Solidity.
 We are continuing to develop it, and based on current results and recent related research, we hope to see impactful real-world results before the end of the year.
 But there is a lacking here and that is the bottleneck of datasets that help us train and test bigger and more comprehensive modelsl.
 In the next chapter we will introduce \etherbase and how the development of \slithersimil~has extended into the development of \etherbase as a solution for us and the broader research community.

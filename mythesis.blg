@@ -10,49 +10,50 @@ Database file #1: references.bib
 Database file #2: bib/pulp.bib
 Database file #3: bib/new.bib
 Database file #4: bib/bib.bib
+Warning--I didn't find a database entry for "gao2019smartembed"
 Warning--to sort, need author or key in pragmadocs
 Warning--empty journal in ferreira2022smart
 Warning--empty publisher in etehrTrust
 Warning--empty booktitle in verismart
 You've used 49 entries,
             2118 wiz_defined-function locations,
-            752 strings with 13510 characters,
-and the built_in function-call counts, 21163 in all, are:
-= -- 2117
-> -- 1059
-< -- 29
-+ -- 427
-- -- 370
-* -- 1330
-:= -- 3198
-add.period$ -- 156
+            749 strings with 13619 characters,
+and the built_in function-call counts, 20842 in all, are:
+= -- 2073
+> -- 1062
+< -- 28
++ -- 428
+- -- 372
+* -- 1309
+:= -- 3180
+add.period$ -- 155
 call.type$ -- 49
-change.case$ -- 327
+change.case$ -- 328
 chr.to.int$ -- 0
 cite$ -- 53
-duplicate$ -- 920
-empty$ -- 1560
-format.name$ -- 370
-if$ -- 4717
+duplicate$ -- 906
+empty$ -- 1518
+format.name$ -- 372
+if$ -- 4621
 int.to.chr$ -- 0
 int.to.str$ -- 49
 missing$ -- 41
-newline$ -- 239
+newline$ -- 240
 num.names$ -- 96
-pop$ -- 435
+pop$ -- 429
 preamble$ -- 1
-purify$ -- 282
+purify$ -- 283
 quote$ -- 0
-skip$ -- 817
+skip$ -- 803
 stack$ -- 0
-substring$ -- 1130
-swap$ -- 407
-text.length$ -- 29
+substring$ -- 1073
+swap$ -- 395
+text.length$ -- 28
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 194
 warning$ -- 4
-while$ -- 168
+while$ -- 163
 width$ -- 51
 write$ -- 538
-(There were 4 warnings)
+(There were 5 warnings)
