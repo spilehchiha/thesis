@@ -23,29 +23,38 @@ To minimize the risk of the attackers, machine learning powered systems provide 
 static checking tools.
 
 Surucu et al.~\cite{surucu2022survey} provide the first-ever survey on machine learning methods utilized for the purposes of discovery and mitigation of vulnerabilities in smart contracts.
-In order to set the ground for further development of ML method on smart contract vulnerability detection, They reviewed many ML-driven intelligent detection mechanism on the following databases: Google Scholar, Engineering Village, Springer, Web of Science, Academic Search Premier, and Scholars Portal Journal.
-Based on their survey paper, we briefly go over the existing analysis tool first, and the the novel deep-learning-based methodologies proposed in the literature over the past few years in a chrnological order, and we add some of the works missing in ~\cite{surucu2022survey} as well.
+In order to set the ground for further development of ML method on smart contract vulnerability detection, They reviewed many ML-driven intelligent detection mechanism on the following databases:
+Google Scholar, Engineering Village, Springer, Web of Science, Academic Search Premier, and Scholars Portal Journal.
+Based on their survey paper, we briefly go over the existing analysis tool first, and the the novel deep-learning-based methodologies proposed in the literature over the past few years
+in a chrnological order, and we add some of the works missing in ~\cite{surucu2022survey} as well.
 Afterwards, we propose our own solution, \slithersimil and how it led us to the development of \etherbase.
 
 
-\section{Existing Analysis Tools}
+\section{Traditional Security Analysis Methods in Smart Contracts}
 
 Classic software testing technologies applied towards smart contract security analysis can be divided into three categories;
 
 In the following, we will go over the tools proposed from the perspective of the technology they employ to tackle the smart contract security problem;
-Ren et al.~\cite{Empirical-Evaluation-of-Smart-Contract-Testing:What-is-the-Best-Choice} provide three broad categories of tools based on their utilized methodology, namely Static Analysis, Dynamic Fuzzing, and Symbolic Execution.
+Ren et al.~\cite{Empirical-Evaluation-of-Smart-Contract-Testing:What-is-the-Best-Choice} provide three broad categories of tools based on their utilized methodology,
+namely Static Analysis, Dynamic Fuzzing, and Symbolic Execution.
 
-\paragraph{Static Analysis}
-Static analysis, which can be done at both the source code and bytecode levels, is a technique for studying a computer programme without running it.
+With static analysis, you can analyse the program at both the source code and bytecode levels, before runtime execution.
 Static analysis-based tools can scan a whole code base, but they also generate a lot of false positives as a result of their scans.
+There are normally three main stages to a static analysis process:
+\begin{itemize}
+  \item building an intermediate representation (IR), such as abstract syntax tree (AST) for a deeper analysis compared to analyzing the raw text / source code;
+  \item complementing the generated IR with additional metadata with methods such as control flow and data flow analysis and symbolic execution.
+  \item vulnerability detection w.r.t. a database of patterns and specific threshold, which define vulnerability criteria.
+\end{itemize}
 Normally, other tools will first obtain binary bytecode, and then use it to construct a custom intermediate representation, which have a series of forms,
 like SSA used in Slither~\cite{slither}, Datalog used in Securify~\cite{securify} and MadMax~\cite{madmax}, XML parsing tree used in SmartCheck~\cite{smartcheck} and
 XCFG used in ClairvOyance~\cite{ClairvOyance}.
 Based on this representation, vulnerability pattern definition and matching are performed to screen out suspected code snippets.
 Formal verification, a static analysis technique based on mathematical proof, is frequently used to check the logical integrity of smart contracts
 like Zeus~\cite{kalra2018zeus}, VeriSmart~\cite{verismart}, and EtherTrust~\cite{etehrTrust}.
+One critical issue with using static analyais to look for vulnerabities in smart contracts is watching out for false positives and false negatives in their
+generated reports and not mistaking them for pure ground truth values for further analysis or benchmarking  purposes.
 
-\paragraph{Dynamic Analysis}
 Fuzzing is a technique for finding software bugs that involves creating erroneous input data and watching the target program's unusual output while it runs.
 It allows developers to ensure a uniform standard of quality through prepared tests, but does not narrow down the causes of detected bugs.
 When applied to smart contracts, a fuzzing engine will first try to generate initial seeds to form executable transactions.
@@ -55,7 +64,7 @@ ContractFuzzer~\cite{contractfuzzer} is the first to apply fuzz testing to smart
 ReGuard~\cite{liu2018reguard} and Harvey~\cite{wustholz2020harvey} are dedicated to generating diverse inputs and transactions that are more likely to reveal vulnerabilities,
 ILF~\cite{he2019learning} and sFuzz~\cite{nguyen2020sfuzz} target at designing more effective generation or mutation strategy.
 
-\paragraph{Symbolic Execution}
+
 When using symbolic execution to analyze a program, it will use symbolic values as input instead of the specific values during the execution.
 When a fork is reached, the analyzer will collect the corresponding path constraints, and then use a constraint solver to obtain specific values that can trigger each branch.
 Symbolic execution can simultaneously explore multiple paths that the program can take under different inputs, but it also faces unavoidable problems such as path explosion.
@@ -121,6 +130,10 @@ These were namely Neural Network Based on opcode Feature (NNBOOF), Convolution N
 These three models were each tested on three different vulnerability classification tasks: greedy contract vulnerability, arithmetic overflow/underflow vulnerability and short address vulnerability.
 While RFBOOF achieved the best results in all three cases based on precision, recall and F1 evaluation metrics, CNNBOSM performed slightly better than NNBOOF in general.
 The authors mention that the slice matrix feature need further exploring.
+
+Momeni et al.
+
+SmartEmbed, Ethereum has become a widely used platform to enable secure, Blockchain-based financial and business transac- tions. However, a major concern in Ethereum is the security of its smart contracts. Many identified bugs and vulnerabilities in smart contracts not only present challenges to maintenance of blockchain, but also lead to serious financial loses. There is a significant need to better assist developers in checking smart contracts and ensuring their reliability. In this paper, we propose a web service tool, named SMARTEMBED, which can help Solidity developers to find repetitive contract code and clone-related bugs in smart contracts. Our tool is based on code embeddings and similarity checking techniques. By comparing the similarities among the code embedding vectors for existing solidity code in the Ethereum blockchain and known bugs, we are able to efficiently identify code clones and clone-related bugs for any solidity code given by users, which can help to improve the users’ confidence in the reliability of their code. In addition to the uses by individual developers, SMARTEMBED can also be applied to studies of smart contracts in a large scale. When applied to more than 22K solidity contracts collected from the Ethereum blockchain, we found that the clone ratio of solidity code is close to 90\%, much higher than traditional software, and 194 clone- related bugs can be identified efficiently and accurately based on our small bug database with a precision of 96\%.
 
 In N. Lesimple et al.'s paper ~\cite{day2019ethereum}, the authors study the effect of deep learning models when used to identify vulnerabilities in Smart Contracts.
 It specifically highlights the vulnerabilities relating to Domain Specific Languages (DSL), which is defined as a language engineered to work solely on a single program.
@@ -218,6 +231,13 @@ Oyente~\cite{oyente} was used to assign multi label to each contract.
 After the labeling process, the researchers encountered class-imbalance problem, due to rarity of some vulnerabilities.
 The training process adopted 5 candidate ML models: eXtreme Gradient Boosting (XGBoost), Adaptive Boosting (AdaBoost), Random Forest (RF), Support Vector Machine (SVM), and k-Nearest Neighbour (KNN).
 The XGBoost model showed a robust performance by achieving over 96\% F1, Micro-F1, and Macro-F1score.
+
+In 2022, Yuqi Fan et al
+Smart contracts on blockchains have received increasing attention due to the decentralized, transparent, and immutable characteristics of blockchain. However, smart contracts are prone to security problems caused by critical vulnerabilities, which can lead to huge economic losses. Therefore, it is urgent to provide strong and robust security assurance for smart contracts. Most existing studies on smart contract vulnerability detection methods take heavy reliance on experts-defined rules, which are extremely time-consuming and labor-demanding. Moreover, the manually-set rules are limited to specific tasks and subject to errors. Although some studies explore the use of deep learning methods, they fail to represent both semantics and structural information. In this paper, we propose a novel model, Dual Attention Graph Convolutional Network (DA-GCN), to detect vulnerabilities in smart contracts on blockchains. Both control flow graph and opcode sequence extracted from smart contract bytecodes are fed into the feature extractor based on graph convolutional network and self-attention mechanism. Model DA-GCN then uses control flow level attention to focus on the more important nodes in the control flow graph and suppress useless information. Finally, a multi layer perceptron is used to identify whether the smart contract is vulnerable. Experimental results on the real-world smart contract data set containing two vulnerabilities of reentrancy and timestamp dependency demonstrate that our proposed model DA-GCN can effectively improve the performance of smart contract vulnerability detection.
+
+
+
+
 
 \section{\slithersimil}
 

@@ -286,6 +286,12 @@ P.~Tsankov, A.~Dan, D.~Drachsler-Cohen, A.~Gervais, F.~B\"{u}nzli, and
   Communications Security}, CCS '18, page 67–82, New York, NY, USA, 2018.
   Association for Computing Machinery.
 
+\bibitem{varun2022mitigating}
+M.~Varun, B.~Palanisamy, and S.~Sural.
+\newblock Mitigating frontrunning attacks in ethereum.
+\newblock In {\em Proceedings of the Fourth ACM International Symposium on
+  Blockchain and Secure Critical Infrastructure}, pages 115--124, 2022.
+
 \bibitem{wang2020automated}
 Y.~Wang.
 \newblock Automated market makers for decentralized finance (defi).

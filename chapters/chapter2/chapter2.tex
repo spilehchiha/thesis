@@ -175,25 +175,49 @@
 \section{Smart Contracts}
     The concept of smart contracts - programs running on the EVM - has been first introduced by Nick Szabo in one of his works in 1997.~\cite{szabo1997formalizing}
 
+
     \subsection{Vulnerabilities}
         Solidity, like any other programming langauge in history, is prone to all kinds of vulnreabilities.
         What makes security vulnerabilities in Solidity so attractive is the fact that the programs written in Solidity are very much often used in the financial sector,
-        handling millions of dollars in digital aassets and cryptocurrencies.
+        handling millions of dollars in digital aassets and cryptocurrencies. Attcking such contracts successfully can result in enormous financial losses.
+        Some of these vulnerabilities like another programming language arise from the human factor invlved in development of the smart contracts, and some specific to the blockchain data structuresa and how they and their components function and interact with each other.
+        And these are only vulnerabilities at the scope of smart contracts we are focusing on. Vulnerabilities can arise with regards to core infrastructure of the blockchains handling smart contracts as well.
+        In this section, we go over 9 of the more discussed vulnerabilities in Solidity and Ethereum, to get a better sense of what threat surface the deveopers and researchers developing analysis tools face:
 
 
             \paragraph{Re-entrancy}
-            The Reentrancy attack, probably the most famous Ethereum vulnerability, surprised everyone when discovered for the first time. It was first unveiled during a multimillion dollar heist which led to a hard fork of Ethereum. Reentrancy occurs when external contract calls are allowed to make new calls to the calling contract before the initial execution is complete. For a function, this means that the contract state may change in the middle of its execution as a result of a call to an untrusted contract or the use of a low level function with an external address.   
+            The Reentrancy attack, probably the most famous Ethereum vulnerability, surprised everyone when discovered for the first time.
+            It was first unveiled during a multimillion dollar heist which led to a hard fork of Ethereum.
+            Reentrancy occurs when external contract calls are allowed to make new calls to the calling contract before the initial execution is complete.
+            For a function, this means that the contract state may change in the middle of its execution as a result of a call to an untrusted contract or
+            the use of a low level function with an external address.
 
             \paragraph{Access Control}
-            Access Control issues are common in all programs, not just smart contracts. In fact, it's number 5 on the OWASP top 10. One usually accesses a contract's functionality through its public or external functions. While insecure visibility settings give attackers straightforward ways to access a contract's private values or logic, access control bypasses are sometimes more subtle. These vulnerabilities can occur when contracts use the deprecated tx.origin to validate callers, handle large authorization logic with lengthy require and make reckless use of delegatecall in proxy libraries or proxy contracts.   
+            
+            Access Control issues are common in all programs, not just smart contracts.
+            In fact, it's number 5 on the OWASP top 10. One usually accesses a contract's functionality through its public or external functions.
+            While insecure visibility settings give attackers straightforward ways to access a contract's private values or logic, access control bypasses are sometimes more subtle.
+            These vulnerabilities can occur when contracts use the deprecated tx.origin to validate callers, handle large authorization logic with lengthy require and make reckless use of
+            delegatecall in proxy libraries or proxy contracts.
 
+            \paragraph{Arithmetic}
+            Integer overflows and underflows are not a new class of vulnerability, but they are especially dangerous in smart contracts, where unsigned integers are prevalent and most developers are used to simple int types (which are often just signed integers). If overflows occur, many benign-seeming codepaths become vectors for theft or denial of service.
+            
+            \paragraph{Unhandled Exception}
+            One of the deeper features of Solidity are the low level functions call(), callcode(), delegatecall() and send(). Their behavior in accounting for errors is quite different from other Solidity functions, as they will not propagate (or bubble up) and will not lead to a total reversion of the current execution. Instead, they will return a boolean value set to false, and the code will continue to run. This can surprise developers and, if the return value of such low-level calls are not checked, can lead to fail-opens and other unwanted outcomes. Remember, send can fail!
+            
+            \paragraph{Denial of Service}
+            Denial of service is deadly in the world of Ethereum: while other types of applications can eventually recover, smart contracts can be taken offline forever by just one of these attacks. Many ways lead to denials of service, including maliciously behaving when being the recipient of a transaction, artificially increasing the gas necessary to compute a function, abusing access controls to access private components of smart contracts, taking advantage of mixups and negligence, etc. This class of attack includes many different variants and will probably see a lot of development in the years to come.
+            
             \paragraph{Frontrunning}
-            Since miners always get rewarded via gas fees for running code on behalf of externally owned addresses (EOA), users can specify higher fees to have
-            their transactions mined more quickly. Since the Ethereum blockchain is public, everyone can see the contents of others' pending transactions.
-            This means if a given user is revealing the solution to a puzzle or other valuable secret, a malicious user can steal the solution and copy their transaction with
-            higher fees to preempt the original solution.
-            If developers of smart contracts are not careful, this situation can lead to practical and devastating front-running attacks.
-                
+            The frontrunning vulnerability is one of the more famous ones in the list, also known as Transaction Ordering Dependance (TOD).
+            Explotation of this vulnerability happens when malaicious miners decide to alter the initial default ordering of the transactions submitted to the blockchain.
+            Per Eskandari et al.~\cite{eskandari2018frontrunning}, frontrunning can be generally reduced into three templates:
+            \begin{itemize}
+                \item Displacement attack, where an adversarial party makes a transaction in order to displace the victim user's transaction by having a higher gas price and thus, the attacker's tarnsaction gets mined before that of victim's due to it giving having more aligned incentives with he miners' network.
+                \item Insertion attack, in which an adversary makes two transactions, one with a higher gas price than the victim transaction and one with a lower gas price, to \textit{sandwich} the victim transaction.~\cite{varun2022mitigating}
+                \item Supperession attack, where an attacker makes multiple transactions with higehr gas prices that the victim transactions to prevent them from being mined in the same block.
+            \end{itemize}
 
             \paragraph{Bad Randomness}
             Also known as \textit{nothing is secret},~\cite{dasp} this vulnerability happens when smart contracts attempt to generate random, or to be more exact, pseudo-random numbers for any number of reasons.

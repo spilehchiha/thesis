@@ -10,50 +10,51 @@ Database file #1: references.bib
 Database file #2: bib/pulp.bib
 Database file #3: bib/new.bib
 Database file #4: bib/bib.bib
+Warning--I didn't find a database entry for "eskandari2018frontrunning"
 Warning--I didn't find a database entry for "gao2019smartembed"
 Warning--to sort, need author or key in pragmadocs
 Warning--empty journal in ferreira2022smart
 Warning--empty publisher in etehrTrust
 Warning--empty booktitle in verismart
-You've used 53 entries,
+You've used 54 entries,
             2118 wiz_defined-function locations,
-            768 strings with 14273 characters,
-and the built_in function-call counts, 22344 in all, are:
-= -- 2221
-> -- 1127
-< -- 30
-+ -- 454
-- -- 394
-* -- 1395
-:= -- 3402
-add.period$ -- 166
-call.type$ -- 53
-change.case$ -- 350
+            774 strings with 14527 characters,
+and the built_in function-call counts, 22826 in all, are:
+= -- 2270
+> -- 1145
+< -- 31
++ -- 461
+- -- 400
+* -- 1424
+:= -- 3469
+add.period$ -- 169
+call.type$ -- 54
+change.case$ -- 356
 chr.to.int$ -- 0
-cite$ -- 57
-duplicate$ -- 968
-empty$ -- 1647
-format.name$ -- 394
-if$ -- 4959
+cite$ -- 58
+duplicate$ -- 991
+empty$ -- 1688
+format.name$ -- 400
+if$ -- 5070
 int.to.chr$ -- 0
-int.to.str$ -- 53
-missing$ -- 43
-newline$ -- 258
-num.names$ -- 104
-pop$ -- 468
+int.to.str$ -- 54
+missing$ -- 44
+newline$ -- 263
+num.names$ -- 106
+pop$ -- 477
 preamble$ -- 1
-purify$ -- 302
+purify$ -- 307
 quote$ -- 0
-skip$ -- 860
+skip$ -- 880
 stack$ -- 0
-substring$ -- 1165
-swap$ -- 421
-text.length$ -- 30
+substring$ -- 1202
+swap$ -- 432
+text.length$ -- 31
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 210
+type$ -- 214
 warning$ -- 4
-while$ -- 177
-width$ -- 55
-write$ -- 576
-(There were 5 warnings)
+while$ -- 182
+width$ -- 56
+write$ -- 587
+(There were 6 warnings)
