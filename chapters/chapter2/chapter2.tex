@@ -28,8 +28,6 @@
 
     As the second most popular blockchain, the Ethereum blockchain was developed as an alternative to cover for the lackings of Bitcoin.
     It is a transaction-based, cryptographically secure state machine, that reads a series of inputs and, based on those inputs, transitions to a new state.~\cite{ferreira2022smart}
-    It is a distribued ledger that supports Turing-complete programming languages, giving its users the power to write and store Turing-complete programs and define and transition between states with those programs.
-
     Just like Bitcoin, Ethereum currently uses Proof-of-Work (PoW) as its consensus protocol.
     Proof-of-Stake (PoS), PBFT(Practical Byzantine Fault Tolerance), and DPoS (Delegated Proof of Stake) are other forms of concensus protocol, for example.
     The solution to a series of cryptographic puzzles are used in the PoW mechanism to prove the credibility of the data being written on the blockchain, using such mechanism as their consensus protocol.
@@ -172,45 +170,42 @@
     \subsection{Ethereum Virtual Machine}
         
         The Ethereum Virtual Machine (EVM) at the heart of the Ethereum blockchain is a VM (virtual machine), with a stack-based architecture, supporting Turing-complete programming languages.
-        It is basiaclly the compute system in Ethereum for the execution of smart contracts, and usually dubbed as the OS of the Ethereum.
-        For a simple analogy, you can think if it like the Java programming langauge that uses the Java Virtual Machine (JVM).
-        Wood actually introduces EVM as a quasi-Turning-complete machine, as they state that computation is fundamentally bounded in Ethereum through the introdution of the concept of gas comnsuption.
-        The word size of the machine (and thus size of stack item) is 256-bit.
-        This was chosen to facilitate the Keccak256 hash scheme and elliptic-curve computations.
-        The memory model is a simple word-addressed byte array.
-        The stack has a maximum size of 1024.
-        The machine also has an independent storage model;
-        this is similar in concept to the memory but rather than a byte array, it is a wordaddressable word array.
-        Unlike memory, which is volatile, storage is non volatile and is maintained as part of the system state.
-        All locations in both storage and memory are well-defined initially as zero.
-
+        
 
 \section{Smart Contracts}
     The concept of smart contracts - programs running on the EVM - has been first introduced by Nick Szabo in one of his works in 1997.~\cite{szabo1997formalizing}
 
     \subsection{Vulnerabilities}
         Solidity, like any other programming langauge in history, is prone to all kinds of vulnreabilities.
-        What makes security vulnerabilities in Solidity so attractive is the fact that the programs written in Solidity are very much often used in the financial sector, handling millions of dollars in digital aassets and cryptocurrencies.
+        What makes security vulnerabilities in Solidity so attractive is the fact that the programs written in Solidity are very much often used in the financial sector,
+        handling millions of dollars in digital aassets and cryptocurrencies.
 
 
             \paragraph{Re-entrancy}
-                
+            The Reentrancy attack, probably the most famous Ethereum vulnerability, surprised everyone when discovered for the first time. It was first unveiled during a multimillion dollar heist which led to a hard fork of Ethereum. Reentrancy occurs when external contract calls are allowed to make new calls to the calling contract before the initial execution is complete. For a function, this means that the contract state may change in the middle of its execution as a result of a call to an untrusted contract or the use of a low level function with an external address.   
 
             \paragraph{Access Control}
-                
+            Access Control issues are common in all programs, not just smart contracts. In fact, it's number 5 on the OWASP top 10. One usually accesses a contract's functionality through its public or external functions. While insecure visibility settings give attackers straightforward ways to access a contract's private values or logic, access control bypasses are sometimes more subtle. These vulnerabilities can occur when contracts use the deprecated tx.origin to validate callers, handle large authorization logic with lengthy require and make reckless use of delegatecall in proxy libraries or proxy contracts.   
 
             \paragraph{Frontrunning}
+            Since miners always get rewarded via gas fees for running code on behalf of externally owned addresses (EOA), users can specify higher fees to have
+            their transactions mined more quickly. Since the Ethereum blockchain is public, everyone can see the contents of others' pending transactions.
+            This means if a given user is revealing the solution to a puzzle or other valuable secret, a malicious user can steal the solution and copy their transaction with
+            higher fees to preempt the original solution.
+            If developers of smart contracts are not careful, this situation can lead to practical and devastating front-running attacks.
                 
 
             \paragraph{Bad Randomness}
             Also known as \textit{nothing is secret},~\cite{dasp} this vulnerability happens when smart contracts attempt to generate random, or to be more exact, pseudo-random numbers for any number of reasons.
             If the smart contract generating the pseudo-random number computes that random number using values that can be guessed by a malicious party, then the attacker can predict the next number that will be generated.
             Values such as block timestamps,or block number are generally advised against to be used in such mechanisms. They are called hard-to-predict values but it is better to use an external oracle to generate the random numbers needed~\cite{swcregistry}.
-
-                
         
             \paragraph{Time Manipulation}
-                
+            This vulnerability is also known as \textit{timestamp dependence}~\cite{dasp}.
+            In Solidity, a block's timestamp is often used to generate psuedi-random numebrs and in other times, it can be leveraged for smart contracts to conduct time-intesive oeprations, like unlocking funds at a specific time.
+            A malicious miner of a block can manipulate the timestamp reported while generating the block and sue this vulenrability to their own profit. 
         
             \paragraph{Short Address}
-                
+            The short address vulnerability, also known as off-chain issues, results from the Ethereum Virtual Machine accepting arguments with incorrect paddings.
+            Attackers trying to exploit this vulnerability, can craft truncated addresses which clients may encode incorrectly in transactions.
+            Additioally, it has not been exploited in the wild as mentioned by ~\cite{ferreira2020smartbugs}.

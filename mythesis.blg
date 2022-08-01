@@ -15,45 +15,45 @@ Warning--to sort, need author or key in pragmadocs
 Warning--empty journal in ferreira2022smart
 Warning--empty publisher in etehrTrust
 Warning--empty booktitle in verismart
-You've used 51 entries,
+You've used 53 entries,
             2118 wiz_defined-function locations,
-            758 strings with 13782 characters,
-and the built_in function-call counts, 21235 in all, are:
-= -- 2107
-> -- 1076
-< -- 28
-+ -- 434
-- -- 376
-* -- 1322
-:= -- 3244
-add.period$ -- 159
-call.type$ -- 51
-change.case$ -- 335
+            768 strings with 14273 characters,
+and the built_in function-call counts, 22344 in all, are:
+= -- 2221
+> -- 1127
+< -- 30
++ -- 454
+- -- 394
+* -- 1395
+:= -- 3402
+add.period$ -- 166
+call.type$ -- 53
+change.case$ -- 350
 chr.to.int$ -- 0
-cite$ -- 55
-duplicate$ -- 920
-empty$ -- 1562
-format.name$ -- 376
-if$ -- 4707
+cite$ -- 57
+duplicate$ -- 968
+empty$ -- 1647
+format.name$ -- 394
+if$ -- 4959
 int.to.chr$ -- 0
-int.to.str$ -- 51
-missing$ -- 41
-newline$ -- 248
-num.names$ -- 100
-pop$ -- 447
+int.to.str$ -- 53
+missing$ -- 43
+newline$ -- 258
+num.names$ -- 104
+pop$ -- 468
 preamble$ -- 1
-purify$ -- 289
+purify$ -- 302
 quote$ -- 0
-skip$ -- 819
+skip$ -- 860
 stack$ -- 0
-substring$ -- 1083
-swap$ -- 397
-text.length$ -- 28
+substring$ -- 1165
+swap$ -- 421
+text.length$ -- 30
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 202
+type$ -- 210
 warning$ -- 4
-while$ -- 167
-width$ -- 53
-write$ -- 553
+while$ -- 177
+width$ -- 55
+write$ -- 576
 (There were 5 warnings)

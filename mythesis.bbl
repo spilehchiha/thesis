@@ -73,6 +73,12 @@ J.~Feist, G.~Greico, and A.~Groce.
   Trends in Software Engineering for Blockchain}, WETSEB '19, page 8–15. IEEE
   Press, 2019.
 
+\bibitem{ferreira2020smartbugs}
+J.~F. Ferreira, P.~Cruz, T.~Durieux, and R.~Abreu.
+\newblock Smartbugs: A framework to analyze solidity smart contracts.
+\newblock In {\em Proceedings of the 35th IEEE/ACM International Conference on
+  Automated Software Engineering}, pages 1349--1352, 2020.
+
 \bibitem{ferreira2022smart}
 C.~Ferreira~Torres.
 \newblock From smart to secure contracts: Automated security assessment and
@@ -150,6 +156,12 @@ C.~Liu, H.~Liu, Z.~Cao, Z.~Chen, B.~Chen, and B.~Roscoe.
 \newblock Reguard: finding reentrancy bugs in smart contracts.
 \newblock In {\em 2018 IEEE/ACM 40th International Conference on Software
   Engineering: Companion (ICSE-Companion)}, pages 65--68. IEEE, 2018.
+
+\bibitem{liu2019enabling}
+H.~Liu, Z.~Yang, Y.~Jiang, W.~Zhao, and J.~Sun.
+\newblock Enabling clone detection for ethereum via smart contract birthmarks.
+\newblock In {\em 2019 IEEE/ACM 27th International Conference on Program
+  Comprehension (ICPC)}, pages 105--115. IEEE, 2019.
 
 \bibitem{ref_flag2}
 L.~Luu, D.-H. Chu, H.~Olickel, P.~Saxena, and A.~Hobor.

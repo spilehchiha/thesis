@@ -24,7 +24,7 @@ static checking tools.
 
 Surucu et al.~\cite{surucu2022survey} provide the first-ever survey on machine learning methods utilized for the purposes of discovery and mitigation of vulnerabilities in smart contracts.
 In order to set the ground for further development of ML method on smart contract vulnerability detection, They reviewed many ML-driven intelligent detection mechanism on the following databases: Google Scholar, Engineering Village, Springer, Web of Science, Academic Search Premier, and Scholars Portal Journal.
-Base on their survey paper, we briefly go over the existing analysis tool first, and the the novel deep-learning-based methodologies proposed in the literature over the past few years.
+Based on their survey paper, we briefly go over the existing analysis tool first, and the the novel deep-learning-based methodologies proposed in the literature over the past few years in a chrnological order, and we add some of the works missing in ~\cite{surucu2022survey} as well.
 Afterwards, we propose our own solution, \slithersimil and how it led us to the development of \etherbase.
 
 
@@ -223,16 +223,13 @@ The XGBoost model showed a robust performance by achieving over 96\% F1, Micro-F
 
 \textit{Parts of this section have been published in another piece~\cite{pilehchiha_2020} written by the same author of this dissertation and have been used here with permission.}
 
-Our efforts with regard to automating smart contract security assessments
-was to work on an addition to an already prominent static analysis tool, to better help developers and researchers in
-their process of auditing dmart contracts.
+The efforts of security auditing companies like Trail of Bits, Inc. with regard to automating smart contract security assessments has included works on an addition to an already prominent static analysis tool, Slither~\cite{slither}, to better help developers and researchers in their process of auditing dmart contracts.
 
 Trail of Bits, a prominent blockchain security firm has manually curated a wealth of data—years of security assessment reports—and we decided to explore how to use this data to make the smart
-contract auditing process more efficient with an addition to Slither -a static analysis tool-named Slither-simil.
+contract auditing process more efficient with an addition to Slither -a static analysis tool-named \slithersimil.
 
 Based on accumulated knowledge embedded in previous audits, we set out to detect similar vulnerable code snippets in new clients' codebases.
-Specifically, we explored machine learning (ML)
-approaches to automatically improve on the performance of Slither, our static analyzer for Solidity, and make life a bit easier for both auditors and clients.
+Specifically, we explored machine learning (ML) approaches to automatically improve on the performance of Slither, our static analyzer for Solidity, and facilitate the conduct of audits for auditors and general users.
 
 Currently, human auditors with expert knowledge of Solidity and its security nuances scan and assess Solidity source code to discover vulnerabilities and potential threats at different granularity levels.
 In our experiment, we explored how much we could automate security assessments to:
@@ -241,19 +238,18 @@ In our experiment, we explored how much we could automate security assessments t
   \item Help auditors sift through potential vulnerabilities faster and more easily while decreasing the rate of false positives.
 \end{enumerate}
 
-Slither-simil~\cite{slithersimil}, the statistical addition to Slither, is a code similarity measurement tool that uses state-of-the-art machine learning to detect similar Solidity functions.
+\slithersimil~\cite{slithersimil}, the statistical addition to Slither, is a code similarity measurement tool that uses state-of-the-art machine learning to detect similar Solidity functions.
 When it began as an experiment last year under the codename crytic-pred, it was used to vectorize Solidity source code snippets and measure the similarity between them.
-This year, we took it to the next level and applying it directly to vulnerable code.
+Last year, we took it to the next level and applied it directly to vulnerable code.
 
-Slither-simil currently uses its own representation of Solidity code, as introduced by~\cite{slither}.
+\slithersimil currently uses its own representation of Solidity code, as introduced by~\cite{slither}, namely SlithIR.
 SlithIR (Slither Intermediate Representation), to encode Solidity snippets at the granularity level of functions.
 We thought function-level analysis was a good place to start our research since
 it's not too coarse (like the file level) and not too detailed (like the statement or line level).
 
-As introduced by Fest et al, SlithIR is the developed intermediate representation (IR) language used in Slither to represent Solidity code for further analysis.
-Each node of the control flow graph of any smart contract written in Solidity can contain up to a single Solidity expression, which is converted to a set of SlithIR instructions.
-This representation makes implementing analyses easier, without losing the critical semantic information contained in the Solidity source code.
-
+As introduced by Feist et al, SlithIR was developed as an intermediate representation (IR) language with slither in mind to leverage it and represent Solidity code for further analysis.
+Every smart contract written in solidity can be decomposed into a control flow graph and in that graph, each node can contain up to a single Solidity expression, which is converted to a set of SlithIR instructions.
+This representation makes implementing analyses easier, without losing the critical semantic information contained in the Solidity source code.~\cite{slither}
 SlithIR has a database of about 40 instruction expressions.
 It has no internal control flow representation and relies on Slither's control-flow graph structure (SlithIR code is associated with each node in the graph).
 The complete descriptions is available at~\cite{slithir}.
@@ -271,7 +267,7 @@ Note that these are the vulnerabilities auditors had to find with no automation.
 After that, we compiled previous clients' codebases and matched the functions they contained with our vulnerability database via an automated function extraction and normalization script.
 By the end of this process, our vulnerabilities were normalized SlithIR tokens as input to our ML system.
 
-Here's how we used Slither to transform a Solidity function to the intermediate representation SlithIR, then further tokenized and normalized it to be an input to Slither-simil:
+Here's how we used Slither to transform a Solidity function to the intermediate representation SlithIR, then further tokenized and normalized it to be an input to \slithersimil:
 
 \begin{lstlisting}[float,caption= complete Solidity function from the contract TurtleToken.sol., escapechar=\%, language=Solidity, label=lst:solidity-bug]
   function transferFrom(address _from, address _to, uint256 _value) public returns (bool success) {
