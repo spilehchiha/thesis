@@ -62,12 +62,15 @@
 
     \subsection{Transactions}
     A transaction is a cryptographically signed instruction sent by an account on the network towards another.
-    There exist only two types of transactions based on their products (message calls and contract creation calls).
-    Contract creation calls result in the creation of new accounts with a code associated with it, and message calls are created by contract accounts to produce and execute a message that leads
-    to the recipient account running its code.
-    An Ethereum transaction is defined as a signed data package dispatched from an externally owned account (EOA) as defined above.
+    There exist only two types of transactions based on the outcomes they generate:
+    \begin{itemize}
+        \item Message calls, which are created by contract accounts to produce and execute a message that leads to the recipient account (an EOA or contract account) running its code. The simplest of such transaction is sending Ether from an account to another.
+        \item Contract creation call, which results in the creation of new accounts with a code associated with it..
+    \end{itemize}
 
     \subsection{Blocks}
+    A block is basically a collection of transactions that are executed in sequence.
+    
 
     \subsection{Ethereum Virtual Machine}
         The formal definition of the EVM is specified in the Ethereum Yellow Paper.~\cite{wood2014ethereum}
