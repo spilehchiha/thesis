@@ -44,9 +44,6 @@
         \label{fig:uncle}
     \end{figure}
 
-    \subsection{Ether}
-
-
     \subsection{Accounts}
         The Ethereum state is consisted of many small objects naemd as accounts, where each account has a 20-byte address and state transitions to be able to interact with the other accounts on-chain.
         An address on the Ethereum blockchain is a 160-bit identifier that is used to identify any account.
@@ -64,6 +61,11 @@
         \end{itemize}
 
     \subsection{Transactions}
+    A transaction is a cryptographically signed instruction sent by an account on the network towards another.
+    There exist only two types of transactions based on their products (message calls and contract creation calls).
+    Contract creation calls result in the creation of new accounts with a code associated with it, and message calls are created by contract accounts to produce and execute a message that leads
+    to the recipient account running its code.
+    An Ethereum transaction is defined as a signed data package dispatched from an externally owned account (EOA) as defined above.
 
     \subsection{Blocks}
 
@@ -73,6 +75,7 @@
         EVM handles the computation side for Ethereum and comes with a set of instructions (namely, opcodes).
         Thus, a smart contract from a low-level point of view is a series of opcode instructions which EVM can read and compute and execute the logic of that smart contract.
         The EVM is also responsible for handling the estimation and calculation of gas consumption for transactions in smart contracts.
+
 
 \section{Smart Contracts}
     The concept of smart contracts - programs running on the EVM - has been first introduced by Nick Szabo in one of his works in 1997.~\cite{szabo1997formalizing}
