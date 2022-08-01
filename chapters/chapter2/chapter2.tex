@@ -37,24 +37,6 @@
     It acts as a “proof” that a node has done “work” by spending its computational resources.
     This process is known as mining and nodes which decide to participate in this process and try to create new blocks are known as miners.
 
-    As participating nodes are allowed to propose new blocks simaltaneously and at nearly the same time, it can be the case that two or more blocks are proposed at once with a valid
-    hash while referencing the same parent block.
-    This is called a "fork" in the blockchain nomenclature.
-    Blockchain forks pose a serious issue to Ethereum.
-    They result in multiple concurrent states and make it difficult for the nodes to come to an agreement concerning which state should be the correct state.
-    For example, if the states were to diverge, a user might own 100 coins on one chain, 200 on another, and 300 on another.
-    Forks can happen intentionally or be deliberately orchestrated.
-    To prevent multiple states and help determine which fork is the most valid one, Ethereum blockchain uses a technique known as the Greedy Heaviest Observed Subtree (GHOST) protocol.
-    The GHOST protocol declares that of all the states, one must select the state that contains the most computation.
-    One way to determine the heaviest state (computation-wise), is to look at the block number of the most recent block (i.e., leaf block) of a state, which amounts to the total
-    number of blocks in the current state (not including the genesis block).
-    The higher the block number, the longer the chain of that state and the greater the mining computation that must have gone into arriving at that current leaf block.
-    This allows the blockchain nodes to agree on an accpeted version of the current state of the blockchain.
-    Those blocks that are not included in the canonical chain are often referred to as orphans or uncle blocks.
-    Unlike other blockchains, such as Bitcoin, Ethereum also adds uncle blocks to the aforementioned calculation to figure out the longest and computationally heaviest chain of blocks.
-    This allows for the inclusion of more transactions and attributes a reward to the creators of uncle blocks as well as miners for declaring concurrent blocks as uncles and
-    thereby keeping forked chains as short as possible.
-
     \begin{figure}
         \centering
         \includegraphics[width=\textwidth]{figures/uncle.png}
@@ -63,22 +45,6 @@
     \end{figure}
 
     \subsection{Ether}
-        Ether is the native cryptocurrency of Ethereum.
-        A cryptocurrency is a digital currency that is secured by means of cryptographic primitives.
-        The purpose of ether is not only to allow users to exchange value between one another, but also to provide an economic incentive for users of its underlying platform to
-        provide computational resources to the Ethereum network.
-        Any network participant who sends a transactions must offer some amount of ether to the Ethereum network as a fee.
-        This remuneration will be awarded to whoever gets to mine the block that includes the transaction, as a result of doing the work of verifying, executing, and broadcasting
-        the transaction to the rest of the blockchain network.
-        The amount of ether offered in such transaction as the corresponding fee, must correspond to the time and effort spent in executing the transaction.
-        These costs prevent malicious participants from intentionally blocking up the network by requesting the execution of infinite computation or other resource-intensive actions,
-        as these ill-intentioned participants must pay for the computation.
-
-        Ethereum provides a metric system of denominations to describe different units of ether.
-        Each denomination has its own unique name.
-        Wei and Gwei are the most popular denominations.
-        Wei is the smallest possible denomination of ether also known as the base unit, and as a result, many technical implementations base all their calculations in wei.
-        Gwei (short for gigawei) is often used to describe costs related to “gas”.
 
     \subsection{Accounts}
         The Ethereum state is consisted of many small objects naemd as accounts, where each account has a 20-byte address and state transitions to be able to interact with the other accounts on-chain.
@@ -120,18 +86,6 @@
                 \item This is an optional field that is only part of message calls and consists of a byte array of unlimited size that specifies the input data (e.g., , function name, function parameters)
                 of the message call.
             \end{itemize}
-            As previously mentioned, contract-creating transactions and message calls are always initiated by EOAs.
-            However, this does not mean that CAs cannot communicate with other CAs.
-            CAs can send messages or so-called “internal transactions” to other CAs.
-            Internal transactions are similar to normal transactions, with the major difference being that they are not initiated by EOAs, but instead they are initiated by CAs.
-            Moreover, internal transactions merely exist as virtual objects that, unlike transactions, are not persisted in the Ethereum blockchain and only exist at execution time.
-            When a CA sends an internal transaction to another CA, the code that is associated with the recipient CA is executed.
-            In contrast to normal transaction, internal transactions do not contain a gas limit by default.
-            They are only limited by the gas limit that was determined by the normal transaction that triggered them.
-            Thus, the gas limit that the EOA provides within its normal transaction, must be large enough to perform the execution of the normal transaction, including any sub-executions that occur
-            as a result of that transaction, such as any internal transactions.
-            If the execution of an internal transaction runs out of gas, then its execution will be will be reverted, along with any subsequent internal transactions triggered by the execution.
-            However, the parent execution is not reverted.
 
     \subsection{Blocks}
         Every Blockchain, including Ethereum, consists of a sequence of blocks, which are bound and "chained" together through cryptographic hashes, grouping transactions altogether.
@@ -168,13 +122,16 @@
         \end{itemize}
 
     \subsection{Ethereum Virtual Machine}
-        
-        The Ethereum Virtual Machine (EVM) at the heart of the Ethereum blockchain is a VM (virtual machine), with a stack-based architecture, supporting Turing-complete programming languages.
-        
+        The formal definition of the EVM is specified in the Ethereum Yellow Paper.~\cite{wood2014ethereum}
+        The Ethereum Virtual Machine (EVM) at the heart of the Ethereum blockchain is a VM (virtual machine), with a stack-based architecture with 256-bit word sizes, supporting Turing-complete programming languages.
+        EVM handles the computation side for Ethereum and comes with a set of instructions (namely, opcodes).
+        Thus, a smart contract from a low-level point of view is a series of opcode instructions which EVM can read and compute and execute the logic of that smart contract.
+        The EVM is also responsible for handling the estimation and calculation of gas consumption for transactions in smart contracts.
 
 \section{Smart Contracts}
     The concept of smart contracts - programs running on the EVM - has been first introduced by Nick Szabo in one of his works in 1997.~\cite{szabo1997formalizing}
-
+    They provide a framework that allow any sound program to be executed in an autonomous, distributed, and trusted manner.~\cite{nguyen2020sfuzz}
+    The main programming langauge currently in use for the development of smart contracts is Solidity, although Vyper is gaining gradual traction as well.
 
     \subsection{Vulnerabilities}
         Solidity, like any other programming langauge in history, is prone to all kinds of vulnreabilities.
@@ -182,32 +139,27 @@
         handling millions of dollars in digital aassets and cryptocurrencies. Attcking such contracts successfully can result in enormous financial losses.
         Some of these vulnerabilities like another programming language arise from the human factor invlved in development of the smart contracts, and some specific to the blockchain data structuresa and how they and their components function and interact with each other.
         And these are only vulnerabilities at the scope of smart contracts we are focusing on. Vulnerabilities can arise with regards to core infrastructure of the blockchains handling smart contracts as well.
-        In this section, we go over 9 of the more discussed vulnerabilities in Solidity and Ethereum, to get a better sense of what threat surface the deveopers and researchers developing analysis tools face:
-
+        In this section, we go over 9 of the more discussed vulnerabilities in Solidity and Ethereum according to ~\cite{dasp} to get a better sense of what threat surface the deveopers and researchers developing analysis tools face:
 
             \paragraph{Re-entrancy}
-            The Reentrancy attack, probably the most famous Ethereum vulnerability, surprised everyone when discovered for the first time.
-            It was first unveiled during a multimillion dollar heist which led to a hard fork of Ethereum.
-            Reentrancy occurs when external contract calls are allowed to make new calls to the calling contract before the initial execution is complete.
-            For a function, this means that the contract state may change in the middle of its execution as a result of a call to an untrusted contract or
-            the use of a low level function with an external address.
+            Often called as the most famous Ethereum vulnerability, the re-entrancy attack has been a great example at showing the risks of \textit{"Code is Law"} and the importance of smart contract security, historically.
+            The DAO hack ~\cite{dhillon2017dao} is one of the most famous real worl examples of the re-entrancy hack.
+            The re-entrancy attack can also be counted as a type of denial-of-service (DoS) attack, where a malicious actor can cause a program to infinitely loop and consume CPU cycles and in the case of smart contracts, drain a wallet of its ETH's.
+            Reentrancy occurs when external contract calls are allowed to make new calls to the calling contract before the initial execution of that call is complete.
+            For a function, this means that the contract state may change in the middle of its execution as a result of a call to an untrusted contract. ~\cite{dasp}
 
             \paragraph{Access Control}
-            
-            Access Control issues are common in all programs, not just smart contracts.
-            In fact, it's number 5 on the OWASP top 10. One usually accesses a contract's functionality through its public or external functions.
-            While insecure visibility settings give attackers straightforward ways to access a contract's private values or logic, access control bypasses are sometimes more subtle.
-            These vulnerabilities can occur when contracts use the deprecated tx.origin to validate callers, handle large authorization logic with lengthy require and make reckless use of
-            delegatecall in proxy libraries or proxy contracts.
+            The Access Control vulnerability, not exclusive to smart contract types of programs, usually occur when smart contracts use use poor visibility settings with regards to calling functions.
+            This gives the attackers the ability to try to access the smart contract's private values, or hijack the control of the smart contract (for example, becoming the owner of a contract by initializing that contract through a statement like \texttt{owner = msg.sender()}).
 
             \paragraph{Arithmetic}
-            Integer overflows and underflows are not a new class of vulnerability, but they are especially dangerous in smart contracts, where unsigned integers are prevalent and most developers are used to simple int types (which are often just signed integers). If overflows occur, many benign-seeming codepaths become vectors for theft or denial of service.
+            Integer overflows and underflows can cause huge losses in smart contract-based applications~\cite{arithmeticVuln}.
+            Values assigned with the integer data type, if not handled carefully with regard to being signed or unsigned integers, can cause overflows and underflows and cause DoS-type attacks.
             
             \paragraph{Unhandled Exception}
-            One of the deeper features of Solidity are the low level functions call(), callcode(), delegatecall() and send(). Their behavior in accounting for errors is quite different from other Solidity functions, as they will not propagate (or bubble up) and will not lead to a total reversion of the current execution. Instead, they will return a boolean value set to false, and the code will continue to run. This can surprise developers and, if the return value of such low-level calls are not checked, can lead to fail-opens and other unwanted outcomes. Remember, send can fail!
-            
-            \paragraph{Denial of Service}
-            Denial of service is deadly in the world of Ethereum: while other types of applications can eventually recover, smart contracts can be taken offline forever by just one of these attacks. Many ways lead to denials of service, including maliciously behaving when being the recipient of a transaction, artificially increasing the gas necessary to compute a function, abusing access controls to access private components of smart contracts, taking advantage of mixups and negligence, etc. This class of attack includes many different variants and will probably see a lot of development in the years to come.
+            Also known as unchecked-send, this vulnerability  can cause unwanted outcomes when the smart contract is executed, due to the fact that some low level calls in Solidity like \texttt{call()} and \texttt{delegatecall()} can return a boolean value set to the value False and lt the execution flow resume if an error happens mid-execution.
+            This is not ideal since it means that the execution of the smart contract has not been reversed and has successfully been completed, but with wrong or undesirable outcomes.
+            Thus, the return values of such low-level calls should always be checked and the develoeprs need to make sure that such exceptions are handled appropriately during execution.
             
             \paragraph{Frontrunning}
             The frontrunning vulnerability is one of the more famous ones in the list, also known as Transaction Ordering Dependance (TOD).

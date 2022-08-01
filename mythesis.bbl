@@ -1,5 +1,8 @@
 \begin{thebibliography}{10}
 
+\bibitem{arithmeticVuln}
+
+
 \bibitem{pragmadocs}
 Pragmas, 2021.
 
@@ -32,6 +35,12 @@ P.~Daian.
 A.~Day and E.~Medvedev.
 \newblock Ethereum in bigquery: a public dataset for smart contract analytics.
 \newblock {\em Google Cloud Blog}, 2019.
+
+\bibitem{dhillon2017dao}
+V.~Dhillon, D.~Metcalf, and M.~Hooper.
+\newblock The {DAO} hacked.
+\newblock In {\em Blockchain Enabled Applications}, pages 67--78. Springer,
+  2017.
 
 \bibitem{dolan2016lava}
 B.~Dolan-Gavitt, P.~Hulin, E.~Kirda, T.~Leek, A.~Mambretti, W.~Robertson,
