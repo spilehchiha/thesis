@@ -46,6 +46,7 @@
 
     \subsection{Ether}
 
+
     \subsection{Accounts}
         The Ethereum state is consisted of many small objects naemd as accounts, where each account has a 20-byte address and state transitions to be able to interact with the other accounts on-chain.
         An address on the Ethereum blockchain is a 160-bit identifier that is used to identify any account.
@@ -63,63 +64,8 @@
         \end{itemize}
 
     \subsection{Transactions}
-        Transactions are essentially cryptographically signed instructions from EOAs to update the state of the Ethereum blockchain.
-        EOAs sign their transactions using their private key in order to cryptographically prove that the transaction could only have come from them and not from someone else.
-        Two types of transactions exist: message calls and contract creations.
-        The latter are transactions with an empty recipient field that result in creating new CAs (i.e., smart contracts). 
-        The code, to be associated with the CA, is placed inside the data field of the transaction.
-        Regardless of their type, all transactions contain the following fields:
-            \begin{itemize}
-                \item A count on the number of transactions sent by the sender. This number is incremented by one every time a transaction is sent by the sender.
-                \item The amount of wei that the sender is willing to pay for each unit of gas that is used during the execution of the transaction.
-                \item The maximum amount of gas units that the sender is willing to spent for the execution of this transaction.
-                    This amount is set and paid upfront, before any computation is performed.
-                \item The address of the recipient. If the recipient is an EOA, the transaction will transfer value, if the recipient is a CA, the transaction will transfer value as well as
-                execute the contract's code.
-                    A transaction with an empty recipient address is used to trigger the creation of a new CA.
-                \item The amount of wei to be sent from the sender account to the recipient account.
-                    Interestingly, this value may be used to set the starting balance of the newly created CA in a contract-creating transaction.
-                \item These values represent the digital signature (R, S) which can be used to recover the public key (V).
-                    These values identify the sender of the transaction and confirms that the sender has authorized the transaction.
-                \item This field is only part of contract-creating transactions and consists of an unlimited length byte array that includes the code to be used during the initialization process
-                and the code to be permanently associated with the newly created CA.
-                \item This is an optional field that is only part of message calls and consists of a byte array of unlimited size that specifies the input data (e.g., , function name, function parameters)
-                of the message call.
-            \end{itemize}
 
     \subsection{Blocks}
-        Every Blockchain, including Ethereum, consists of a sequence of blocks, which are bound and "chained" together through cryptographic hashes, grouping transactions altogether.
-        A block on the Ethereum blockchain consists of a body and a header.
-        The block header contains metadata about its own specific block. 
-        The first block of the Blockchain is called genesis which has no parent block.
-        An ommer is a block whose parent is equal to the current block's parent's parent.
-        A block header is a portion of the block consisting of the following apart from the transactions listed inside:
-
-        \begin{itemize}
-            \item \textbf{ParentHash}: This is the Keccak-256 hash of the parent block's header.
-            \item \textbf{OmmersHash}:This is the Keccak-256 hash of the ommer's list portion of this block.
-            \item \textbf{Beneficiary}: The account address that receives the fees for mining this block
-            \item \textbf{LogsBloom}: A Bloom filter (i.e., a data structure) that allows efficient querying of information contained in the logs.
-            \item \textbf{Difficulty}: the diKculty level of this block, i.e. the required effort for mine a block.
-            \item \textbf{Number}:  the count of current block (the genesis block has a block
-            number of zero; the block number increases by 1 for each each
-            subsequent block)
-            \item \textbf{GasLimit}: The current gas limit per block.
-            \item \textbf{GasUsed}: the sum of the total gas used by transactions in this block.
-            \item \textbf{ExtraData}: Arbitrary data that can set by the miner. This data is limited to 32-byte and usually refers to the name of the miner or the client version that was used to
-            mine the block.
-            \item \textbf{StateRoot}: the hash of the root node of the state trie (recall how we
-            learned that the state trie is stored in the header and makes it easy
-            for light clients to verify anything about the state)
-            \item \textbf{Timestamp}: The UNIX timestamp when the block was mined.
-            \item \textbf{Nonce}: A hash that, when combined with the mixHash, proves that this block has carried out enough computation
-            \item \textbf{MixHash}: A hash that, when combined with the nonce, proves that
-            this block has carried out enough computation
-            \item \textbf{TransactionsRoot}: The hash of the root node of the Merkle Patricia trie that stores all transactions listed in this block.
-            \item \textbf{ReceiptsRoot}: The hash of the root node of the Merkle Patricia trie that stores the receipts of all transactions listed in this block.
-                Transaction receipts are generated after the execution of a transaction contain information such as logs or the actual gas that has been used during execution.
-
-        \end{itemize}
 
     \subsection{Ethereum Virtual Machine}
         The formal definition of the EVM is specified in the Ethereum Yellow Paper.~\cite{wood2014ethereum}
