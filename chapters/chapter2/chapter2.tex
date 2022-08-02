@@ -5,8 +5,8 @@
     This chapter reviews the necessary background knowledge for the reader to be better acquainted with the work conducted within this thesis.
     It highlights the foundational technical basics of Ethereum blockchain, smart contracts, and the most common vulnerabilities associated with smart contracts.
     We cover these technicalities in the following order (based on the work of~\cite{ferreira2022smart}):
-        First, we go over the basics of Ethereum, components, and structure. We will go through how blocks are formed,
-        what sort of accounts exist on the Ethereum network, and how transactions are executed.
+        First, we go over the basics of Ethereum, its components, and structure.
+        We will go through how blocks are formed, what sort of accounts exist on the Ethereum network, and how transactions are executed.
         We will also go through how the Ethereum Virtual Machine functions.
         Afterward, we will go over smart contracts and their most common vulnerabilities out in the wild.
         We will discuss Solidity-written source code and bytecode of smart contracts and explain each vulnerability according to the DASP 10 classification.~\cite{dasp}
@@ -14,7 +14,7 @@
 
 \section{Ethereum}
     Ethereum is a decentralized virtual machine introduced as alternative blockchain technology to Bitcoin in 2014 by~\cite{wood2014ethereum}.
-    A blockchain is a peer-to-peer network made up of computers that act as nodes and distribute updates for a single database without necessarily having confidence in one another.
+    Blockchain are peer-to-peer networks made up of computers/nodes that update for one single global database without necessarily trusting in one another in a distributed fashion.
     It is based on a combination of cryptography, networking, and incentive mechanisms.~\cite{wohrer2018smart}
     The database mentioned above effectively serves as a ledger, recording every transaction that each node in the blockchain network makes. 
 
@@ -26,15 +26,16 @@
         \label{fig:ethereumBlockchainStructure}
     \end{figure}
 
-    As the second most popular blockchain, the Ethereum blockchain was developed as an alternative to cover the lackings of Bitcoin.
-    It is a transaction-based, cryptographically secure state machine that reads a series of inputs and, based on those inputs, transitions to a new state.~\cite{ferreira2022smart}
-    Like Bitcoin, Ethereum currently uses Proof-of-Work (PoW) as its consensus protocol.
-    Proof-of-Stake (PoS), PBFT(Practical Byzantine Fault Tolerance), and DPoS (Delegated Proof of Stake) are other forms of a consensus protocol, for example.
+    As the second most popular blockchain, the Ethereum blockchain is a transaction-based, cryptographically secure state machine.
+    It takes a series of inputs transitions from its initial state to a new one according to the transition rules defined by those inputs.~\cite{ferreira2022smart}
+    Like Bitcoin, Ethereum currently depends on the Proof-of-Work (PoW) consensus protocol.
+    Proof-of-Stake (PoS) and PBFT(Practical Byzantine Fault Tolerance) are other forms of a consensus protocol, used by other blockchains per their defining characteristics.
     The solution to a series of cryptographic puzzles is used in the PoW mechanism to prove the credibility of the data being written on the blockchain, using such mechanism as their consensus protocol.
     The puzzle is usually a computationally hard but easily verifiable mathematical problem.
-    When a node creates a block, it must resolve a PoW puzzle and spend computing power to achieve so. The nodes compete with each other over this objective function, and the node with the most computing power usually succeeds.
-    After the PoW puzzle is resolved, it will be broadcasted to other nodes to achieve the purpose of consensus and append a new block to the blockchain.
-    It is "proof" that a node has done "work" by spending its computational resources.
+    When a node creates a block, it must resolve a PoW puzzle and spend computing power to achieve so.
+    The nodes compete with each other over this objective function, and the node with the most computing power usually succeeds.
+    After the PoW puzzle is resolved, it will be broadcasted to other nodes to achieve the purpose of consensus and append a new block to the blockchain.~\cite{li2020survey}
+    This acts as a proof that some node has done an amount of specific work to solve the puzzle by leveraging its computational resources.
     This process is known as mining, and nodes that decide to participate in this process and try to create new blocks are known as miners.
 
     \begin{figure}
@@ -55,7 +56,7 @@
         \begin{itemize}
             \item \textbf{Nonce:} Nonce represents the number of transactions sent from a particular address or the number of contract creations made by an account and is used to guarantee that each transaction can only be processed once.
             \item \textbf{Balance:} Ether balance is the number of Wei owned by this address
-                Wei is the smallest subunit of Ether (1 Wei is equivalent to 10-18 ether).
+                Wei is the smallest subunit of Ether (1 Wei is the equivalent amount of 10-18 ethers).
             \item \textbf{Storage Root:} Storage root is the 256-bit hash of the root node of a Merkle Patricia tree that represents the content of the account 
             \item \textbf{Contract CodeHash:} Contract code hash is the Keccak-256 hash of the Ethereum Virtual Machine (EVM) code of the account, which is executed if an address receives a message call.
         \end{itemize}
@@ -67,9 +68,6 @@
         \item Message calls, which are created by contract accounts to produce and execute a message that leads to the recipient account (an EOA or contract account) running its code. The simplest of such transactions is sending Ether from one account to another.
         \item Contract creation call, which creates new accounts with a code associated with it.
     \end{itemize}
-
-    \subsection{Blocks}
-    A block is a collection of transactions that are executed in sequence.
     
 
     \subsection{Ethereum Virtual Machine}
@@ -81,7 +79,7 @@
 
 
 \section{Smart Contracts}
-    The concept of smart contracts - programs running on the EVM - was first introduced by Nick Szabo in one of his works in 1997.~\cite{szabo1997formalizing}
+    Nick Szabo introduced smart contracts as a concept - programs running on the EVM - in one of his works in 1997.~\cite{szabo1997formalizing}
     They provide a framework that allows any sound program to be executed in an autonomous, distributed, and trusted manner.~\cite{nguyen2020sfuzz}
     The main programming language currently in use for the development of smart contracts is Solidity, although Vyper is gaining gradual traction as well.
 

@@ -153,6 +153,11 @@ S.~Kalra, S.~Goel, M.~Dhawan, and S.~Sharma.
 \newblock Zeus: analyzing safety of smart contracts.
 \newblock In {\em Ndss}, pages 1--12, 2018.
 
+\bibitem{li2020survey}
+X.~Li, P.~Jiang, T.~Chen, X.~Luo, and Q.~Wen.
+\newblock A survey on the security of blockchain systems.
+\newblock {\em Future Generation Computer Systems}, 107:841--853, 2020.
+
 \bibitem{liu2018reguard}
 C.~Liu, H.~Liu, Z.~Cao, Z.~Chen, B.~Chen, and B.~Roscoe.
 \newblock Reguard: finding reentrancy bugs in smart contracts.

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.5.2)  2 AUG 2022 15:47
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.5.2)  2 AUG 2022 16:18
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1016,27 +1016,27 @@ Chapter 2.
 
 
 ]
-<figures/ethereum-blocks.png, id=298, 864.22874pt x 249.93375pt>
+<figures/ethereum-blocks.png, id=292, 864.22874pt x 249.93375pt>
 File: figures/ethereum-blocks.png Graphic file (type png)
 <use figures/ethereum-blocks.png>
 Package pdftex.def Info: figures/ethereum-blocks.png  used on input line 24.
 (pdftex.def)             Requested size: 433.62pt x 125.40132pt.
-<figures/uncle.png, id=300, 864.22874pt x 161.60374pt>
+<figures/uncle.png, id=295, 864.22874pt x 161.60374pt>
 File: figures/uncle.png Graphic file (type png)
 <use figures/uncle.png>
-Package pdftex.def Info: figures/uncle.png  used on input line 42.
+Package pdftex.def Info: figures/uncle.png  used on input line 43.
 (pdftex.def)             Requested size: 433.62pt x 81.08278pt.
  [5 <./figures/ethereum-blocks.png>] [6 <./figures/uncle.png>] [7] [8]
-LaTeX Font Info:    Trying to load font information for T1+pcr on input line 105.
+LaTeX Font Info:    Trying to load font information for T1+pcr on input line 103.
  (/usr/local/texlive/2022/texmf-dist/tex/latex/psnfss/t1pcr.fd
 File: t1pcr.fd 2001/06/04 font definitions for T1/pcr.
 )
-Overfull \hbox (3.74043pt too wide) in paragraph at lines 104--106
+Overfull \hbox (3.74043pt too wide) in paragraph at lines 102--104
 \T1/ptm/m/n/12 con-tract by ini-tial-iz-ing that con-tract through a state-ment like \T1/pcr/m/n/12 owner = msg.sender()\T1/ptm/m/n/12 ). 
  []
 
 
-LaTeX Warning: Citation `eskandari2018frontrunning' on page 9 undefined on input line 119.
+LaTeX Warning: Citation `eskandari2018frontrunning' on page 9 undefined on input line 117.
 
 [9] [10]) [11]
 \openout2 = `chapters/chapter3/chapter3.aux'.
@@ -1059,7 +1059,7 @@ Overfull \hbox (4.8677pt too wide) in paragraph at lines 230--242
  []
 
 [24] [25]
-<figures/slitherS.png, id=480, 1606.0pt x 692.5875pt>
+<figures/slitherS.png, id=476, 1606.0pt x 692.5875pt>
 File: figures/slitherS.png Graphic file (type png)
 <use figures/slitherS.png>
 Package pdftex.def Info: figures/slitherS.png  used on input line 280.
@@ -1096,7 +1096,7 @@ Overfull \hbox (3.30475pt too wide) in paragraph at lines 12--15
 
 
 ] [34] [35] [36]
-<figures/Untitled Diagram.pdf, id=621, 695.7192pt x 154.6578pt>
+<figures/Untitled Diagram.pdf, id=617, 695.7192pt x 154.6578pt>
 File: figures/Untitled Diagram.pdf Graphic file (type pdf)
 <use figures/Untitled Diagram.pdf>
 Package pdftex.def Info: figures/Untitled Diagram.pdf  used on input line 88.
@@ -1162,7 +1162,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 189--191
  []
 
 [43] [44] [45] [46]
-<figures/Picture1.png, id=698, 363.321pt x 218.781pt>
+<figures/Picture1.png, id=694, 363.321pt x 218.781pt>
 File: figures/Picture1.png Graphic file (type png)
 <use figures/Picture1.png>
 Package pdftex.def Info: figures/Picture1.png  used on input line 389.
@@ -1181,17 +1181,17 @@ Chapter 5.
 ] (./mythesis.bbl [51
 
 
-] [52]
-Underfull \hbox (badness 5533) in paragraph at lines 223--228
+] [52] [53]
+Underfull \hbox (badness 5533) in paragraph at lines 228--233
 []\T1/ptm/m/n/12 S. Pile-hchiha.  Ef-fi-cient au-dits with ma-chine learn-ing and slither-simil.
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 223--228
+Underfull \hbox (badness 10000) in paragraph at lines 228--233
 \T1/ptm/m/n/12 https://blog.trailofbits.com/2020/10/23/efficient-audits-with-machine-learning-
  []
 
-[53] [54]) [55] (./mythesis.aux (./chapters/chapter1/chapter1.aux) (./chapters/chapter2/chapter2.aux) (./chapters/chapter3/chapter3.aux) (./chapters/chapter4/chapter4.aux))
+[54]) [55] (./mythesis.aux (./chapters/chapter1/chapter1.aux) (./chapters/chapter2/chapter2.aux) (./chapters/chapter3/chapter3.aux) (./chapters/chapter4/chapter4.aux))
 
 LaTeX Warning: There were undefined references.
 
@@ -1199,20 +1199,20 @@ LaTeX Warning: There were undefined references.
 LaTeX Warning: There were multiply-defined labels.
 
 Package rerunfilecheck Info: File `mythesis.out' has not changed.
-(rerunfilecheck)             Checksum: 7F9665D0869DF71A93F0A84C78C1F2BB;4875.
+(rerunfilecheck)             Checksum: 7EC8C842F0BEF1ADD253152C68F7DC21;4783.
  ) 
 Here is how much of TeX's memory you used:
  52112 strings out of 478268
- 1224006 string characters out of 5846348
- 1776094 words of memory out of 5000000
+ 1224003 string characters out of 5846348
+ 1775129 words of memory out of 5000000
  69260 multiletter control sequences out of 15000+600000
  537676 words of font info for 92 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  190i,12n,186p,1612b,3474s stack positions out of 10000i,1000n,20000p,200000b,200000s
 {/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/urw/courier/ucrb8a.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on mythesis.pdf (63 pages, 459618 bytes).
+Output written on mythesis.pdf (63 pages, 459250 bytes).
 PDF statistics:
- 833 PDF objects out of 1000 (max. 8388607)
+ 829 PDF objects out of 1000 (max. 8388607)
  245 named destinations out of 1000 (max. 500000)
- 292 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 284 words of extra memory for PDF output out of 10000 (max. 10000000)
 
