@@ -41,13 +41,6 @@ V.~Dhillon, D.~Metcalf, and M.~Hooper.
 \newblock In {\em Blockchain Enabled Applications}, pages 67--78. Springer,
   2017.
 
-\bibitem{dolan2016lava}
-B.~Dolan-Gavitt, P.~Hulin, E.~Kirda, T.~Leek, A.~Mambretti, W.~Robertson,
-  F.~Ulrich, and R.~Whelan.
-\newblock Lava: Large-scale automated vulnerability addition.
-\newblock In {\em 2016 IEEE Symposium on Security and Privacy (SP)}, pages
-  110--121. IEEE, 2016.
-
 \bibitem{Empirical-Review-of-Automated-Analysis-Tools-on-47587-Ethereum-Smart-Contracts}
 T.~Durieux, J.~a.~F. Ferreira, R.~Abreu, and P.~Cruz.
 \newblock Empirical review of automated analysis tools on 47,587 ethereum smart
@@ -113,17 +106,6 @@ N.~Grech, L.~Brent, B.~Scholz, and Y.~Smaragdakis.
 \newblock In {\em 2019 IEEE/ACM 41st International Conference on Software
   Engineering (ICSE)}, pages 1176--1186. IEEE, 2019.
 
-\bibitem{madmax}
-N.~Grech, M.~Kong, A.~Jurisevic, L.~Brent, B.~Scholz, and Y.~Smaragdakis.
-\newblock Madmax: Surviving out-of-gas conditions in ethereum smart contracts.
-\newblock {\em Proc. ACM Program. Lang.}, 2(OOPSLA), oct 2018.
-
-\bibitem{etehrTrust}
-I.~Grishchenko, M.~Maffei, and C.~Schneidewind.
-\newblock {\em A Semantic Framework for the Security Analysis of Ethereum Smart
-  Contracts}, pages 243--269.
-\newblock 04 2018.
-
 \bibitem{dasp}
 N.~Group.
 \newblock https://www.dasp.co/.
@@ -140,13 +122,6 @@ B.~Hu, Z.~Zhang, J.~Liu, Y.~Liu, J.~Yin, R.~Lu, and X.~Lin.
 \newblock A comprehensive survey on smart contract construction and execution:
   paradigms, tools, and systems.
 \newblock {\em Patterns}, 2(2):100179, 2021.
-
-\bibitem{hwang2020gap}
-S.~Hwang and S.~Ryu.
-\newblock Gap between theory and practice: An empirical study of security
-  patches in solidity.
-\newblock In {\em Proceedings of the ACM/IEEE 42nd International Conference on
-  Software Engineering}, pages 542--553, 2020.
 
 \bibitem{contractfuzzer}
 B.~Jiang, Y.~Liu, and W.~Chan.
