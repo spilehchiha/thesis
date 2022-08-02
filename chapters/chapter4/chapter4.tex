@@ -122,7 +122,7 @@
 		
 		For the rest of the analysis of the collected contracts, we only get to work on contracts with available source-code.
 		We adopt the method used in the work of ~\cite{deduplicate} to remove the duplicates smart contracts,
-		that is checking the MD5 checksums of each of the two source files in the collected dataset to see if they are the same and after removing the whitespace among the lines of code.
+		through checking the MD5 checksums (32-character hexadecimal numbers computed for each file) of each of the two source files in the collected dataset to see if they are the same and after removing the whitespace among the lines of code.
 		After the process of deduplication is done, we get down to 48,622 smart contracts contracts.
 		For this paper and as of now, we have released 5,000 smart contracts for the tool comparison purposes.
 		There exist many metrics that we have access to, can calculate, and add to \etherbase, but not a lot of research has been conducted on the applicability
@@ -164,9 +164,11 @@
 
 		\item{\verb|Pragma|: Source files can (and should) be annotated with a version pragma to halt compilation with future versions of Solc due to the possibility of introduction of incompatible changes with the version of the Solc used to write the original smart contract. Filtering through contracts via Pragma helps the researcher to collect a homogenuous set of contracts with a consistent synatx.}\\
 
-		\item{\verb|Contract Address|: In Ethereum, the state is made up of objects called "accounts", with each account having a 20-byte address. Contract address is the main key in EtherBase for distinguishing contracts from each other.}\\
+		\item{\verb|Contract Address|: Contract address is basically the main key in the datasbe of \etherbase for distinguishing smart contracts from each other.
+		It is usually given when a contract is deployed to the Ethereum.}\\
 
-		\item{\verb|Creator Address|: The contract address is usually given when a contract is deployed to the Ethereum Blockchain. The address comes from the creator's address, where the contract has been initially deployed from, alongside the number of transactions sent from that address (the “nonce”).~\cite{ethdocs}}\\
+		\item{\verb|Creator Address|: The contract address is usually given when a contract is deployed to the Ethereum Blockchain.
+		The address comes from the creator's address, where the contract has been initially deployed from, alongside the number of transactions sent from that address (the “nonce”).~\cite{ethdocs}}\\
 
 		\item{\verb|Source Code|: The source code of each Ethereum smart contract is written in Solidity and helps researchers do all sortds of analysis on the smart contracts.}\\
 
@@ -174,7 +176,9 @@
 
 		\item{\verb|Bytecode (bin-runtime)|: \verb|bin-runtime| is the code that is actually placed on the blockchain.}\\
 
-		\item{\verb|ABI|: \verb|ABI| stands for Application Binary Interface. It is basically the standard way to interact with contracts in the Ethereum ecosystem, both from outside the blockchain and for contract-to-contract interaction.~\cite{soliditydocs}}\\
+		\item{\verb|ABI|: \verb|ABI| stands for Application Binary Interface.
+		It is the standard way of interaction with smart contracts on Ethereum,
+		both from outside the blockchain ecosystem and for contract-to-contract interaction.~\cite{soliditydocs}}\\
 
 		\item{\verb|Block Number|: \verb|Block Number|is the length of the blockchain in blocks, more specifically the block on which the smartt contract exists.}\\
 		\item \verb|ETH Value|: The ETH every smart contract hols is an excellent filter or bar to select "interesting" contracts through for further research on the contracts that are more \emph{active} on the blockchain.\\
@@ -186,7 +190,8 @@
 			All of the smart contracts collected in the previous stage along with their corresponding metadata need to be stored somewhere and we choose a PostgreSQL database in the design, -alongside a GitHub repository- to make it easier for researchers and other users to manage, filter, and query their needed data.
 			Afterwards and in the data application stage, users can analyse their queried data according their specific research queries.
 
-			Figure 2 shows the directory structure of the collected data. The first leaf in the directory \texttt{Contracts} corresponds to the \\
+			Figure 2 showcases the collected data in the form of a directory tree structure.
+			The first leaf in the directory \texttt{Contracts} corresponds to the \\
 
 
 \definecolor{folderbg}{RGB}{124,166,198}
@@ -342,7 +347,7 @@ The \texttt{artifact.zip} file contains
 	\begin{itemize}
 		\item \textbf{Re-entrancy} also known as the recursive call vulnerability, with SWCRegistry ID SWC-107.
 		\item \textbf{Arithemtic:} concerning the integer overflows and underflow vulnerabilities in smart contracts, with SWCRegistry ID SWC-101.
-		\item \textbf{Unchecked Ether:} also known as silent failing sends, this vulnerability can cause unexpected / undefined behavior if before executing the smart contracts, the return values are not managed properly.~\cite{dasp}
+		\item \textbf{Unchecked Ether:} also known as silent failing sends, this vulnerability can cause unexpected / undefined behavior if before executing the smart contracts, the return values are not managed properly.~\cite{dasp} The SWC Registry ID of this contract is SWC-104.~\cite{swcregistry}
 	\end{itemize} 
 	
 	\begin{table}[t]
@@ -392,7 +397,7 @@ The \texttt{artifact.zip} file contains
 		\label{fig:chart_vuln_count}
 	\end{figure}
 		
-		Figure~\ref{fig:chart_vuln_count} shows the number of smart contracts that contain at least one vulnerability.
+		Figure~\ref{fig:chart_vuln_count} showcases the number of smart contract files which contain at least one potential vulnerability.
 		For instance, consider a specific targeted vulnerability.
 		The literature tells us that all fo the the three static analyzers in the benchmark support the detection of this vulnerability.
 		~\cite{yashavant2022scrawld} notes that they only say the contract at hand contains that vulnerability only if an agreed upon threshold of the tools report that it is present at the same location,

@@ -74,6 +74,13 @@ W.~Ethereum.
 Etherscan.
 \newblock The ethereum blockchain explorer, 2022.
 
+\bibitem{fan2021smart}
+Y.~Fan, S.~Shang, and X.~Ding.
+\newblock Smart contract vulnerability detection based on dual attention graph
+  convolutional network.
+\newblock In {\em International Conference on Collaborative Computing:
+  Networking, Applications and Worksharing}, pages 335--351. Springer, 2021.
+
 \bibitem{slither}
 J.~Feist, G.~Greico, and A.~Groce.
 \newblock Slither: A static analysis framework for smart contracts.
@@ -288,10 +295,12 @@ M.~Varun, B.~Palanisamy, and S.~Sural.
 \newblock In {\em Proceedings of the Fourth ACM International Symposium on
   Blockchain and Secure Critical Infrastructure}, pages 115--124, 2022.
 
-\bibitem{wang2020automated}
-Y.~Wang.
-\newblock Automated market makers for decentralized finance (defi).
-\newblock {\em arXiv preprint arXiv:2009.01676}, 2020.
+\bibitem{wang2020contractward}
+W.~Wang, J.~Song, G.~Xu, Y.~Li, H.~Wang, and C.~Su.
+\newblock Contractward: Automated vulnerability detection models for ethereum
+  smart contracts.
+\newblock {\em IEEE Transactions on Network Science and Engineering},
+  8(2):1133--1144, 2020.
 
 \bibitem{wohrer2018smart}
 M.~Wohrer and U.~Zdun.
@@ -305,10 +314,28 @@ G.~Wood et~al.
 \newblock Ethereum: A secure decentralised generalised transaction ledger.
 \newblock {\em Ethereum project yellow paper}, 151(2014):1--32, 2014.
 
+\bibitem{xing2020new}
+C.~Xing, Z.~Chen, L.~Chen, X.~Guo, Z.~Zheng, and J.~Li.
+\newblock A new scheme of vulnerability analysis in smart contract with machine
+  learning.
+\newblock {\em Wireless Networks}, pages 1--10, 2020.
+
 \bibitem{yashavant2022scrawld}
 C.~S. Yashavant, S.~Kumar, and A.~Karkare.
 \newblock Scrawld: A dataset of real world ethereum smart contracts labelled
   with vulnerabilities.
 \newblock {\em arXiv preprint arXiv:2202.11409}, 2022.
+
+\bibitem{zhang2022spcbig}
+L.~Zhang, Y.~Li, T.~Jin, W.~Wang, Z.~Jin, C.~Zhao, Z.~Cai, and H.~Chen.
+\newblock Spcbig-ec: A robust serial hybrid model for smart contract
+  vulnerability detection.
+\newblock {\em Sensors}, 22(12):4621, 2022.
+
+\bibitem{zhang2022novel}
+L.~Zhang, J.~Wang, W.~Wang, Z.~Jin, C.~Zhao, Z.~Cai, and H.~Chen.
+\newblock A novel smart contract vulnerability detection method based on
+  information graph and ensemble learning.
+\newblock {\em Sensors}, 22(9):3581, 2022.
 
 \end{thebibliography}
