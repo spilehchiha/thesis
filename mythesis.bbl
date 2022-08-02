@@ -41,6 +41,13 @@ V.~Dhillon, D.~Metcalf, and M.~Hooper.
 \newblock In {\em Blockchain Enabled Applications}, pages 67--78. Springer,
   2017.
 
+\bibitem{Dolan2016lava}
+B.~Dolan-Gavitt, P.~Hulin, E.~Kirda, T.~Leek, A.~Mambretti, W.~Robertson,
+  F.~Ulrich, and R.~Whelan.
+\newblock Lava: Large-scale automated vulnerability addition.
+\newblock In {\em 2016 IEEE Symposium on Security and Privacy (SP)}, pages
+  110--121. IEEE, 2016.
+
 \bibitem{Empirical-Review-of-Automated-Analysis-Tools-on-47587-Ethereum-Smart-Contracts}
 T.~Durieux, J.~a.~F. Ferreira, R.~Abreu, and P.~Cruz.
 \newblock Empirical review of automated analysis tools on 47,587 ethereum smart
@@ -105,6 +112,11 @@ N.~Grech, L.~Brent, B.~Scholz, and Y.~Smaragdakis.
 \newblock Gigahorse: thorough, declarative decompilation of smart contracts.
 \newblock In {\em 2019 IEEE/ACM 41st International Conference on Software
   Engineering (ICSE)}, pages 1176--1186. IEEE, 2019.
+
+\bibitem{madmax}
+N.~Grech, M.~Kong, A.~Jurisevic, L.~Brent, B.~Scholz, and Y.~Smaragdakis.
+\newblock Madmax: Surviving out-of-gas conditions in ethereum smart contracts.
+\newblock {\em Proc. ACM Program. Lang.}, 2(OOPSLA), oct 2018.
 
 \bibitem{dasp}
 N.~Group.
