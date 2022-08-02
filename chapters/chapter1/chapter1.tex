@@ -1,46 +1,46 @@
 \chapter{Introduction}
 
-  This chapter introduces several research questions to be answered in this thesis and motivates their importance.
+  This Chapter introduces several research questions to be answered in this thesis and motivates their importance.
 
 \section{Motivation}
-  Research community has done a lof of effort to develop automated analysis tools~\cite{ref_tools} to be able to identify vulnerabilities vulnerabilities in smart contracts.~\cite{ref_tools}
+  The research community has made much effort to develop automated analysis tools~\cite{ref_tools} to be able to identify vulnerabilities in smart contracts.~\cite{ref_tools}
   These tools and frameworks analyze smart contracts and produce vulnerability reports.
-	In a study in 2020, researchers analyzed about one million Ethereum smart contracts and found 34,200 of them to be potentially vulnerable.~\cite{ref_flag1}
+  In a study in 2020, researchers analyzed about one million Ethereum smart contracts and found 34,200 potentially vulnerable.~\cite{ref_flag1}
   Another research effort showed that 8,833 (around \%46) smart contracts on the Ethereum blockchain were flagged as vulnerable out of 19,366 smart contracts.~\cite{ref_flag2}
 
   Famous attacks that have caused significant financial losses and prompted the research community to work to prevent similar occurrences include The DAO hack~\cite{dao} and the Parity wallet issue~\cite{ref_parity}.
   Comparing and reproducing such research is not an effortless process.
-	The datasets used to test and benchmark those very same tools proposed in the research literature are not publicly available and this makes reprodyction efforts immensely hard to carry out.
+  The datasets used to test and benchmark those tools proposed in the research literature are not publicly available, making reproduction efforts immensely hard to carry out.
 
-  If the developer of a new tool or a researcher intends to compare their new tool with the existing work and projects,
-  the current approach is to contact the authors of those alternative tools and hope for access to the same datasets used in the original
-  ressearch / work or make do with whatever out-of-date incomprehensive and unrepresentative dataset they have at their disposal, a very timely and inefficient process.~\cite{ref_flag2}
+  If a researcher intends to benchmark their new proposed methodologies, models, or toolsets or experiment with different research ideas and compare their work with the existing work and publications,
+  the best they can do is to directly contact the authors of the previous publications and researchers to have potentially in-time access to the same datasets used in the original
+  research/work or make do with whatever out-of-date incomprehensive and unrepresentative dataset they have at their disposal, a very timely and inefficient process.~\cite{ref_flag2}
 
-  In other cases, the researchers need to start from scratch and create their own datasets, a non-trivial and slow process.
-  What makes it worse is the data bias, which can be introduced in a dataset in different phases of data acquisition and data cleaning.
-  This can easily escalate to become a threat to validity in the research.~\cite{Empirical-Evaluation-of-Smart-Contract-Testing:What-is-the-Best-Choice}
+  In other cases, the researchers must start from scratch and create their datasets, a non-trivial and slow process.
+  What makes it worse is the data bias, which can be introduced in a dataset in different phases of data acquisition and cleaning.
+  The presence of such bias in data can quickly escalate to threaten the research's validity.~\cite{Empirical-Evaluation-of-Smart-Contract-Testing:What-is-the-Best-Choice}
 
 \section{Thesis Statement}
   In this thesis, we present \etherbase, an open-source, extensible, queryable, and easy-to-use database that facilitates and enhances the verification and reproducibility of previous empirical research and lays the groundwork for faster, more rapid production of research on smart contracts.
-  The source code for data acquisiton and cleaning is not available due to private IP reasons, and only the collected data and the database is accessibel to the public.
-  Researchers, smart contract developers, and blockchain-centric teams and enterprises can also use such corpus for specific use-cases.
+  The source code for data acquisition and cleaning is not available due to private IP reasons, and only the collected data and the database is accessible to the public.
+  Researchers, smart contract developers, and blockchain-centric teams and enterprises can use such corpus for specific use-cases.
 
-  In summary, we make the following contributions.
+  To summarize, our contributions are as follows:
   \begin{enumerate}
-    \item We propose \etherbase, a systemic and up-to-date database for Ethereum by exploiting its intetrnal mechanisms.
-    \item We implement \etherbase and make its pipelines open-source. It obtains historical data and facilitates benchamrking and reproduction in research and development for new toolsets. It is more up-to-date than existing datasets, gets sutomatically reviewed and renewed, in comparison to the previous manual one-time data gathering efforts.
-    \item We propose the first dataset of Ethereum smart contracts which has a mix of off-chain and on-chain data together, meaning that it contains the source code and the bytecode of the corresponding smart contracts in the same dataset.
+    \item We propose \etherbase, a systemic and up-to-date database for Ethereum by exploiting its internal mechanisms.
+    \item We implement \etherbase and make its pipelines open-source. It obtains historical data and facilitates benchmarking and reproduction in research and development for new toolsets. It is more up-to-date than existing datasets and gets automatically reviewed and renewed compared to the previous manual one-time data gathering efforts.
+    \item We propose the first dataset of Ethereum smart contracts, which has a mix of off-chain and on-chain data together, meaning that it contains the source code and the bytecode of the corresponding smart contracts in the same dataset.
   \end{enumerate}
 
 
 \section{Outline and Contributions}
 
   The rest of this dissertation is organized as follows:
-  In Chapter~\ref{chap:background}, we go over the background material needed to understand the basic technicalities of blockchain technology and the current state of the art on developing security enhancing tools for smart contracts.
+  In Chapter~\ref{chap:background}, we go over the background material needed to understand the basic technicalities of blockchain technology and the current state of the art in developing security-enhancing tools for smart contracts.
 
-  In Chapter~\ref{ch:Slither-simil}, we summarize and evaluate the state of the art regarding automated vulnerability analysis practices for smart contracts on Ethereum.
-  We discuss the mtoivations behind developing such tools, what they have achieved so far, and our own efforts in developing and working on the tool Slither-similas an effort in such direction.
+  In Chapter~\ref{ch:Slither-simil}, we summarize and evaluate state of the art regarding automated vulnerability analysis practices for smart contracts on Ethereum.
+  We discuss the motivations behind developing such tools, what they have achieved so far, and our efforts in developing and working on the tool \slithersimil an effort in such direction.
 
   In Chapter~\ref{ch:etherbase}, we take a broad look at the efforts taken at improving the reproducibility in smart contract research, how we have tried to improve it by introducing \etherbase, and its use in getting better insights at the capabilities of some of the most frequently smart contract testing tools in research and industry.
 
-  In the final Chapter, we remark our final conclusions and reveal plans for future work and research directions.
+  In the final Chapter, we remark on our conclusions and reveal plans for future work and research directions.
