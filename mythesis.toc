@@ -13,7 +13,7 @@
 \contentsline {subsection}{\numberline {2.1.4}Ethereum Virtual Machine}{7}{subsection.2.1.4}%
 \contentsline {section}{\numberline {2.2}Smart Contracts}{8}{section.2.2}%
 \contentsline {subsection}{\numberline {2.2.1}Vulnerabilities}{8}{subsection.2.2.1}%
-\contentsline {paragraph}{Re-entrancy}{9}{section*.10}%
+\contentsline {paragraph}{Re-entrancy}{8}{section*.10}%
 \contentsline {paragraph}{Access Control}{9}{section*.11}%
 \contentsline {paragraph}{Arithmetic}{9}{section*.12}%
 \contentsline {paragraph}{Unhandled Exception}{9}{section*.13}%
