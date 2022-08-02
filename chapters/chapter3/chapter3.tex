@@ -46,34 +46,18 @@ There are normally three main stages to a static analysis process:
   \item complementing the generated IR with additional metadata with methods such as control flow and data flow analysis and symbolic execution.
   \item vulnerability detection w.r.t. a database of patterns and specific threshold, which define vulnerability criteria.
 \end{itemize}
-Normally, other tools will first obtain binary bytecode, and then use it to construct a custom intermediate representation, which have a series of forms,
-like SSA used in Slither~\cite{slither}, Datalog used in Securify~\cite{securify} and MadMax~\cite{madmax}, XML parsing tree used in SmartCheck~\cite{smartcheck} and
-XCFG used in ClairvOyance~\cite{ClairvOyance}.
-Based on this representation, vulnerability pattern definition and matching are performed to screen out suspected code snippets.
-Formal verification, a static analysis technique based on mathematical proof, is frequently used to check the logical integrity of smart contracts
-like Zeus~\cite{kalra2018zeus}, VeriSmart~\cite{verismart}, and EtherTrust~\cite{etehrTrust}.
-One critical issue with using static analyais to look for vulnerabities in smart contracts is watching out for false positives and false negatives in their
-generated reports and not mistaking them for pure ground truth values for further analysis or benchmarking  purposes.
+ormally, other tools will first obtain binary bytecode, and then use it to construct a custom intermediate representation, which have a series of forms, like SSA used in Slither [16], Datalog used in Securify [55] and MadMax [21], XML parsing tree used in SmartCheck [51] and XCFG used in ClairvOyance [60]. Based on this representation, vulnerability pattern definition and matching are performed to screen out suspected code snippets. As a static analysis method based on mathematical proof, formal verification is also widely used to verify the logical integrity of smart contracts, such as EtherTrust [22], VeriSmart [49] and Zeus [27]. Moreover, static analysis can also be used for feature extraction, which can be further used in training classifiers [31, 58].
 
 Fuzzing is a technique for finding software bugs that involves creating erroneous input data and watching the target program's unusual output while it runs.
-It allows developers to ensure a uniform standard of quality through prepared tests, but does not narrow down the causes of detected bugs.
-When applied to smart contracts, a fuzzing engine will first try to generate initial seeds to form executable transactions.
-With reference to the feedback of test results, it will dynamically adjust the generated data to explore as much smart contract state space as possible.
-Finally, it will analyze the status of each transaction based on the finite state machine to detect whether there is an attackable threat.
-ContractFuzzer~\cite{contractfuzzer} is the first to apply fuzz testing to smart contracts. Later, other researchers start to study improvements to different parts of fuzzing.
-ReGuard~\cite{liu2018reguard} and Harvey~\cite{wustholz2020harvey} are dedicated to generating diverse inputs and transactions that are more likely to reveal vulnerabilities,
-ILF~\cite{he2019learning} and sFuzz~\cite{nguyen2020sfuzz} target at designing more effective generation or mutation strategy.
+It allows developers to ensure a uniform standard of quality through prepared tests, but does not narrow down the causes of detected bugs. When applied to smart contracts, a fuzzing engine will first try to generate initial seeds to form executable transactions. With reference to the feedback of test results, it will dynamically adjust the generated data to explore as much smart contract state space as possible. Finally, it will analyze the status of each transaction based on the finite state machine to detect whether there is an attackable threat. ContractFuzzer [26] is the first to apply fuzz testing to smart contracts. Later, other researchers start to study improvements to different parts of fuzzing. ReGuard [30] and Harvey [59] are dedicated to generating diverse inputs and transactions that are more likely to reveal vulnerabilities, ILF [23] and sFuzz [39] target at designing more effective generation or mutation strategy.
 
-
+Symbolic execution is a technique for finding software bugs that involves creating symbolic values and watching the target program's unusual output while it runs.
 When using symbolic execution to analyze a program, it will use symbolic values as input instead of the specific values during the execution.
-When a fork is reached, the analyzer will collect the corresponding path constraints, and then use a constraint solver to obtain specific values that can trigger each branch.
 Symbolic execution can simultaneously explore multiple paths that the program can take under different inputs, but it also faces unavoidable problems such as path explosion.
-In most cases, the symbolic executor will first build a control flow graph based on Ethereum bytecode, then design corresponding constraints based on the characteristics of
-smart contract vulnerabilities, and finally use the constraint solver to generate satisfying test cases; for example, Oyente~\cite{oyente}, Mythril~\cite{mythril}.
-In recent years, there has been continuous research to optimize the process of symbolic execution.
-Manticore~\cite{mossberg2019manticore} adds the support of exotic execution environments, DefectChecker~\cite{chen2021defectchecker} extracts defect related features to help
-improve efficiency, sCompile~\cite{chang2019scompile} identifies critical paths which involve monetary transaction and VerX~\cite{permenev2020verx} focuses on verifying
-effectively external callback free contracts.
+n most cases, the symbolic executor will first build a control flow graph based on Ethereum bytecode, then design corresponding constraints based on the characteristics of smart contract vulnerabilities, and finally use the constraint solver to generate satisfying test cases. For example, Oyente [32], Mythril [11] and their extensions [40, 53, 54, 62]. In recent years, there has been continuous research to optimize the process of symbolic execution. Manticore [37] adds the support of exotic execution environments, DefectChecker [7] extracts defect related features to help improve efficiency, sCompile [6] identifies critical paths which involve monetary transaction and VerX [45] focuses on verifying effectively external callback free contracts.
+
+
+
 
 \section{Deep Learning in Smart Contracts} \label{sec:dl-models}
 

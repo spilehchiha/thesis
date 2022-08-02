@@ -6,26 +6,9 @@
 \bibitem{pragmadocs}
 Pragmas, 2021.
 
-\bibitem{chang2019scompile}
-J.~Chang, B.~Gao, H.~Xiao, J.~Sun, Y.~Cai, and Z.~Yang.
-\newblock scompile: Critical path identification and analysis for smart
-  contracts.
-\newblock In {\em International Conference on Formal Engineering Methods},
-  pages 286--304. Springer, 2019.
-
-\bibitem{chen2021defectchecker}
-J.~Chen, X.~Xia, D.~Lo, J.~Grundy, X.~Luo, and T.~Chen.
-\newblock Defectchecker: Automated smart contract defect detection by analyzing
-  evm bytecode.
-\newblock {\em IEEE Transactions on Software Engineering}, 2021.
-
 \bibitem{swcregistry}
 Consensys.
 \newblock https://swcregistry.io.
-
-\bibitem{mythril}
-ConsenSys.
-\newblock Mythril, 2022.
 
 \bibitem{dao}
 P.~Daian.
@@ -160,12 +143,6 @@ S.~Kalra, S.~Goel, M.~Dhawan, and S.~Sharma.
 \newblock Zeus: analyzing safety of smart contracts.
 \newblock In {\em Ndss}, pages 1--12, 2018.
 
-\bibitem{liu2018reguard}
-C.~Liu, H.~Liu, Z.~Cao, Z.~Chen, B.~Chen, and B.~Roscoe.
-\newblock Reguard: finding reentrancy bugs in smart contracts.
-\newblock In {\em 2018 IEEE/ACM 40th International Conference on Software
-  Engineering: Companion (ICSE-Companion)}, pages 65--68. IEEE, 2018.
-
 \bibitem{liu2019enabling}
 H.~Liu, Z.~Yang, Y.~Jiang, W.~Zhao, and J.~Sun.
 \newblock Enabling clone detection for ethereum via smart contract birthmarks.
@@ -185,14 +162,6 @@ L.~Luu, D.-H. Chu, H.~Olickel, P.~Saxena, and A.~Hobor.
 \newblock In {\em Proceedings of the 2016 ACM SIGSAC Conference on Computer and
   Communications Security}, CCS '16, page 254–269, New York, NY, USA, 2016.
   Association for Computing Machinery.
-
-\bibitem{mossberg2019manticore}
-M.~Mossberg, F.~Manzano, E.~Hennenfent, A.~Groce, G.~Grieco, J.~Feist,
-  T.~Brunson, and A.~Dinaburg.
-\newblock Manticore: A user-friendly symbolic execution framework for binaries
-  and smart contracts.
-\newblock In {\em 2019 34th IEEE/ACM International Conference on Automated
-  Software Engineering (ASE)}, pages 1186--1189. IEEE, 2019.
 
 \bibitem{nguyen2020sfuzz}
 T.~D. Nguyen, L.~H. Pham, J.~Sun, Y.~Lin, and Q.~T. Minh.
@@ -215,12 +184,6 @@ T.~of~Bits: Slithir~documentation.
 Parity.
 \newblock
   https://www.parity.io/blog/a-postmortem-on-the-parity-multi-sig-library-self-destruct/.
-
-\bibitem{permenev2020verx}
-A.~Permenev, D.~Dimitrov, P.~Tsankov, D.~Drachsler-Cohen, and M.~Vechev.
-\newblock Verx: Safety verification of smart contracts.
-\newblock In {\em 2020 IEEE symposium on security and privacy (SP)}, pages
-  1661--1677. IEEE, 2020.
 
 \bibitem{pierro2020organized}
 G.~A. Pierro, R.~Tonelli, and M.~Marchesi.
@@ -254,12 +217,6 @@ M.~Ren, Z.~Yin, F.~Ma, Z.~Xu, Y.~Jiang, C.~Sun, H.~Li, and Y.~Cai.
   on Software Testing and Analysis}, ISSTA 2021, page 566–579, New York, NY,
   USA, 2021. Association for Computing Machinery.
 
-\bibitem{verismart}
-S.~So, M.~Lee, J.~Park, H.~Lee, and H.~Oh.
-\newblock Verismart: A highly precise safety verifier for ethereum smart
-  contracts.
-\newblock pages 1678--1694, 05 2020.
-
 \bibitem{srikant2020vulcan}
 S.~Srikant.
 \newblock {\em Vulcan: classifying vulnerabilities in solidity smart contracts
@@ -287,14 +244,6 @@ S.~Tikhomirov, E.~Voskresenskaya, I.~Ivanitskiy, R.~Takhaviev, E.~Marchenko,
   Trends in Software Engineering for Blockchain}, WETSEB '18, page 9–16, New
   York, NY, USA, 2018. Association for Computing Machinery.
 
-\bibitem{securify}
-P.~Tsankov, A.~Dan, D.~Drachsler-Cohen, A.~Gervais, F.~B\"{u}nzli, and
-  M.~Vechev.
-\newblock Securify: Practical security analysis of smart contracts.
-\newblock In {\em Proceedings of the 2018 ACM SIGSAC Conference on Computer and
-  Communications Security}, CCS '18, page 67–82, New York, NY, USA, 2018.
-  Association for Computing Machinery.
-
 \bibitem{varun2022mitigating}
 M.~Varun, B.~Palanisamy, and S.~Sural.
 \newblock Mitigating frontrunning attacks in ethereum.
@@ -317,20 +266,6 @@ M.~Wohrer and U.~Zdun.
 G.~Wood et~al.
 \newblock Ethereum: A secure decentralised generalised transaction ledger.
 \newblock {\em Ethereum project yellow paper}, 151(2014):1--32, 2014.
-
-\bibitem{wustholz2020harvey}
-V.~W{\"u}stholz and M.~Christakis.
-\newblock Harvey: A greybox fuzzer for smart contracts.
-\newblock In {\em Proceedings of the 28th ACM Joint Meeting on European
-  Software Engineering Conference and Symposium on the Foundations of Software
-  Engineering}, pages 1398--1409, 2020.
-
-\bibitem{ClairvOyance}
-Y.~Xue, M.~Ma, Y.~Lin, Y.~Sui, J.~Ye, and T.~Peng.
-\newblock Cross-contract static analysis for detecting practical reentrancy
-  vulnerabilities in smart contracts.
-\newblock In {\em 2020 35th IEEE/ACM International Conference on Automated
-  Software Engineering (ASE)}, pages 1029--1040, 2020.
 
 \bibitem{yashavant2022scrawld}
 C.~S. Yashavant, S.~Kumar, and A.~Karkare.
