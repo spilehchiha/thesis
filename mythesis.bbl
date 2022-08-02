@@ -6,18 +6,34 @@
 \bibitem{pragmadocs}
 Pragmas, 2021.
 
+\bibitem{ethdocs}
+Pragmas, 2021.
+
+\bibitem{soliditydocs}
+Pragmas, 2021.
+
+\bibitem{boyer1975select}
+R.~S. Boyer, B.~Elspas, and K.~N. Levitt.
+\newblock Select—a formal system for testing and debugging programs by
+  symbolic execution.
+\newblock {\em ACM SigPlan Notices}, 10(6):234--245, 1975.
+
+\bibitem{chen2018systematic}
+C.~Chen, B.~Cui, J.~Ma, R.~Wu, J.~Guo, and W.~Liu.
+\newblock A systematic review of fuzzing techniques.
+\newblock {\em Computers \& Security}, 75:118--137, 2018.
+
 \bibitem{swcregistry}
 Consensys.
 \newblock https://swcregistry.io.
 
+\bibitem{mythril}
+ConsenSys.
+\newblock Mythril, 2022.
+
 \bibitem{dao}
 P.~Daian.
 \newblock Analysis of the dao exploit., 2022.
-
-\bibitem{day2019ethereum}
-A.~Day and E.~Medvedev.
-\newblock Ethereum in bigquery: a public dataset for smart contract analytics.
-\newblock {\em Google Cloud Blog}, 2019.
 
 \bibitem{dhillon2017dao}
 V.~Dhillon, D.~Metcalf, and M.~Hooper.
@@ -143,6 +159,12 @@ S.~Kalra, S.~Goel, M.~Dhawan, and S.~Sharma.
 \newblock Zeus: analyzing safety of smart contracts.
 \newblock In {\em Ndss}, pages 1--12, 2018.
 
+\bibitem{liu2018reguard}
+C.~Liu, H.~Liu, Z.~Cao, Z.~Chen, B.~Chen, and B.~Roscoe.
+\newblock Reguard: finding reentrancy bugs in smart contracts.
+\newblock In {\em 2018 IEEE/ACM 40th International Conference on Software
+  Engineering: Companion (ICSE-Companion)}, pages 65--68. IEEE, 2018.
+
 \bibitem{liu2019enabling}
 H.~Liu, Z.~Yang, Y.~Jiang, W.~Zhao, and J.~Sun.
 \newblock Enabling clone detection for ethereum via smart contract birthmarks.
@@ -162,6 +184,14 @@ L.~Luu, D.-H. Chu, H.~Olickel, P.~Saxena, and A.~Hobor.
 \newblock In {\em Proceedings of the 2016 ACM SIGSAC Conference on Computer and
   Communications Security}, CCS '16, page 254–269, New York, NY, USA, 2016.
   Association for Computing Machinery.
+
+\bibitem{mossberg2019manticore}
+M.~Mossberg, F.~Manzano, E.~Hennenfent, A.~Groce, G.~Grieco, J.~Feist,
+  T.~Brunson, and A.~Dinaburg.
+\newblock Manticore: A user-friendly symbolic execution framework for binaries
+  and smart contracts.
+\newblock In {\em 2019 34th IEEE/ACM International Conference on Automated
+  Software Engineering (ASE)}, pages 1186--1189. IEEE, 2019.
 
 \bibitem{nguyen2020sfuzz}
 T.~D. Nguyen, L.~H. Pham, J.~Sun, Y.~Lin, and Q.~T. Minh.
@@ -243,6 +273,14 @@ S.~Tikhomirov, E.~Voskresenskaya, I.~Ivanitskiy, R.~Takhaviev, E.~Marchenko,
 \newblock In {\em Proceedings of the 1st International Workshop on Emerging
   Trends in Software Engineering for Blockchain}, WETSEB '18, page 9–16, New
   York, NY, USA, 2018. Association for Computing Machinery.
+
+\bibitem{securify}
+P.~Tsankov, A.~Dan, D.~Drachsler-Cohen, A.~Gervais, F.~B\"{u}nzli, and
+  M.~Vechev.
+\newblock Securify: Practical security analysis of smart contracts.
+\newblock In {\em Proceedings of the 2018 ACM SIGSAC Conference on Computer and
+  Communications Security}, CCS '18, page 67–82, New York, NY, USA, 2018.
+  Association for Computing Machinery.
 
 \bibitem{varun2022mitigating}
 M.~Varun, B.~Palanisamy, and S.~Sural.

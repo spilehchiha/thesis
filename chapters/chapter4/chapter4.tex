@@ -37,9 +37,8 @@
 \section{Related Work}
 	\label{sec:relwork}
 	We assume the reader is familiar with blockchain technology, Ethereum blockchain, and its primary high-level programming language Solidity.
-	Ethereum Smart contracts are developed mostly in the programming language Solidity and for execution, they get compiled to their corresponding bytecode.
-	EVM takes bytecode as input and works in a stack-based architecture with a word size of 256 bits.
-	There are three different spaces in EVM to store data and resources, namely stack, memory and storage.~\cite{liu2019enabling}
+	Ethereum Smart contracts are developed mostly in the programming language Solidity and for execution, they get compiled to their corresponding bytecode through EVM.
+	EVM takes bytecode as input and works in a stack-based architecture with a word size of 256 bits.~\cite{liu2019enabling}
 	In this section we present and discuss references and information for some of the more prominent publicly available smart contract benchamrk datasets which were identified in our studies.
 
 	SmartBugs~\cite{Empirical-Review-of-Automated-Analysis-Tools-on-47587-Ethereum-Smart-Contracts} makes the top of the list as one of the most used benchmarks in the research space.
@@ -167,7 +166,7 @@
 
 		\item{\verb|Contract Address|: In Ethereum, the state is made up of objects called "accounts", with each account having a 20-byte address. Contract address is the main key in EtherBase for distinguishing contracts from each other.}\\
 
-		\item{\verb|Creator Address|: The contract address is usually given when a contract is deployed to the Ethereum Blockchain. The address comes from the creator's address, where the contract has been initially deployed from, alongside the number of transactions sent from that address (the “nonce”). A creator's address can be helpful in analyzing the clone ratio and }\\
+		\item{\verb|Creator Address|: The contract address is usually given when a contract is deployed to the Ethereum Blockchain. The address comes from the creator's address, where the contract has been initially deployed from, alongside the number of transactions sent from that address (the “nonce”).~\cite{ethdocs}}\\
 
 		\item{\verb|Source Code|: The source code of each Ethereum smart contract is written in Solidity and helps researchers do all sortds of analysis on the smart contracts.}\\
 
@@ -175,7 +174,7 @@
 
 		\item{\verb|Bytecode (bin-runtime)|: \verb|bin-runtime| is the code that is actually placed on the blockchain.}\\
 
-		\item{\verb|ABI|: \verb|ABI| stands for application binary interface. It's basically how you can encode Solidity contract calls for the EVM and, backwards, how to read the data out of transactions.}\\
+		\item{\verb|ABI|: \verb|ABI| stands for Application Binary Interface. It is basically the standard way to interact with contracts in the Ethereum ecosystem, both from outside the blockchain and for contract-to-contract interaction.~\cite{soliditydocs}}\\
 
 		\item{\verb|Block Number|: \verb|Block Number|is the length of the blockchain in blocks, more specifically the block on which the smartt contract exists.}\\
 		\item \verb|ETH Value|: The ETH every smart contract hols is an excellent filter or bar to select "interesting" contracts through for further research on the contracts that are more \emph{active} on the blockchain.\\
@@ -343,7 +342,7 @@ The \texttt{artifact.zip} file contains
 	\begin{itemize}
 		\item \textbf{Re-entrancy} also known as the recursive call vulnerability, with SWCRegistry ID SWC-107.
 		\item \textbf{Arithemtic:} concerning the integer overflows and underflow vulnerabilities in smart contracts, with SWCRegistry ID SWC-101.
-		\item \textbf{Unchecked Ether:} also known as silent failing sends, which can lead to unexpected behavior if return values are not handled properly, with SWCRegistry ID SWC-104.~\cite{dasp}
+		\item \textbf{Unchecked Ether:} also known as silent failing sends, this vulnerability can cause unexpected / undefined behavior if before executing the smart contracts, the return values are not managed properly.~\cite{dasp}
 	\end{itemize} 
 	
 	\begin{table}[t]

@@ -25,8 +25,8 @@
 \contentsline {section}{\numberline {3.1}Introductory Remarks}{12}{section.3.1}%
 \contentsline {section}{\numberline {3.2}Traditional Security Analysis Methods in Smart Contracts}{13}{section.3.2}%
 \contentsline {section}{\numberline {3.3}Deep Learning in Smart Contracts}{15}{section.3.3}%
-\contentsline {section}{\numberline {3.4}{\scshape Slither-simil\xspace }}{25}{section.3.4}%
-\contentsline {section}{\numberline {3.5}Concluding Remarks}{32}{section.3.5}%
+\contentsline {section}{\numberline {3.4}{\scshape Slither-simil\xspace }}{24}{section.3.4}%
+\contentsline {section}{\numberline {3.5}Concluding Remarks}{31}{section.3.5}%
 \contentsline {chapter}{\numberline {4}{\scshape EtherBase\xspace }: Improving Reproducibility in Smart Contract Research}{33}{chapter.4}%
 \contentsline {section}{\numberline {4.1}Introductory Remarks}{33}{section.4.1}%
 \contentsline {section}{\numberline {4.2}Related Work}{35}{section.4.2}%
