@@ -30,35 +30,45 @@
     It takes a series of inputs transitions from its initial state to a new one according to the transition rules defined by those inputs.~\cite{ferreira2022smart}
     Like Bitcoin, Ethereum currently depends on the Proof-of-Work (PoW) consensus protocol.
     Proof-of-Stake (PoS) and PBFT(Practical Byzantine Fault Tolerance) are other forms of a consensus protocol, used by other blockchains per their defining characteristics.
-    The solution to a series of cryptographic puzzles is used in the PoW mechanism to prove the credibility of the data being written on the blockchain, using such mechanism as their consensus protocol.
+    The PoW mechanism works as follows:
+    A series of cryptographic puzzles aer intoroduced to the existing nodes on the network and the solutions to those puzzles are utilized as proof that the data being written on the blockchain are legitimate and credible.
+    This gets verified through the concensus protocol.
     The puzzle is usually a computationally hard but easily verifiable mathematical problem.
     When a node creates a block, it must resolve a PoW puzzle and spend computing power to achieve so.
-    The nodes compete with each other over this objective function, and the node with the most computing power usually succeeds.
-    After the PoW puzzle is resolved, it will be broadcasted to other nodes to achieve the purpose of consensus and append a new block to the blockchain.~\cite{li2020survey}
+    Trying to solve the puzzles sooner than any other party, the nodes compete with each other over this objective function, and the node with the most computing power usually succeeds.
+    After a node proves that their solution to a puzzle is correct, it will be broadcasted to other nodes so that all of them can reach concensus and agree upon appending a new block to the blockchain.~\cite{li2020survey}
     This acts as a proof that some node has done an amount of specific work to solve the puzzle by leveraging its computational resources.
-    This process is known as mining, and nodes that decide to participate in this process and try to create new blocks are known as miners.
+    This whole process is called mining, and all the nodes participating in the process of competing with each other to create new blocks and append them to the blockchain are known as miners.
 
     \begin{figure}
         \centering
         \includegraphics[width=\textwidth]{figures/uncle.png}
-        \caption{An illustration of Ethereum's GHOST protocol.}
+        \caption{Visualization of GHOST protocol in Ethereum.}
         \label{fig:uncle}
     \end{figure}
 
     \subsection{Accounts}
-        The Ethereum state consists of many small objects named accounts, where each account has a 20-byte address and state transitions to interact with the other accounts on-chain.
+        The Ethereum state consists of many small objects named accounts.
+        Each of these accounts are identified with a 20-byte address to interact with the other accounts on-chain.
         An address on the Ethereum blockchain is a 160-bit identifier used to identify any account.
-        The world state is a mapping between addresses and account states.~\cite{wood2014ethereum}
-        Ethereum supports two types of accounts: externally owned
-        (controlled by private keys) -namely EOA's- and contract accounts (CA'S, controlled by their contract code)~\cite{ethereum2014ethereum}.
-        Inside of an Ethereum account is composed of four fields: nonce, ether balance, contract code hash, and storage root, explained as follows:
+        Ethereum supports two types of accounts:
+        \begin{itemize}
+            \item externally owned (controlled by private keys), known as EOAs, and
+            \item contract accounts (CAs, controlled by their contract code).~\cite{ethereum2014ethereum}
+        \end{itemize}
+        *To Be Added*
+        
+        Inside of an Ethereum account is composed of four fields: nonce, ether balance, contract codeHash, and storageRoot, explained as follows:
 
         \begin{itemize}
-            \item \textbf{Nonce:} Nonce represents the number of transactions sent from a particular address or the number of contract creations made by an account and is used to guarantee that each transaction can only be processed once.
-            \item \textbf{Balance:} Ether balance is the number of Wei owned by this address
-                Wei is the smallest subunit of Ether (1 Wei is the equivalent amount of 10-18 ethers).
-            \item \textbf{Storage Root:} Storage root is the 256-bit hash of the root node of a Merkle Patricia tree that represents the content of the account 
-            \item \textbf{Contract CodeHash:} Contract code hash is the Keccak-256 hash of the Ethereum Virtual Machine (EVM) code of the account, which is executed if an address receives a message call.
+            \item \textbf{Nonce:} Nonce counts the number of transactions sent from one address or the number of contract creations made by an account.
+                                  Nonce is used to make sure that every transaction is processed once and only once.
+                                  This is used to prevent replay attacks in Ethereum.
+                                  Nonce counts the number of transactions initiated by the account to prevent replay attacks.
+            \item \textbf{Balance:} (Ether) Balance basically records the Ethereum balance of the account, which is the amount of Wei assigned to the address of that account.
+                                    Wei is the smallest measurement unit of Ether (1 Wei is the equivalent amount of 10-18 ethers).
+            \item \textbf{storageRoot:} Each account has its own storage trie as explained above and StorageRoot is the 256-bit hash of the root node of a of that trie.
+            \item \textbf{Contract codeHash:} The codeHash of a contract is the Keccak-256 hash value of the code of the account on the EVM.
         \end{itemize}
 
     \subsection{Transactions}
@@ -91,12 +101,11 @@
         Furthermore, these are only vulnerabilities within the scope of smart contracts we focus on. Vulnerabilities can arise regarding the blockchains' core infrastructure handling smart contracts.
         In this section, we go over 9 of the more discussed vulnerabilities in Solidity and Ethereum according to ~\cite{dasp} to get a better sense of what threat surface the developers and researchers developing analysis tools face:
 
-            \paragraph{Re-entrancy}
+            \paragraph{Reentrancy}
             Often called the most famous Ethereum vulnerability, the reentrancy attack has been a great example of showing the risks of \textit{"Code is Law"} and the importance of smart contract security historically.
             The DAO hack ~\cite{dhillon2017dao} is one of the most famous real-world examples of the reentrancy hack.
             The reentrancy attack can also be counted as a denial-of-service (DoS) attack, where a malicious actor can cause a program to infinitely loop and consume CPU cycles and, in the case of smart contracts, drain a wallet of its ETHs.
-            Reentrancy occurs when external contract calls are allowed to make new calls to the calling contract before the initial execution of that call is complete.
-            For a function, this means that the contract state may change in the middle of its execution due to a call to an untrusted contract. ~\cite{dasp}
+            The reentrancy vulnerability is exploited when external contract calls are allowed to make new calls to the calling contract before the initial execution of that call is complete.~\cite{dasp}
 
             \paragraph{Access Control}
             The Access Control vulnerability, not exclusive to smart contract types of programs, usually occurs when smart contracts use poor visibility settings regarding calling functions.
@@ -117,7 +126,7 @@
             Per Eskandari et al.~\cite{eskandari2018frontrunning}, frontrunning can be generally reduced into three templates:
             \begin{itemize}
                 \item Displacement attack, where an adversarial party makes a transaction in order to displace the victim user's transaction by having a higher gas price, and thus, the attacker's transaction gets mined before that of the victim's due to it giving having more aligned incentives with he miners' network.
-                \item Insertion attack, in which an adversary makes two transactions, one with a higher gas price than the victim transaction and one with a lower gas price, to \textit{sandwich} the victim transaction.~\cite{varun2022mitigating}
+                \item Insertion attack, in which an adversarial actor makes two transactions, one with a higher gas price than that of the victim and one with a lower gas price, to \textit{sandwich} the victim transaction.~\cite{varun2022mitigating}
                 \item Suppression attack, where an attacker makes multiple transactions with higher gas prices than the victim transactions to prevent them from being mined in the same block.
             \end{itemize}
 

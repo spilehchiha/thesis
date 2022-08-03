@@ -2,30 +2,27 @@
 \label{ch:Slither-simil}
 
 \section{Introductory Remarks}
-With the rapid growth of blockchains, market contracts—universal and essential software applications—have attracted growing attention.
-On the Ethereum Mainnet, for instance, more than ten million smart contracts have been installed.
+Smart contracts, the universal and vital programs that are deployed on blockchains, have gained increasing attention with the rapid development of blockchains.
+A smart contract is an event-driven, self-executing, state-based program created using high-level programming languages like Vyper and Solidity.
+Because of their distinctive features, smart contracts require more careful development than the amount traditional software programs do.
+First, compared to regular software, smart contracts are more prone to bugs and vulnerabilities.
+The concept that the smart contracts execute themselves and cannot be stopped after deployment hs been previously coined by an expression described by Lessig~\cite{lessig2009code} as "code is law".
+This is because transactions of a smart contract always involve digital assets (e.g. various cryptocurrencies or NFTs) of financial nature which can be very profitable if stolen(e.g. The DAO~\cite{dao}).
+Therefore, a bug in a smart contract may lead to substantial financial losses.
+Therefore, ensuring the correctness of contracts before releasing is critical.
 
-An event-driven, self-executing, state-based software known as a "smart contract" is created using high-level programming languages like Vyper and Solidity.
-In order to facilitate quick and reliable transactions, smart contracts have been widely implemented in various business fields.
+This requires us to reuse experience of developed contracts in the past when developing new contracts.
 
-Because of their distinct features, smart contracts require more work to build than standard programs do.
-First, compared to regular programs, smart contracts are more prone to bugs.
-A smart contract that has been published cannot be changed because "code is law."
-This is because smart contract transactions always include cryptocurrencies, each worth millions of dollars (e.g., The DAO).
-A smart contract bug could cause a substantial loss.
-Therefore, it is essential to check contracts for accuracy before releasing them.
-This necessitates the reuse of earlier contract development experience when creating new contracts.
-The creation and upkeep of smart contracts can be made much easier by using program mining techniques for smart contracts like summarization, checking, and code search.
+Program mining for smart contracts such as summarization, checking, and code search can greatly facilitate the development and maintenance of smart contracts.
 The conventional statistical analysis tools for detecting weaknesses in smart contracts purely rely on manually defined patterns, which are likely to be error-prone and can cause them to fail in complex situations.
-Expert attackers can, therefore, quickly exploit these manual inspection patterns.
-To minimize the risk of attackers, machine learning-powered systems provide more secure solutions relative to hard-coded static checking tools.
+As a result, expert attackers can easily exploit these manual checking patterns.
+To minimize the risk of the attackers, machine learning powered systems provide more secure solutions relative to hard-coded static checking tools.
 
-Surucu et al.~\cite{surucu2022survey} provide the first-ever survey on machine learning methods utilized to discover and mitigate vulnerabilities in smart contracts.
-In order to set the ground for further development of ML methods on smart contract vulnerability detection, They reviewed many ML-driven intelligent detection mechanisms on the following databases:
-Google Scholar, Engineering Village, Springer, Web of Science, Academic Search Premier, and Scholars Portal Journal.
-Based on their survey paper, we briefly go over the existing analysis tool first and then the novel deep-learning-based methodologies proposed in the literature over the past few years
-in chronological order, and we add some of the works missing in ~\cite{surucu2022survey} as well and update the list.
-Afterward, we propose our solution, \slithersimil, and how it led us to the development of \etherbase.
+
+Surucu et al.~\cite{surucu2022survey} provide the first-ever survey on machine learning methods utilized for the purposes of discovery and mitigation of vulnerabilities in smart contracts.
+In order to set the ground for further development of ML method on smart contract vulnerability detection, They reviewed many ML-driven intelligent detection mechanism on the following databases: Google Scholar, Engineering Village, Springer, Web of Science, Academic Search Premier, and Scholars Portal Journal.
+Based on their survey paper, we briefly go over the existing analysis tool first, and the the novel deep-learning-based methodologies proposed in the literature over the past few years in a chrnological order, and we add some of the works missing in ~\cite{surucu2022survey} as well.
+Afterwards, we propose our own solution, \slithersimil and how it led us to the development of \etherbase.
 
 
 \section{Traditional Security Analysis Methods in Smart Contracts}
@@ -40,9 +37,9 @@ Using the static analysis method, we can analyze the program at both the source 
 Static analysis-based tools can scan a whole code base, but they also generate a lot of false positives as a result of their scans.
 There are normally three main stages to a static analysis process:
 \begin{itemize}
-  \item building an intermediate representation (IR), such as abstract syntax tree (AST) for a deeper analysis compared to analyzing the raw text/source code;
+  \item building an intermediate representation (IR), such as abstract syntax tree (AST) for analyzing the structure of the source code beside raw text/source code;
   \item complementing the generated IR with additional metadata with methods such as control flow, data flow analysis, and symbolic execution.
-  \item vulnerability detection w.r.t. a database of patterns and specific threshold defines vulnerability criteria.
+  \item vulnerability detection through pattern matching and referencing those patterns to a database containing (vulnerable) patterns. Setting a specific threshold defines wether matched pattern counts as a vulnerability or not.
 \end{itemize}
 Tools that leverage the static analysis methods typically convert the raw form of the input program into an intermediate representation and then perform a series of analyses on those representations based on a pre-defined database of vulnerability patterns and filter out the suspicious snippets of the input program.
 Slither~\cite{slither}, Securify~\cite{securify}, and SmartCheck~\cite{securify} are categorised as instances of static analyzers.
