@@ -118,6 +118,11 @@ N.~Grech, L.~Brent, B.~Scholz, and Y.~Smaragdakis.
 \newblock In {\em 2019 IEEE/ACM 41st International Conference on Software
   Engineering (ICSE)}, pages 1176--1186. IEEE, 2019.
 
+\bibitem{madmax}
+N.~Grech, M.~Kong, A.~Jurisevic, L.~Brent, B.~Scholz, and Y.~Smaragdakis.
+\newblock Madmax: Surviving out-of-gas conditions in ethereum smart contracts.
+\newblock {\em Proc. ACM Program. Lang.}, 2(OOPSLA), oct 2018.
+
 \bibitem{dasp}
 N.~Group.
 \newblock https://www.dasp.co/.

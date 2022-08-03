@@ -17,45 +17,45 @@ Warning--to sort, need author or key in pragmadocs
 Warning--to sort, need author or key in ethdocs
 Warning--to sort, need author or key in soliditydocs
 Warning--empty journal in ferreira2022smart
-You've used 57 entries,
+You've used 58 entries,
             2118 wiz_defined-function locations,
-            791 strings with 14560 characters,
-and the built_in function-call counts, 23026 in all, are:
-= -- 2271
-> -- 1193
+            796 strings with 14777 characters,
+and the built_in function-call counts, 23401 in all, are:
+= -- 2303
+> -- 1226
 < -- 27
-+ -- 487
-- -- 418
-* -- 1494
-:= -- 3545
-add.period$ -- 172
-call.type$ -- 57
-change.case$ -- 373
++ -- 500
+- -- 430
+* -- 1529
+:= -- 3615
+add.period$ -- 175
+call.type$ -- 58
+change.case$ -- 382
 chr.to.int$ -- 0
-cite$ -- 62
-duplicate$ -- 955
-empty$ -- 1702
-format.name$ -- 418
-if$ -- 5045
+cite$ -- 63
+duplicate$ -- 965
+empty$ -- 1720
+format.name$ -- 430
+if$ -- 5115
 int.to.chr$ -- 0
-int.to.str$ -- 57
-missing$ -- 44
-newline$ -- 272
-num.names$ -- 106
-pop$ -- 485
+int.to.str$ -- 58
+missing$ -- 45
+newline$ -- 277
+num.names$ -- 108
+pop$ -- 492
 preamble$ -- 1
-purify$ -- 322
+purify$ -- 330
 quote$ -- 0
-skip$ -- 831
+skip$ -- 839
 stack$ -- 0
-substring$ -- 1199
-swap$ -- 381
+substring$ -- 1204
+swap$ -- 382
 text.length$ -- 27
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 226
+type$ -- 230
 warning$ -- 5
-while$ -- 185
-width$ -- 59
-write$ -- 607
+while$ -- 187
+width$ -- 60
+write$ -- 618
 (There were 7 warnings)

@@ -65,7 +65,7 @@ Afterward, we will go over the tool we worked on, \slithersimil.
 There have been many efforts focused on utilizing ML-based techniques in the field of vulnerability discovery and mitigation with a specific focus on the programming language Solidity and
 its lower-level bytecode representations.
 
-To identify security concerns to smart contracts in 2018, Liao et al. used a sequence learning approach (cite: madmax).
+To identify security concerns to smart contracts in 2018, Liao et al. used a sequence learning approach~\cite{madmax}.
 The Ethereum blockchain dataset from Google Big Query was used to acquire smart contract data.
 Ultimately, 620,000 contracts from this source were used to train an LSTM model. Once more, one-hot vectors were used to represent the derived opcodes from the contracts.
 These vectors were converted into code vectors using embedding methods, resulting in decreased dimensionality and a stronger capability to capture potential relationships between sequences because this representation produces highly sparse and uninformative features.
