@@ -24,16 +24,16 @@
 \contentsline {section}{\numberline {3.1}Introductory Remarks}{12}{section.3.1}%
 \contentsline {section}{\numberline {3.2}Traditional Security Analysis Methods in Smart Contracts}{13}{section.3.2}%
 \contentsline {section}{\numberline {3.3}Deep Learning in Smart Contracts}{15}{section.3.3}%
-\contentsline {section}{\numberline {3.4}{\scshape Slither-simil\xspace }}{25}{section.3.4}%
-\contentsline {section}{\numberline {3.5}Concluding Remarks}{32}{section.3.5}%
-\contentsline {chapter}{\numberline {4}{\scshape EtherBase\xspace }: Improving Reproducibility in Smart Contract Research}{34}{chapter.4}%
-\contentsline {section}{\numberline {4.1}Introductory Remarks}{34}{section.4.1}%
-\contentsline {section}{\numberline {4.2}Related Work}{36}{section.4.2}%
-\contentsline {section}{\numberline {4.3}Methodology}{38}{section.4.3}%
-\contentsline {subsection}{\numberline {4.3.1}Data Acquisition}{39}{subsection.4.3.1}%
-\contentsline {subsection}{\numberline {4.3.2}Data Generation}{40}{subsection.4.3.2}%
-\contentsline {subsection}{\numberline {4.3.3}Data Storage}{44}{subsection.4.3.3}%
-\contentsline {subsection}{\numberline {4.3.4}Data Application}{46}{subsection.4.3.4}%
-\contentsline {section}{\numberline {4.4}Concluding Remarks}{49}{section.4.4}%
-\contentsline {chapter}{\numberline {5}Conclusion and Future Work}{51}{chapter.5}%
-\contentsline {chapter}{Bibliography}{52}{section*.26}%
+\contentsline {section}{\numberline {3.4}{\scshape Slither-simil\xspace }}{24}{section.3.4}%
+\contentsline {section}{\numberline {3.5}Concluding Remarks}{31}{section.3.5}%
+\contentsline {chapter}{\numberline {4}{\scshape EtherBase\xspace }: Improving Reproducibility in Smart Contract Research}{33}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Introductory Remarks}{33}{section.4.1}%
+\contentsline {section}{\numberline {4.2}Related Work}{35}{section.4.2}%
+\contentsline {section}{\numberline {4.3}Methodology}{37}{section.4.3}%
+\contentsline {subsection}{\numberline {4.3.1}Data Acquisition}{38}{subsection.4.3.1}%
+\contentsline {subsection}{\numberline {4.3.2}Data Generation}{39}{subsection.4.3.2}%
+\contentsline {subsection}{\numberline {4.3.3}Data Storage}{43}{subsection.4.3.3}%
+\contentsline {subsection}{\numberline {4.3.4}Data Application}{45}{subsection.4.3.4}%
+\contentsline {section}{\numberline {4.4}Concluding Remarks}{48}{section.4.4}%
+\contentsline {chapter}{\numberline {5}Conclusion and Future Work}{50}{chapter.5}%
+\contentsline {chapter}{Bibliography}{51}{section*.26}%

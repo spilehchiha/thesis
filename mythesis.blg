@@ -19,43 +19,43 @@ Warning--to sort, need author or key in soliditydocs
 Warning--empty journal in ferreira2022smart
 You've used 57 entries,
             2118 wiz_defined-function locations,
-            790 strings with 14581 characters,
-and the built_in function-call counts, 23000 in all, are:
-= -- 2265
-> -- 1198
+            791 strings with 14560 characters,
+and the built_in function-call counts, 23026 in all, are:
+= -- 2271
+> -- 1193
 < -- 27
-+ -- 488
-- -- 420
-* -- 1493
++ -- 487
+- -- 418
+* -- 1494
 := -- 3545
 add.period$ -- 172
 call.type$ -- 57
-change.case$ -- 374
+change.case$ -- 373
 chr.to.int$ -- 0
 cite$ -- 62
-duplicate$ -- 954
-empty$ -- 1696
-format.name$ -- 420
-if$ -- 5038
+duplicate$ -- 955
+empty$ -- 1702
+format.name$ -- 418
+if$ -- 5045
 int.to.chr$ -- 0
 int.to.str$ -- 57
 missing$ -- 44
 newline$ -- 272
 num.names$ -- 106
-pop$ -- 486
+pop$ -- 485
 preamble$ -- 1
-purify$ -- 323
+purify$ -- 322
 quote$ -- 0
-skip$ -- 832
+skip$ -- 831
 stack$ -- 0
-substring$ -- 1182
+substring$ -- 1199
 swap$ -- 381
 text.length$ -- 27
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 226
 warning$ -- 5
-while$ -- 183
+while$ -- 185
 width$ -- 59
 write$ -- 607
 (There were 7 warnings)

@@ -50,30 +50,20 @@ After getting initial results with regard to the initial inputs (a.k.a. seeds), 
 ContractFuzzer~\cite{contractfuzzer}, ReGuard~\cite{liu2018reguard}, and sFuzz~\cite{nguyen2020sfuzz} are among the modt cited smart contract fuzzers.
 
 Symbolic execution is a technique for finding software bugs that involve creating symbolic values and watching the target program's unusual output while it runs.
-When using symbolic execution to analyze a program, it will use symbolic values as input instead of the specific values during the execution.
+This method utilizes symbolic values as input instead of specific / real values for variables and other parameters during the execution.
 Tools leveraging this technique explore a state space with a high degree of semantic awareness.~\cite{boyer1975select}
-Symbolic execution can simultaneously explore multiple paths the program can take under different inputs, but it also faces unavoidable problems such as path explosion.~\cite{Empirical-Evaluation-of-Smart-Contract-Testing:What-is-the-Best-Choice}
+Symbolic execution explores multiple paths the logic of the program can transition through given different inputs, but it also faces unavoidable problems such as path explosion.~\cite{baldoni2018survey}
 The symbolic execution tools usually build a control flow graph based on the Solidity bytecode of the smart contracts being tested.
-Afterward, they implement constraints based on the characteristics of smart contract vulnerabilities and finally use the constraint solver to generate satisfying test cases.
 Oyente~\cite{oyente}, Mythril~\cite{mythril}, and Manticore~\cite{mossberg2019manticore} support symbolic execution for smart contracts.
 
 
 \section{Deep Learning in Smart Contracts} \label{sec:dl-models}
 
 In this section, we will go over some of the literature focusing their efforts on replacing the existing tools' capabilities explained in the previous section with machine learning-based techniques.
-Afterward, we will go over the tool we developed, \slithersimil.
+Afterward, we will go over the tool we worked on, \slithersimil.
 
 There have been many efforts focused on utilizing ML-based techniques in the field of vulnerability discovery and mitigation with a specific focus on the programming language Solidity and
-its lower-level representations.
-
-While existing symbolic tools (like Oyente) for assessing vulnerabilities have shown to be effective, Goswami et al. said in 2018 that their execution time grows noticeably with the depth of invocations in a smart contract (cite: Grech2019GigaHorse).
-They suggested an LSTM neural network model find flaws in ERC-20 smart contracts to create a quicker and more effective replacement for symbolic analysis tools.
-This paper's preprocessing procedures were remarkably similar to those employed by~\cite{madmax}.
-A dataset of 165,652 ERC-20 smart contracts was used for training and testing the model, and it contained bytecode data that Maian and Mythril had annotated (statistical code analysis tools).
-On the testing set, the proposed model had an F1 score of 93.26%, 93.26 percent accuracy, and 92 percent recall.
-Additionally, they have contrasted the time performance of their model with that of Maian and Mythril's symbolic analysis tools (static analysis tools).
-Their suggested model operated on a test set of 5,000 random tokens in 15 seconds, while Maian and Mythril needed 32,476 and 9,475 seconds, respectively.
-These findings show a similar advancement over symbolic analysis methods to that shown in citegrech2019gigahorse.
+its lower-level bytecode representations.
 
 To identify security concerns to smart contracts in 2018, Liao et al. used a sequence learning approach (cite: madmax).
 The Ethereum blockchain dataset from Google Big Query was used to acquire smart contract data.

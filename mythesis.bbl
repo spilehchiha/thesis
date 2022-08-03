@@ -12,6 +12,11 @@ Pragmas, 2021.
 \bibitem{soliditydocs}
 Pragmas, 2021.
 
+\bibitem{baldoni2018survey}
+R.~Baldoni, E.~Coppa, D.~C. D’elia, C.~Demetrescu, and I.~Finocchi.
+\newblock A survey of symbolic execution techniques.
+\newblock {\em ACM Computing Surveys (CSUR)}, 51(3):1--39, 2018.
+
 \bibitem{boyer1975select}
 R.~S. Boyer, B.~Elspas, and K.~N. Levitt.
 \newblock Select—a formal system for testing and debugging programs by
@@ -112,11 +117,6 @@ N.~Grech, L.~Brent, B.~Scholz, and Y.~Smaragdakis.
 \newblock Gigahorse: thorough, declarative decompilation of smart contracts.
 \newblock In {\em 2019 IEEE/ACM 41st International Conference on Software
   Engineering (ICSE)}, pages 1176--1186. IEEE, 2019.
-
-\bibitem{madmax}
-N.~Grech, M.~Kong, A.~Jurisevic, L.~Brent, B.~Scholz, and Y.~Smaragdakis.
-\newblock Madmax: Surviving out-of-gas conditions in ethereum smart contracts.
-\newblock {\em Proc. ACM Program. Lang.}, 2(OOPSLA), oct 2018.
 
 \bibitem{dasp}
 N.~Group.
